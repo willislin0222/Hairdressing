@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	
+	  <include file="struts-member.xml"/>
+	  <include file="struts-morder.xml"/>
+	  <include file="struts-offer.xml"/>
+	  <include file="struts-product.xml"/>
+	  <include file="struts-rservation.xml"/>
+	  <include file="struts-orderlist.xml"/>
+
+</struts>

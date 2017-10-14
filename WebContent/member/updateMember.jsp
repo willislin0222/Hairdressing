@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page  import="com.member.model.*"%>
-<%@ page  import="java.util.*"%>
-<%
-	MemberVO memberVO =(MemberVO) request.getAttribute("memberVO");
-	
-	
-%>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="">
@@ -25,51 +18,43 @@
 		<![endif]-->
 	</head>
 	<body>
-	<c:if test="${not empty errorMsgs}">
-		<font color="red">請修正以下錯誤
-			<c:forEach var="message" items="${errorMsgs}">
-				<li>${message}</li>
-			</c:forEach> 
-		</font>
-	</c:if>	
 		
 			<div class="container">
-				<form  method="post" action="<%= request.getContextPath()%>/member/memberServlet.do">
+				<s:form  action="updateMember">
 					<div class="addoffer">	
 						<H3 class="addoffertitle">修改會員資料</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">姓名</span>
-					 		<input type="text" name="mem_name" class="form-control" value="${memberVO.mem_name}" aria-describedby="basic-addon1">					  	
+					 		<input type="text" name="memberVO.mem_name" class="form-control" value="${memberVO.mem_name}" aria-describedby="basic-addon1">					  	
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">帳號</span>
-					    <input class="form-control" type="text" placeholder="${memberVO.mem_id}" readonly > 
+					    <input class="form-control" name="memberVO.mem_id" type="text" value="${memberVO.mem_id}" readonly > 
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">密碼</span>
-					    <input type="text" name="mem_psw" class="form-control" value="${memberVO.mem_psw}" aria-describedby="basic-addon1">
+					    <input type="text" name="memberVO.mem_psw" class="form-control" value="${memberVO.mem_psw}" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">生日</span>
-					    <input type="date" name="mem_birthday" class="form-control" value="${memberVO.mem_birthday}" aria-describedby="basic-addon1">
+					    <input type="date" name="memberVO.mem_birthday" class="form-control" value="${memberVO.mem_birthday}" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">電子郵件</span>
-					    <input type="email" name="mem_email" class="form-control" value="${memberVO.mem_email}" aria-describedby="basic-addon1">
+					    <input type="email" name="memberVO.mem_email" class="form-control" value="${memberVO.mem_email}" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">行動電話</span>
-					    <input type="tel" name="mem_mobile" class="form-control" value="${memberVO.mem_mobile}" aria-describedby="basic-addon1">
+					    <input type="tel" name="memberVO.mem_mobile" class="form-control" value="${memberVO.mem_mobile}" aria-describedby="basic-addon1">
 					</div>
 			
 					<div class="input-group btndiv">
-						<input type="hidden" name="mem_no" value="${memberVO.mem_no}">
-						<input type="hidden" name="mem_id" value="${memberVO.mem_id}">
-						<input type="hidden" name="action" value="update">
+						<input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}">
+						<input type="hidden" name="memberVO.mem_joindate" value="${memberVO.mem_joindate}">
 						<button type="submit" class="btn btn-primary btn-lg">送出修改</button>  	
 					</div>	
-				</form>	
+				</s:form>	
 			</div>
 
 		

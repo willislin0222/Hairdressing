@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.member.model.*"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%-- 此頁練習採用 EL 的寫法取值 --%>
 
 <%
@@ -45,28 +47,19 @@
 			<td>${memberVO.mem_mobile}</td>	
 			<td>${memberVO.mem_joindate}</td>		
 			<td>
-			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/member/memberServlet.do">
+			  <s:form action="getOne_For_Update" namespace="/member">
 			     <input type="submit" value="修改"> 
-			     <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
-			     <input type="hidden" name="requestURL"	value="<%=request.getServletPath()%>"><!--送出本網頁的路徑給Controller-->
-			    <input type="hidden" name="whichPage"	value="<%=whichPage%>">               <!--送出當前是第幾頁給Controller-->
-			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
+			     <input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}">
+			  </s:form>
 			</td>
 			<td>
-			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/member/memberServlet.do">
+			  <s:form action="delete" namespace="/member">
 			    <input type="submit" value="刪除">
-			    <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
-			    <input type="hidden" name="requestURL"	value="<%=request.getServletPath()%>"><!--送出本網頁的路徑給Controller-->
-			    <input type="hidden" name="whichPage"	value="<%=whichPage%>">               <!--送出當前是第幾頁給Controller-->
-			    <input type="hidden" name="action"value="delete"></FORM>
+			    <input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}"></s:form>
 			</td>
 		</tr>
 	</c:forEach>
 </table>
 <%@ include file="/pages/page2.file" %>
-
-<br>本網頁的路徑:<br><b>
-   <font color=blue>request.getServletPath():</font> <%= request.getServletPath()%><br>
-   <font color=blue>request.getRequestURI(): </font> <%= request.getRequestURI()%> </b>
 </body>
 </html>

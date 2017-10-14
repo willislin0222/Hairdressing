@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	
+	<package name="member" namespace="/member" extends="struts-default">
+
+	    <action name="addMember"   class="com.member.actions.MemberAction"  method="addMember">
+	        <result name="success">/member/listAllMember.jsp</result>
+            <result name="input">/member/addMember.jsp</result>
+		</action>
+		
+		<action name="getOne_For_Update"   class="com.member.actions.MemberAction"  method="getOne_For_Update">
+	        <result name="success">/member/updateMember.jsp</result>
+		</action>
+		
+		<action name="updateMember"   class="com.member.actions.MemberAction"  method="updateMember">
+	        <result name="success">/member/listOneMember.jsp</result>
+		</action>
+		
+		<action name="delete"   class="com.member.actions.MemberAction"  method="delete">
+	        <result name="success">/member/listAllMember.jsp</result>
+		</action>
+		
+
+	</package>
+
+</struts>

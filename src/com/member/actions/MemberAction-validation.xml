@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="memberVO.mem_name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>姓名: 請勿空白</message>
+		</field-validator>
+	</field>
+
+	<field name="memberVO.mem_id">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>帳號: 請勿空白</message>
+		</field-validator>
+		
+	</field>
+	
+	<field name="memberVO.mem_psw">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>密碼: 請勿空白</message>
+		</field-validator>	
+	</field>
+
+	<field name="memberVO.mem_birthday">
+		<field-validator type="required">
+			<message>生日: 請勿空白</message>
+		</field-validator>
+	</field>
+		<field name="memberVO.mem_email">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>電子郵件: 請勿空白</message>
+		</field-validator>
+		
+	</field>
+		<field name="memberVO.mem_mobile">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>行動電話: 請勿空白</message>
+		</field-validator>
+	</field>
+
+
+</validators>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="">
@@ -28,39 +30,44 @@
 	</c:if>	
 		
 			<div class="container">
-				<form  method="post" action="<%= request.getContextPath()%>/member/memberServlet.do">
+				<s:form  action="addMember" namespace="/member">
 					<div class="addoffer">	
 						<H3 class="addoffertitle">會員註冊基本資料</H3>
 					</div>
+					<s:fielderror fieldName="memberVO.mem_name" cssStyle="color: red" />
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">姓名</span>
-					 	<input type="text" name="mem_name" class="form-control" placeholder="中文姓名" aria-describedby="basic-addon1">
+					 	<input type="text" name="memberVO.mem_name" class="form-control" placeholder="中文姓名" aria-describedby="basic-addon1">
 					</div>
+					<s:fielderror fieldName="memberVO.mem_id" cssStyle="color: red" />
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">帳號</span>
-					    <input type="text" name="mem_id" class="form-control" placeholder="登入帳號" aria-describedby="basic-addon1">
+					    <input type="text" name="memberVO.mem_id" class="form-control" placeholder="登入帳號" aria-describedby="basic-addon1">
 					</div>
+					<s:fielderror fieldName="memberVO.mem_psw" cssStyle="color: red" />
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">密碼</span>
-					    <input type="text" name="mem_psw" class="form-control"  placeholder="登入密碼" aria-describedby="basic-addon1">
-					</div>		
+					    <input type="text" name="memberVO.mem_psw" class="form-control"  placeholder="登入密碼" aria-describedby="basic-addon1">
+					</div>
+					<s:fielderror fieldName="memberVO.mem_birthday" cssStyle="color: red" />		
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">生日</span>
-					    <input type="date" name="mem_birthday" class="form-control" placeholder="生日" aria-describedby="basic-addon1">
+					    <input type="date" name="memberVO.mem_birthday" class="form-control" placeholder="生日" aria-describedby="basic-addon1">
 					</div>
+					<s:fielderror fieldName="memberVO.mem_email" cssStyle="color: red" />
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">電子郵件</span>
-					    <input type="email" name="mem_email" class="form-control" placeholder="Ex:123@gmail.com" aria-describedby="basic-addon1">
+					    <input type="email" name="memberVO.mem_email" class="form-control" placeholder="Ex:123@gmail.com" aria-describedby="basic-addon1">
 					</div>
+					<s:fielderror fieldName="memberVO.mem_mobile" cssStyle="color: red" />
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">行動電話</span>
-					    <input type="tel" name="mem_mobile" class="form-control" placeholder="0912345678" aria-describedby="basic-addon1">
+					    <input type="tel" name="memberVO.mem_mobile" class="form-control" placeholder="0912345678" aria-describedby="basic-addon1">
 					</div>		
 					<div class="input-group btndiv">
-						<input type="hidden" name="action" value="addmember">
 						<button type="submit" class="btn btn-primary btn-lg">註冊會員</button>  	
 					</div>	
-				</form>	
+				</s:form>	
 			</div>
 
 		

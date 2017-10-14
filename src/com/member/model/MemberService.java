@@ -5,6 +5,7 @@ import java.util.List;
 
 
 
+
 public class MemberService {
 	
 	private MemberDAO_interface dao;
@@ -44,6 +45,15 @@ public class MemberService {
 		dao.update(memberVO);
 		
 		return memberVO;
+	}
+	
+	//給struct2用
+	public void addMember(MemberVO memberVO) {
+		dao.insert(memberVO);
+	}
+	
+	public void updateMembe(MemberVO memberVO) {
+		dao.update(memberVO);
 	}
 	
 	public void delete(String mem_no){

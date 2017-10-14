@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="com.member.model.*" %>
-
-<%
-	MemberVO memberVO = (MemberVO) request.getAttribute("memberVO");
-%>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,18 +31,14 @@
 			<td>${memberVO.mem_mobile}</td>		
 			<td>${memberVO.mem_joindate}</td>		
 			<td>
-			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/member/memberServlet.do">
+			  <s:form action="getOne_For_Update" namespace="/member">
 			     <input type="submit" value="修改"> 
-			     <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
-			     <input type="hidden" name="requestURL"	value="<%=request.getServletPath()%>"><!--送出本網頁的路徑給Controller-->
-			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
+			     <input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}"></s:form>
 			</td>
 			<td>
-			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/member/memberServlet.do">
+			  <s:form action="delete" namespace="/member">
 			    <input type="submit" value="刪除">
-			    <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
-			    <input type="hidden" name="requestURL"	value="<%=request.getServletPath()%>"><!--送出本網頁的路徑給Controller-->
-			    <input type="hidden" name="action"value="delete"></FORM>
+			    <input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}"></s:form>
 			</td>
 		</tr>
 </table>
