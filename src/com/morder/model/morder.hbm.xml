@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.morder.model.MorderVO" table="morder" >
+        
+        <id name="mord_no" column="mord_no">
+            <generator class="com.morder.model.MORDNOGenerator" />            
+        </id>
+        
+<!--         <property name="mem_no" column="mem_no" /> -->
+		<many-to-one name="memberVO" class="com.member.model.MemberVO" lazy="false">
+            <column name="mem_no" />
+        </many-to-one>
+        <property name="mord_price" column="mord_price" />
+        <property name="mord_createdate" column="mord_createdate" />
+        <property name="mord_status" column="mord_status" />
+        
+        <set name="orderLists" table="orderlist" lazy="false" cascade="all"  inverse="true"  order-by="mord_no asc">			
+			<key>
+				<column name="mord_no" />
+			</key>
+			<one-to-many class="com.orderlist.model.OrderListVO" />
+		</set>
+        
+    </class>
+</hibernate-mapping>

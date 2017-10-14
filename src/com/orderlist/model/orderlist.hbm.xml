@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.orderlist.model.OrderListVO" table="orderlist" >
+        
+        <composite-id>
+            <key-many-to-one name="morderVO" class="com.morder.model.MorderVO" lazy="false"> 
+                          <column name="mord_no"/>
+            </key-many-to-one>
+            <key-many-to-one name="productVO" class="com.product.model.ProductVO" lazy="false"> 
+                          <column name="pro_no"/>
+            </key-many-to-one>
+        </composite-id>
+        
+<!--         <many-to-one name="MorderVO" class="com.morder.model.MorderVO" lazy="false"> -->
+<!--             <column name="mord_no" /> -->
+<!--         </many-to-one> -->
+        
+        <property name="ordl_number" column="ordl_number" />
+   
+   		
+        
+    </class>
+</hibernate-mapping>

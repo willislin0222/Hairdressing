@@ -1,0 +1,31 @@
+body{
+	background-color: #F0FFFF;
+}
+.addoffer{
+
+	margin-bottom: 30px;
+}
+.addoffertitle {
+	
+	color:#00f;
+	font-size: 50pt;
+	text-align: center;
+	border-bottom: 1000pt;
+}
+.input-group{
+	margin: 0px auto;
+	margin-bottom: 15px;
+	width: 50%;
+	height:50px;
+
+}
+.input-group-addon{
+	font-size: 14px;
+	height:5px;
+}
+.form-control{
+	height: 50px;
+}
+.btndiv{
+	text-align: center;
+}

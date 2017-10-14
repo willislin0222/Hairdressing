@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Hairdressing</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  <!-- 	OfferServlet -->	
+	<servlet>
+		<servlet-name>OfferServlet</servlet-name>
+		<servlet-class>com.offer.controller.OfferServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OfferServlet</servlet-name>
+		<url-pattern>/offer/offerServlet.do</url-pattern>
+	</servlet-mapping>
+	
+<!-- 	OfferImage Servlet -->
+	<servlet>
+	    <servlet-name>OfferImage</servlet-name>
+	    <servlet-class>com.offer.controller.OfferImage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+	    <servlet-name>OfferImage</servlet-name>
+	    <url-pattern>/offer/offerImage.do</url-pattern>
+    </servlet-mapping>
+    
+<!-- 	MemberServlet -->
+	<servlet>
+	    <servlet-name>MemberServlet</servlet-name>
+	    <servlet-class>com.member.controller.MemberServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+	    <servlet-name>MemberServlet</servlet-name>
+	    <url-pattern>/member/memberServlet.do</url-pattern>
+    </servlet-mapping>
+
+<!-- 	ProductServlet -->
+	<servlet>
+	    <servlet-name>ProductServlet</servlet-name>
+	    <servlet-class>com.product.controller.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+	    <servlet-name>ProductServlet</servlet-name>
+	    <url-pattern>/product/productServlet.do</url-pattern>
+    </servlet-mapping>
+    
+<!-- 	ProductImage Servlet -->
+	<servlet>
+	    <servlet-name>ProductImage</servlet-name>
+	    <servlet-class>com.product.controller.ProductImage</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+	    <servlet-name>ProductImage</servlet-name>
+	    <url-pattern>/product/productImage.do</url-pattern>
+    </servlet-mapping>
+
+<!-- 	MorderServlet -->
+	<servlet>
+	    <servlet-name>MorderServlet</servlet-name>
+	    <servlet-class>com.morder.controller.MorderServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+	    <servlet-name>MorderServlet</servlet-name>
+	    <url-pattern>/morder/morderServlet.do</url-pattern>
+    </servlet-mapping>
+    
+<!-- 	ReservationServlet -->
+	<servlet>
+	    <servlet-name>ReservationServlet</servlet-name>
+	    <servlet-class>com.reservation.controller.ReservationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+	    <servlet-name>ReservationServlet</servlet-name>
+	    <url-pattern>/reservation/reservationServlet.do</url-pattern>
+    </servlet-mapping>
+    
+<!-- 	OrderListServlet -->
+	<servlet>
+	    <servlet-name>OrderListServlet</servlet-name>
+	    <servlet-class>com.orderlist.controller.OrderListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+	    <servlet-name>OrderListServlet</servlet-name>
+	    <url-pattern>/orderlist/orderListServlet.do</url-pattern>
+    </servlet-mapping>
+</web-app>

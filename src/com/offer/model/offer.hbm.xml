@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.offer.model.OfferVO" table="offer" >
+        
+        <id name="off_no" column="off_no">
+            <generator class="com.offer.model.OFFNOGenerator" />            
+        </id>
+        
+        <property name="off_title" column="off_title" />
+        <property name="off_content" column="off_content" />
+        <property name="off_image" column="off_image" />
+        <property name="off_start" column="off_start" />
+        <property name="off_end" column="off_end" />
+        <property name="off_status" column="off_status" />
+        
+    </class>
+</hibernate-mapping>
