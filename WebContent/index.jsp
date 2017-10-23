@@ -59,7 +59,8 @@
 			            		<li><a href="<%= request.getContextPath()%>/member/login.jsp">會員登入</a></li>
 			            	</c:if>
 			            	<c:if test="${memberVO != null}">
-		            		<li style="size:7"><a href="">${memberVO.mem_name}歡迎您</a></li>
+		            		<li style="size:7"><a href="#">${memberVO.mem_name}歡迎您</a></li>
+		            		<li><a href="<%=request.getContextPath()%>/member/memberManager.jsp">會員專區</a></li>
 		            		<li><a href="<%=request.getContextPath()%>/member/logout.jsp">登出</a></li>
 			            	</c:if>
 			            <li><a href="<%= request.getContextPath()%>/reservation/addReservation.jsp">預約專區</a></li>		         
@@ -130,7 +131,7 @@
 		<div class="container news">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<img src="images/newTile.jpg" class="courseTitle">
+					<img src="<%=request.getContextPath()%>/images/newTile.jpg" class="courseTitle">
 						<div class="panel-group" id="accordion1">
 					        <div class="panel panel-info">
 					          <div class="panel-heading">

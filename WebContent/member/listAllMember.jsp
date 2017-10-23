@@ -15,7 +15,7 @@
 
 <html>
 <head>
-<title>所有員工資料 - listAllMember.jsp</title>
+<title>所有會員資料 - listAllMember.jsp</title>
 </head>
 <body bgcolor='white'>
 <b><font color=red>此頁練習採用 EL 的寫法取值:</font></b>

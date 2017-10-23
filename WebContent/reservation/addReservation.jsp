@@ -15,20 +15,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>新增預約資料</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/offermain.css">
+		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/reservation/reservationmain.css">
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-		<!--[if lt IE 9]>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		
-		
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
     	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery.timepicker.js"></script>
 	    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/jquery.timepicker.css" />
-	
-	
 	    <script type="text/javascript" src="<%= request.getContextPath()%>/js/site.js"></script>
 	    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/site.css" />
 	</head>
@@ -43,8 +34,8 @@
 		
 			<div class="container">
 				<form  method="post" action="<%= request.getContextPath()%>/reservation/reservationServlet.do">
-					<div class="addoffer">	
-						<H3 class="addoffertitle">新增預約資料</H3>
+					<div class="reservation">	
+						<H3 class="reservationtitle">新增預約資料</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">會員編號</span>

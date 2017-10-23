@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>新增優惠訊息</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/offermain.css">
+		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/offer/offermain.css">
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/imgView.css">
 		<script type="text/javascript" src="<%= request.getContextPath()%>/js/ImageView.js"></script>
 		<!--[if lt IE 9]>
@@ -30,8 +30,8 @@
 			<div class="container">
 				<html:form action="<%= request.getContextPath()%>/offer/offerServlet.do" method="post">
 				<form  method="post" action="<%= request.getContextPath()%>/offer/offerServlet.do" enctype="multipart/form-data">
-					<div class="addoffer">	
-						<H3 class="addoffertitle">編輯優惠資訊</H3>
+					<div class="offer">	
+						<H3 class="offertitle">編輯優惠資訊</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">優惠標題</span>

@@ -11,18 +11,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>修改會員資料</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/membermain.css">
-		<!--[if lt IE 9]>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/member/membermain.css">
 	</head>
 	<body>
 		
 			<div class="container">
 				<s:form  action="updateMember">
-					<div class="addoffer">	
-						<H3 class="addoffertitle">修改會員資料</H3>
+					<div class="member">	
+						<H3 class="membertitle">修改會員資料</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">姓名</span>

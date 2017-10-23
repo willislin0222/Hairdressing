@@ -15,13 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>請填入訂單基本資料</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/membermain.css">
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/imgView.css">
-		<script type="text/javascript" src="<%= request.getContextPath()%>/js/ImageView.js"></script>
-		<!--[if lt IE 9]>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/morder/mordermain.css">
 	</head>
 	<body>
 	<c:if test="${not empty errorMsgs}">
@@ -34,8 +28,8 @@
 		
 			<div class="container">
 				<form  method="post" action="<%= request.getContextPath()%>/morder/morderServlet.do">
-					<div class="addoffer">	
-						<H3 class="addoffertitle">訂單資料</H3>
+					<div class="morder">	
+						<H3 class="mordertitle">訂單資料</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">會員編號</span>

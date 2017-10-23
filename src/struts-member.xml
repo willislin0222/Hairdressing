@@ -15,6 +15,11 @@
             <result name="input">/member/addMember.jsp</result>
 		</action>
 		
+		<action name="login" class="com.member.actions.LoginAction"  method="login">
+	        <result name="success">/index.jsp</result>
+	        <result name="input">/member/login.jsp</result>
+		</action>
+		
 		<action name="getOne_For_Update"   class="com.member.actions.MemberAction"  method="getOne_For_Update">
 	        <result name="success">/member/updateMember.jsp</result>
 		</action>

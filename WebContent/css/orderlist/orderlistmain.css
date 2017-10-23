@@ -1,11 +1,11 @@
 body{
 	background-color: #F0FFFF;
 }
-.addoffer{
+.orderlist{
 
 	margin-bottom: 30px;
 }
-.addoffertitle {
+.orderlisttitle {
 	
 	color:#00f;
 	font-size: 50pt;
@@ -28,4 +28,8 @@ body{
 }
 .btndiv{
 	text-align: center;
+}
+.errorMsg{
+	margin:0px auto;
+	width: 50%;
 }

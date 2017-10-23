@@ -1,6 +1,7 @@
 package com.member.actions;
 
 import java.sql.Date;
+import java.util.Base64;
 
 import com.member.model.MemberService;
 import com.member.model.MemberVO;
@@ -21,6 +22,13 @@ public class MemberAction extends ActionSupport {
 	public String addMember(){
 		MemberService memberSvc = new MemberService();
 		memberVO.setMem_joindate(new java.sql.Date(System.currentTimeMillis()));
+		 Base64.Encoder encoder = Base64.getEncoder();
+		 String psw_new64 = encoder.encodeToString(memberVO.getMem_psw().getBytes());
+		 memberVO.setMem_psw(psw_new64);
+		if(memberSvc.getOneMemberBymemid(memberVO.getMem_id()).getMem_no() != null){
+			super.addFieldError("mem_id", "此帳號已申請過");
+			return "input";
+		}
 		memberSvc.addMember(memberVO);
 		return "success";
 	}
@@ -45,5 +53,7 @@ public class MemberAction extends ActionSupport {
 		memberSvc.delete(memberVO.getMem_no());
 		return "success";
 	}
+	
+	
 
 }

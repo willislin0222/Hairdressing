@@ -16,9 +16,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>修改商品</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/productmain.css">
+		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/product/productmain.css">
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/imgView.css">
-		<script type="text/javascript" src="<%= request.getContextPath()%>/js/ProductImageView.js"></script>
+		<script type="text/javascript" src="<%= request.getContextPath()%>/js/product/ProductImageView.js"></script>
 		<!--[if lt IE 9]>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -35,8 +35,8 @@
 		
 			<div class="container">
 				<form  method="post" action="<%= request.getContextPath()%>/product/productServlet.do" enctype="multipart/form-data">
-					<div class="addoffer">	
-						<H3 class="addoffertitle">修改商品資訊</H3>
+					<div class="product">	
+						<H3 class="producttitle">修改商品資訊</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品編號</span>
