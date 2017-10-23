@@ -12,24 +12,26 @@
 
 	    <action name="addMember"   class="com.member.actions.MemberAction"  method="addMember">
 	        <result name="success">/member/listAllMember.jsp</result>
-            <result name="input">/member/addMember.jsp</result>
+            <result name="input">/member/joinMember.jsp</result>
 		</action>
 		
-		<action name="login" class="com.member.actions.LoginAction"  method="login">
+		<action name="login" class="com.member.actions.MemberManagerAction"  method="login">
 	        <result name="success">/index.jsp</result>
 	        <result name="input">/member/login.jsp</result>
 		</action>
 		
-		<action name="getOne_For_Update"   class="com.member.actions.MemberAction"  method="getOne_For_Update">
+		<action name="getOne_For_Update"   class="com.member.actions.MemberManagerAction"  method="getOne_For_Update">
 	        <result name="success">/member/updateMember.jsp</result>
 		</action>
 		
 		<action name="updateMember"   class="com.member.actions.MemberAction"  method="updateMember">
 	        <result name="success">/member/listOneMember.jsp</result>
+	        <result name="input">/member/updateMember.jsp</result>
 		</action>
 		
-		<action name="delete"   class="com.member.actions.MemberAction"  method="delete">
+		<action name="delete"   class="com.member.actions.MemberManagerAction"  method="delete">
 	        <result name="success">/member/listAllMember.jsp</result>
+	        <result name="input">/index.jsp</result>
 		</action>
 		
 

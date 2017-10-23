@@ -16,7 +16,10 @@
 			<param name="trim">true</param><!-- 預設為true -->
 			<message>帳號: 請勿空白</message>
 		</field-validator>
-		
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[([a-zA-Z0-9]{4,30})]]></param>
+			<message>帳號只能是英文字母和數字，且長度必需在4到30個字之間</message>
+		</field-validator>
 	</field>
 	
 	<field name="memberVO.mem_psw">
@@ -24,6 +27,10 @@
 			<param name="trim">true</param><!-- 預設為true -->
 			<message>密碼: 請勿空白</message>
 		</field-validator>	
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[([a-zA-Z0-9]{6,12})]]></param>
+			<message>密碼只能是英文字母和數字, 且長度必需在6到12之間</message>
+		</field-validator>
 	</field>
 
 	<field name="memberVO.mem_birthday">
