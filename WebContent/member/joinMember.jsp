@@ -144,7 +144,7 @@
           <div class="panel-heading">
             <div class="row">
               <div class="col-xs-6">
-               <a href="#" class="active" id="login-form-link">修改會員資料</a>
+               <a href="#" class="active" id="login-form-link">註冊輸入資料</a>
               </div>
               
             </div>
@@ -159,7 +159,7 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-				<s:form  action="updateMember" namespace="/member">
+				<s:form  action="addMember" namespace="/member">
 				                 
                   <div class="form-group">
                     <label for="username">姓名</label>                 
@@ -168,7 +168,7 @@
 
                   <div class="form-group">
                     <label for="ID">帳號</label>
-                    <input type="text" name="memberVO.mem_id" tabindex="1" class="form-control" placeholder="登入帳號" value="${memberVO.mem_id}" readonly>
+                    <input type="text" name="memberVO.mem_id" tabindex="1" class="form-control" placeholder="登入帳號" value="${memberVO.mem_id}">
                   </div>
                   
                   <div class="form-group">
@@ -193,9 +193,7 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
-                        <input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}">
-						<input type="hidden" name="memberVO.mem_joindate" value="${memberVO.mem_joindate}">
-                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="修改會員資料">
+                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="註冊會員">
                       </div>
                     </div>
                   </div>

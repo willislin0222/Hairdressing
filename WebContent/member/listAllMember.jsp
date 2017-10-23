@@ -49,13 +49,13 @@
 			<td>
 			  <s:form action="getOne_For_Update" namespace="/member">
 			     <input type="submit" value="修改"> 
-			     <input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}">
+			     <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
 			  </s:form>
 			</td>
 			<td>
 			  <s:form action="delete" namespace="/member">
 			    <input type="submit" value="刪除">
-			    <input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}"></s:form>
+			    <input type="hidden" name="mem_no" value="${memberVO.mem_no}"></s:form>
 			</td>
 		</tr>
 	</c:forEach>
