@@ -63,7 +63,7 @@
 		            		<li><a href="<%=request.getContextPath()%>/member/memberManager.jsp">會員專區</a></li>
 		            		<li><a href="<%=request.getContextPath()%>/member/logout.jsp">登出</a></li>
 			            	</c:if>
-			            <li><a href="<%= request.getContextPath()%>/reservation/addReservation.jsp">預約專區</a></li>		         
+			            <li><a href="<%= request.getContextPath()%>/member/fullcalendarjsp.jsp">預約專區</a></li>		         
 			            <li><a href="#">美髮商城</a></li>
 			            <li><a href="#">聯絡我</a></li>
 			            	
