@@ -11,7 +11,7 @@
 	<package name="member" namespace="/member" extends="struts-default">
 
 	    <action name="addMember"   class="com.member.actions.MemberAction"  method="addMember">
-	        <result name="success">/member/listAllMember.jsp</result>
+	        <result name="success">/member/loginyes.jsp</result>
             <result name="input">/member/joinMember.jsp</result>
 		</action>
 		
@@ -25,7 +25,7 @@
 		</action>
 		
 		<action name="updateMember"   class="com.member.actions.MemberAction"  method="updateMember">
-	        <result name="success">/member/listOneMember.jsp</result>
+	        <result name="success">/member/updateyes.jsp</result>
 	        <result name="input">/member/updateMember.jsp</result>
 		</action>
 		
@@ -34,7 +34,8 @@
 	        <result name="input">/index.jsp</result>
 		</action>
 		
-
 	</package>
+	
+
 
 </struts>
