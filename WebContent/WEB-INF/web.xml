@@ -104,4 +104,15 @@
 	    <servlet-name>OrderListServlet</servlet-name>
 	    <url-pattern>/orderlist/orderListServlet.do</url-pattern>
     </servlet-mapping>
+    
+     <!-- 排程器 -->
+    <servlet>
+		    <servlet-name>ScheduleServlet</servlet-name>
+		    <servlet-class>com.schedule.controller.ScheduleServlet</servlet-class>
+		    <load-on-startup>10</load-on-startup>
+	  </servlet>
+	  <servlet-mapping>
+		    <servlet-name>ScheduleServlet</servlet-name>
+		    <url-pattern>/ScheduleServlet</url-pattern>
+	  </servlet-mapping>
 </web-app>
