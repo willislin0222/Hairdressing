@@ -47,6 +47,15 @@ public class ReservationService {
 		return reservationVO;
 	}
 	
+	//給struct2用
+	public void addReservation(ReservationVO reservationVO) {
+		dao.insert(reservationVO);
+	}
+	
+	public void updateReservation(ReservationVO reservationVO) {
+		dao.update(reservationVO);
+	}
+	
 	public void delete(String res_no){
 		dao.delete(res_no);
 	}

@@ -8,5 +8,27 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
 	
+	<package name="reservation" namespace="/reservation" extends="struts-default">
+
+	    <action name="addReservation"   class="com.reservation.actions.ReservationAction"  method="addReservation">
+	        <result name="success">/reservation/listAllReservation.jsp</result>
+            <result name="input">/reservation/addReservation.jsp</result>
+		</action>
+		
+		<action name="getOne_For_Update"   class="com.reservation.actions.ReservationManagerAction"  method="getOne_For_Update">
+	        <result name="success">/reservation/updateReservation.jsp</result>
+		</action>
+		
+		<action name="updateReservation"   class="com.reservation.actions.ReservationAction"  method="updateReservation">
+	        <result name="success">/reservation/listOneReservation.jsp</result>
+	        <result name="input">/reservation/updateReservation.jsp</result>
+		</action>
+		
+		<action name="delete"   class="com.reservation.actions.ReservationManagerAction"  method="delete">
+	        <result name="success">/reservation/listAllReservation.jsp</result>
+	        <result name="input">/index.jsp</result>
+		</action>	
+		
+	</package>
 
 </struts>

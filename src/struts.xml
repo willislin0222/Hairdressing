@@ -12,7 +12,7 @@
 	  <include file="struts-morder.xml"/>
 	  <include file="struts-offer.xml"/>
 	  <include file="struts-product.xml"/>
-	  <include file="struts-rservation.xml"/>
+	  <include file="struts-reservation.xml"/>
 	  <include file="struts-orderlist.xml"/>
 
 </struts>
