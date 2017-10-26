@@ -10,8 +10,6 @@
 	pageContext.setAttribute("list",list);
 	
 	MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
-// 	request.setAttribute("memberVO", memberVO);
-// 	System.out.println("memberVO=" + memberVO);
 	int count=1;
 %>
 <!DOCTYPE html>
@@ -30,11 +28,6 @@
 		<script src="<%=request.getContextPath()%>/js/map.js"></script>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtG-rqgt4dGBFF6i-6X8jsW2WxWqGZi_4&callback=initMap"   type="text/javascript"></script>
 
-		
-		<!--[if lt IE 9]>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
 	</head>
 	<body>
 		
@@ -63,7 +56,8 @@
 		            		<li><a href="<%=request.getContextPath()%>/member/memberManager.jsp">會員專區</a></li>
 		            		<li><a href="<%=request.getContextPath()%>/member/logout.jsp">登出</a></li>
 			            	</c:if>
-			            <li><a href="<%= request.getContextPath()%>/member/fullcalendarjsp.jsp">預約專區</a></li>		         
+<%-- 			            <li><a href="<%= request.getContextPath()%>/reservation/fullcalendar.jsp">預約專區</a></li>		          --%>
+			            <li><a href="<%= request.getContextPath()%>/reservation/fullcalendar.action">預約專區</a></li>		         
 			            <li><a href="#">美髮商城</a></li>
 			            <li><a href="#">聯絡我</a></li>
 			            	
