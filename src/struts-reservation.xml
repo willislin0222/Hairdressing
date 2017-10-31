@@ -8,10 +8,12 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
 	
-	<package name="reservation" namespace="/reservation" extends="struts-default">
-
+	<package name="reservation" namespace="/reservation" extends="struts-default">	
+		<result-types>
+		    <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+		</result-types>
 	    <action name="addReservation"   class="com.reservation.actions.ReservationAction"  method="addReservation">
-	        <result name="success">/reservation/listAllReservation.jsp</result>
+	        <result name="success">/reservation/fullcalendar.jsp</result>
             <result name="input">/reservation/addReservation.jsp</result>
 		</action>
 		
@@ -28,6 +30,12 @@
 	        <result name="success">/reservation/listAllReservation.jsp</result>
 	        <result name="input">/index.jsp</result>
 		</action>	
+		
+		<action name="getReservationsByMemno"   class="com.reservation.actions.ReservationManagerAction"  method="getReservationsByMemno">
+	        <result name="success" type="json">
+               <param name="root">events</param>
+            </result>
+		</action>
 		
 	</package>
 

@@ -2,6 +2,9 @@ package com.member.model;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
+
+import com.reservation.model.ReservationVO;
 
 
 
@@ -70,5 +73,9 @@ public class MemberService {
 	
 	public List<MemberVO> getAll(){
 		return dao.getAll();
+	}
+	//從會員編號取得此會員的全部預約清單
+	public Set<ReservationVO> getReservationsByMemno(String mem_no){
+		return dao.getReservationsByMemno(mem_no);
 	}
 }

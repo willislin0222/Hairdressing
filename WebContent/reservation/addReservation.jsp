@@ -40,7 +40,7 @@
 					</script>	
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">預約開始時間</span>
-					    <input id="timestart" type="text" name="reservationVO.res_timestart" class="form-control" placeholder="優惠內容" aria-describedby="basic-addon1">
+					    <input id="timestart" type="text" name="reservationVO.res_timestart" class="form-control" placeholder="開始日期" aria-describedby="basic-addon1">
 					</div>
 					<script>
 					 $(function() {
@@ -49,7 +49,7 @@
 					</script>	
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">預約結束時間</span>
-						<input id="timeend" type="text" name="reservationVO.res_timeend" class="form-control" placeholder="優惠內容" aria-describedby="basic-addon1">
+						<input id="timeend" type="text" name="reservationVO.res_timeend" class="form-control" placeholder="結束日期" aria-describedby="basic-addon1">
 					</div>
 					<script>
 					 $(function() {
