@@ -35,11 +35,8 @@ $(document).ready(function() {
 //		events:  "/Hairdressing/reservation/actions/getReservationsByMemno.action?mem_no="+ memno,	
 		events: function(start, end, timezone, callback) {
 		        $.ajax({
-		            url: '/Hairdressing/reservation/actions/getReservationsByMemno.action',
+		            url: '/Hairdressing/reservation/actions/getAllReservations.action',
 		            dataType: 'json',
-		            data: {
-		            	"mem_no" : memno 
-		            },
 		            success: function(result) {
 		                var events = [];
 		                result.forEach(function(element) {

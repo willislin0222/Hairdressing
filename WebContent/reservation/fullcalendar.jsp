@@ -35,10 +35,10 @@
 		    <!-- 標籤面板：標籤區 -->
 		    <ul class="nav nav-tabs" role="tablist">
 		        <li role="presentation" class="active">
-		            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">以行事曆顯示</a>
+		            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">所有預約</a>
 		        </li>
 		        <li role="presentation">
-		            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">以清單顯示</a>
+		            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">個人預約明細</a>
 		        </li>
 		    </ul>
 		

@@ -32,7 +32,7 @@
 		</action>	
 		
 		
-		<action name="getReservationsByMemno"   class="com.reservation.actions.ReservationManagerAction"  method="getReservationsByMemno">
+		<action name="getAllReservations"   class="com.reservation.actions.ReservationManagerAction"  method="getAllReservations">
 	        <result name="success" type="json">
                <param name="root">events</param>
             </result>

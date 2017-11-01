@@ -2,6 +2,8 @@ package com.reservation.actions;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -18,7 +20,7 @@ import com.reservation.model.ReservationVO;
 public class ReservationManagerAction {
 	private String res_no;
 	private String mem_no;	
-	Set<Event> events;
+	List<Event> events;
 	
 	//取得修改預約資料
 	public String getOne_For_Update(){
@@ -38,12 +40,13 @@ public class ReservationManagerAction {
 	}
 	
 	
-	//從會員編號取得此會員所有預約資料
-	public String getReservationsByMemno(){
-		MemberService membernSvc = new MemberService();
-		Set<ReservationVO> reslist = membernSvc.getReservationsByMemno(mem_no);
+	//取得所有預約資料
+	public String getAllReservations(){
+		ReservationService reservationSvc = new ReservationService();
+		List<ReservationVO> reslist = reservationSvc.getAll();
 		Event event = null;	
-		events = new HashSet();
+		events = new LinkedList();
+		System.out.println(reslist.size());
 		for(ReservationVO reservation : reslist){
 			event = new Event();  //每次要建立一個新的event物件，不然events內的值都會是同一筆
 			String title = reservation.getRes_timestart() + "~" + reservation.getRes_timeend() 
@@ -72,13 +75,15 @@ public class ReservationManagerAction {
 		this.mem_no = mem_no;
 	}
 
-
-	public Set<Event> getEvents() {
+	public List<Event> getEvents() {
 		return events;
 	}
 
-	public void setEvents(Set<Event> events) {
+	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
+
+
+	
 	
 }
