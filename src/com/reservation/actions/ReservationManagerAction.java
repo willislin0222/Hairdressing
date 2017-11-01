@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -29,12 +30,13 @@ public class ReservationManagerAction {
 			
 	}
 		
-	//刪除預約
+	//刪除預約，從listAllReservation.jsp送出的刪除請求
 	public String delete(){
 		ReservationService reservationSvc = new ReservationService();
 		reservationSvc.delete(res_no);
 		return "success";
 	}
+	
 	
 	//從會員編號取得此會員所有預約資料
 	public String getReservationsByMemno(){
@@ -45,9 +47,10 @@ public class ReservationManagerAction {
 		for(ReservationVO reservation : reslist){
 			event = new Event();  //每次要建立一個新的event物件，不然events內的值都會是同一筆
 			String title = reservation.getRes_timestart() + "~" + reservation.getRes_timeend() 
-						   + ":" +reservation.getRes_content();
+						   + "預約項目:" +reservation.getRes_content();
 			event.setTitle(title);
 			event.setStart(reservation.getRes_date());
+			event.setAllDay(false);
 			events.add(event);	
 		}
 		return "success";

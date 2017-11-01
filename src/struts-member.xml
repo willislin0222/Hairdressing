@@ -11,7 +11,7 @@
 	<package name="member" namespace="/member" extends="struts-default">
 
 	    <action name="addMember"   class="com.member.actions.MemberAction"  method="addMember">
-	        <result name="success">/member/loginyes.jsp</result>
+	        <result name="success">/member/joinmemberyes.jsp</result>
             <result name="input">/member/joinMember.jsp</result>
 		</action>
 		

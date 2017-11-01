@@ -27,7 +27,32 @@
 		
 </head>
 <body>
-	<div id='calendar'></div>
+
+<div class="container">
+	<div id="title">${memberVO.mem_name}的預約清單</div>
+	<!-- 標籤面板：標籤區 -->
+		<div role="tabpanel">
+		    <!-- 標籤面板：標籤區 -->
+		    <ul class="nav nav-tabs" role="tablist">
+		        <li role="presentation" class="active">
+		            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">以行事曆顯示</a>
+		        </li>
+		        <li role="presentation">
+		            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">以清單顯示</a>
+		        </li>
+		    </ul>
+		
+		    <!-- 標籤面板：內容區 -->
+		    <div class="tab-content">
+		        <div role="tabpanel" class="tab-pane active" id="tab1">
+		        	<div id='calendar'></div>
+		        </div>
+		        <div role="tabpanel" class="tab-pane" id="tab2">
+		        	<jsp:include page="/reservation/listReservationsByMemno.jsp" />
+		        </div>
+		    </div>
+		</div>
+	
 	<!-- 使用JQUERY onclick跳出預約視窗內容 -->
 	<a href="#modal-id" id="resdata" role="button" class="modal fade" data-toggle="modal"></a>
 	<!-- 跳出的預約視窗內容 -->
@@ -52,7 +77,7 @@
 							</div>
 							<script>
 							 $(function() {
-							     $('#timestart').timepicker();
+							     $('#timestart').timepicker({'timeFormat': 'h:i A'});
 							});					 
 							</script>	
 							<div class="input-group">
@@ -61,7 +86,7 @@
 							</div>
 							<script>
 							 $(function() {
-							     $('#timeend').timepicker();
+							     $('#timeend').timepicker({'timeFormat': 'h:i A'});
 							});					 
 							</script>	
 							<div class="input-group">
@@ -75,5 +100,7 @@
 					</s:form>
 				</div>
 			</div>
+			
+</div>			
 </body>
 </html>

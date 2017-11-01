@@ -2,9 +2,9 @@ $(document).ready(function() {
 	var memno = $("#memno").val();
 	$('#calendar').fullCalendar({
 		header: {
-			left: 'prev,next today',
+			left: 'prev,next,today',
 			center: 'title',
-			right: 'month,agendaWeek,agendaDay'
+			right: 'month,basicWeek,basicDay'
 		},
 		editable: true,
 		selectable: true,
@@ -27,7 +27,10 @@ $(document).ready(function() {
 			$("#resdata").click();	     //利用jquery執行onclick函式，用於彈跳出預約的表單
 		},
 		editable: true,
-		eventLimit: true, // allow "more" link when too many events		
+		eventLimit: true, // allow "more" link when too many events	
+		theme:true,
+		height:800,
+		firstDay:0,
 //		events:  "/Hairdressing/reservation/events.json",	
 //		events:  "/Hairdressing/reservation/actions/getReservationsByMemno.action?mem_no="+ memno,	
 		events: function(start, end, timezone, callback) {
@@ -42,7 +45,7 @@ $(document).ready(function() {
 		                result.forEach(function(element) {
 		                    events.push({
 		                        title: element.title,
-		                        start: moment(element.start).format('YYYY-MM-DD') 
+		                        start: moment(element.start).format('YYYY-MM-DD'), 
 		                    });
 		                });
 

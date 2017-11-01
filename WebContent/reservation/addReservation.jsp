@@ -42,9 +42,11 @@
 					  	<span class="input-group-addon" id="basic-addon1">預約開始時間</span>
 					    <input id="timestart" type="text" name="reservationVO.res_timestart" class="form-control" placeholder="開始日期" aria-describedby="basic-addon1">
 					</div>
+<!-- 					設定時間的格式 $('#timeend').timepicker();(早上1點顯示AM 1:00) -->
+<!-- 					設定時間的格式 $('#timeend').timepicker({ 'timeFormat': 'h:i A' });(早上1點顯示AM 01:00) -->
 					<script>
 					 $(function() {
-					     $('#timestart').timepicker();
+					     $('#timestart').timepicker({ 'timeFormat': 'h:i A' });
 					});					 
 					</script>	
 					<div class="input-group">
@@ -53,7 +55,7 @@
 					</div>
 					<script>
 					 $(function() {
-					     $('#timeend').timepicker();
+					     $('#timeend').timepicker({ 'timeFormat': 'h:i A' });
 					});					 
 					</script>	
 					<div class="input-group">
