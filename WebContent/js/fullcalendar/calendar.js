@@ -35,7 +35,7 @@ $(document).ready(function() {
 //		events:  "/Hairdressing/reservation/actions/getReservationsByMemno.action?mem_no="+ memno,	
 		events: function(start, end, timezone, callback) {
 		        $.ajax({
-		            url: '/Hairdressing/reservation/actions/getAllReservations.action',
+		            url: 'reservation/actions/getAllReservations.action',
 		            dataType: 'json',
 		            success: function(result) {
 		                var events = [];
