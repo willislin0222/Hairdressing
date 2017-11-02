@@ -6,6 +6,23 @@ body {
 }
 
 #calendar {
-	max-width: 900px;
+/* 	調整FullCalendar的寬度 */
+	max-width: 1200px;  
 	margin: 0 auto;
+}
+
+/* 設定FullCalendar title自動換行 */
+.fc-title{
+	word-break:normal; 
+	width:130px; 
+	display:block; 
+	white-space:pre-wrap;
+	word-wrap : break-word ;
+	overflow: hidden ;
+}
+/* 設定預約頁面的title */
+#title{
+	color:blue;
+	font-size:50px;
+	text-align:center;
 }

@@ -21,7 +21,7 @@ public class ScheduleServlet extends HttpServlet {
 	        } 
       };
       timer = new Timer(); 
-      Calendar cal = new GregorianCalendar(2017, Calendar.OCTOBER, 23, 21, 19, 30);//年月日時份秒
+      Calendar cal = new GregorianCalendar(2017, Calendar.DECEMBER, 23, 21, 19, 30);//年月日時份秒
       timer.scheduleAtFixedRate(task, cal.getTime(), 1*60*60*1000);
       System.out.println("已建立排程!");       
     }

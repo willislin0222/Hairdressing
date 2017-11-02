@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page  import="java.util.*"%>
-<%@ page  import="com.reservation.model.*"%>
-<%
-ReservationVO reservationVO =(ReservationVO) request.getAttribute("reservationVO");
-%>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="">
 	<head>
@@ -33,27 +29,27 @@ ReservationVO reservationVO =(ReservationVO) request.getAttribute("reservationVO
 	</c:if>	
 		
 			<div class="container">
-				<form  method="post" action="<%= request.getContextPath()%>/reservation/reservationServlet.do">
+				<s:form  action="updateReservation" namespace="/reservation">
 					<div class="reservation">	
 						<H3 class="reservationtitle">修改預約資料</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">預約編號</span>
-					 	<input type="text" name="res_no" class="form-control" value="${reservationVO.res_no}" readonly>
+					 	<input type="text" name="reservationVO.res_no" class="form-control" value="${reservationVO.res_no}" readonly>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">會員編號</span>
-					 	<input type="text" name="mem_no" class="form-control" value="${reservationVO.memberVO.mem_no}" readonly>
+					 	<input type="text" name="reservationVO.memberVO.mem_no" class="form-control" value="${reservationVO.memberVO.mem_no}" readonly>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">預約日期</span>
-					    <input  type="date" name="res_date" class="form-control" value="${reservationVO.res_date}" aria-describedby="basic-addon1">
+					    <input  type="date" name="reservationVO.res_date" class="form-control" value="${reservationVO.res_date}" aria-describedby="basic-addon1">
 					</div>
 					<script>
 					</script>	
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">預約開始時間</span>
-					    <input id="timestart" type="text" name="res_timestart" class="form-control" value="${reservationVO.res_timestart}" aria-describedby="basic-addon1">
+					    <input id="timestart" type="text" name="reservationVO.res_timestart" class="form-control" value="${reservationVO.res_timestart}" aria-describedby="basic-addon1">
 					</div>
 					<script>
 					 $(function() {
@@ -62,7 +58,7 @@ ReservationVO reservationVO =(ReservationVO) request.getAttribute("reservationVO
 					</script>	
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">預約結束時間</span>
-						<input id="timeend" type="text" name="res_timeend" class="form-control" value="${reservationVO.res_timeend}" aria-describedby="basic-addon1">
+						<input id="timeend" type="text" name="reservationVO.res_timeend" class="form-control" value="${reservationVO.res_timeend}" aria-describedby="basic-addon1">
 					</div>
 					<script>
 					 $(function() {
@@ -71,13 +67,12 @@ ReservationVO reservationVO =(ReservationVO) request.getAttribute("reservationVO
 					</script>	
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">預約項目</span>
-					 	<input type="text" name="res_content" class="form-control" value="${reservationVO.res_content}" aria-describedby="basic-addon1">
+					 	<input type="text" name="reservationVO.res_content" class="form-control" value="${reservationVO.res_content}" aria-describedby="basic-addon1">
 					</div>				
 					<div class="input-group btndiv">
-						<input type="hidden" name="action" value="update">
 						<button type="submit" class="btn btn-primary btn-lg">修改預約時間</button>  	
 					</div>	
-				</form>	
+				</s:form>	
 			</div>
 
 		

@@ -173,7 +173,7 @@
                   
                   <div class="form-group">
                     <label for="ID">密碼</label>
-                    <input type="text" name="memberVO.mem_psw" tabindex="1" class="form-control" placeholder="登入密碼" value="${memberVO.mem_psw}">
+                    <input type="password" name="memberVO.mem_psw" tabindex="1" class="form-control" placeholder="登入密碼" value="${memberVO.mem_psw}">
                   </div>
 
                   <div class="form-group">
