@@ -8,6 +8,12 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
 	
+	<package name="helloworld" extends="struts-default">
+      <action name="sentmail" class="com.mail.actions.Sentmail" method="execute">
+         <result name="success">/sentmail/sentsuccess.jsp</result>
+         <result name="error">/sentmail/senterror.jsp</result>
+      </action>
+   </package>
 	  <include file="struts-member.xml"/>
 	  <include file="struts-morder.xml"/>
 	  <include file="struts-offer.xml"/>
