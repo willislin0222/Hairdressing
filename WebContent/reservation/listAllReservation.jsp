@@ -16,12 +16,12 @@
 <html>
 <head>
 <title>所有預約資料 - listAllReservation.jsp</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body bgcolor='white'>
-<b><font color=red>此頁練習採用 EL 的寫法取值:</font></b>
 
 
-<table border='1' bordercolor='#CCCCFF' width='800'>
+<table border='1' bordercolor='#CCCCFF' width='100%'>
 	<tr>
 		<th>預約編號</th>
 		<th>會員名稱</th>
@@ -56,7 +56,7 @@
 		</tr>
 	</c:forEach>
 </table>
-<%@ include file="/pages/page2.file" %>
+<%@ include file="/pages/page3.file" %>
 
 <br>本網頁的路徑:<br><b>
    <font color=blue>request.getServletPath():</font> <%= request.getServletPath()%><br>

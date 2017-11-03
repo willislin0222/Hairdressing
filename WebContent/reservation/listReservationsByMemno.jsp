@@ -49,9 +49,7 @@
 		
 	</c:forEach>
 </table>
-<div id="pagecss">
 <%@ include file="/pages/page3.file" %>
-</div>
 
 <c:forEach var="reservationVO" items="${list}">
 <!-- 跳出修改預約內容表單 -->
