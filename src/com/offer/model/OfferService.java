@@ -3,6 +3,8 @@ package com.offer.model;
 import java.sql.Date;
 import java.util.List;
 
+import com.member.model.MemberVO;
+
 public class OfferService {
 	
 	private OfferDAO_interface dao;
@@ -40,6 +42,15 @@ public class OfferService {
 		dao.update(offerVO);
 		
 		return offerVO;
+	}
+	
+	//給struct2用
+	public void addOffer(OfferVO offerVO) {
+		dao.insert(offerVO);
+	}
+		
+	public void updateOffer(OfferVO offerVO) {
+		dao.update(offerVO);
 	}
 	
 	public void delete(String off_no){

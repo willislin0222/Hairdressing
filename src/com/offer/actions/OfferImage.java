@@ -1,4 +1,4 @@
-package com.offer.controller;
+package com.offer.actions;
 
 import java.io.*;
 import java.sql.*;

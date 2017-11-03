@@ -24,7 +24,7 @@ function renderImageFile() {
 
 
 function init(){
-	var files = document.getElementsByName("off_image");
+	var files = document.getElementsByName("fileUpload");
 
 	 	files[0].addEventListener("change",renderImageFile,false);
 }

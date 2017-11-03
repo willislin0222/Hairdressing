@@ -34,7 +34,7 @@
 <!-- 	OfferImage Servlet -->
 	<servlet>
 	    <servlet-name>OfferImage</servlet-name>
-	    <servlet-class>com.offer.controller.OfferImage</servlet-class>
+	    <servlet-class>com.offer.actions.OfferImage</servlet-class>
     </servlet>
     <servlet-mapping>
 	    <servlet-name>OfferImage</servlet-name>
