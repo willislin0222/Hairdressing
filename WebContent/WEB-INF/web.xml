@@ -40,6 +40,10 @@
 	    <servlet-name>OfferImage</servlet-name>
 	    <url-pattern>/offer/offerImage.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+	    <servlet-name>OfferImage</servlet-name>
+	    <url-pattern>/back/offerImage.do</url-pattern>
+    </servlet-mapping>
     
 <!-- 	MemberServlet -->
 	<servlet>

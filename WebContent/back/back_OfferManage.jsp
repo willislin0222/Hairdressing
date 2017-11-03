@@ -41,7 +41,29 @@
 					</tr>
               </thead>
               <tbody>
-             	
+             	<c:forEach var="offerVO" items="${list}">
+					<tr align='center' valign='middle' ${(offerVO.off_no==param.off_no) ? 'bgcolor=#CCCCFF':''}><!--將修改的那一筆加入對比色而已-->
+						<td>${offerVO.off_no}</td>
+						<td>${offerVO.off_title}</td>
+						<td>${offerVO.off_content}</td>
+						<td><img src="offerImage.do?off_no=${offerVO.off_no}" width="200px" height="200px"></td>
+						<td>${offerVO.off_start}</td>
+						<td>${offerVO.off_end}</td>	
+						<td>${offerVO.off_status}</td>		
+						<td>
+						  <s:form action="getOne_For_Update" namespace="/offer">
+						     <input type="submit" value="修改"> 
+						     <input type="hidden" name="off_no" value="${offerVO.off_no}">
+						  </s:form>
+						</td>
+						<td>
+						  <s:form action="delete" namespace="/offer">
+						    <input type="submit" value="刪除">
+						    <input type="hidden" name="off_no" value="${offerVO.off_no}">
+						  </s:form>
+						</td>
+					</tr>
+				</c:forEach>
               </tbody>
             </table>
           </div>
