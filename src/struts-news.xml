@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	
+	<package name="news" namespace="/news" extends="struts-default">
+
+	    <action name="addNews"   class="com.news.actions.NewsAction"  method="addNews">
+	        <result name="success">/news/listAllNews.jsp</result>
+            <result name="input">/news/addNews.jsp</result>
+		</action>
+			
+		<action name="getOne_For_Update"   class="com.news.actions.NewsManagerAction"  method="getOne_For_Update">
+	        <result name="success">/news/updateNews.jsp</result>
+		</action>
+		
+		<action name="updateNews"   class="com.news.actions.NewsAction"  method="updateNews">
+	        <result name="success">/news/listOneNews.jsp</result>
+	        <result name="input">/news/updateNews.jsp</result>
+		</action>
+		
+		<action name="delete"   class="com.news.actions.NewsManagerAction"  method="delete">
+	        <result name="success">/news/listAllNews.jsp</result>
+	        <result name="input">/index.jsp</result>
+		</action>
+	</package>
+	
+</struts>

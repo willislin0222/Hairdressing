@@ -32,7 +32,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="<%= request.getContextPath()%>/back/back_NewsManage.jsp">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">最新消息管理</span>
           </a>
@@ -83,7 +83,7 @@
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="<%= request.getContextPath()%>/back/back_AdmManage.jsp">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">管理者帳號管理</span>
           </a>

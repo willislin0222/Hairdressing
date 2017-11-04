@@ -23,6 +23,8 @@
 	  <include file="struts-product.xml"/>
 	  <include file="struts-reservation.xml"/>
 	  <include file="struts-orderlist.xml"/>
+	  <include file="struts-news.xml"/>
+	  <include file="struts-adm.xml"/>
 	  
 	  
 </struts>

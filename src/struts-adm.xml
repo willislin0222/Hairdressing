@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	
+	<package name="adm" namespace="/adm" extends="struts-default">
+
+	    <action name="addAdm"   class="com.adm.actions.AdmAction"  method="addAdm">
+	        <result name="success">/back/listAllAdm.jsp</result>
+            <result name="input">/back/addAdm.jsp</result>
+		</action>
+			
+		<action name="getOne_For_Update"   class="com.adm.actions.AdmManagerAction"  method="getOne_For_Update">
+	        <result name="success">/back/updateAdm.jsp</result>
+		</action>
+		
+		<action name="updateAdm"   class="com.adm.actions.AdmAction"  method="updateAdm">
+	        <result name="success">/back/listOneAdm.jsp</result>
+	        <result name="input">/back/updateAdm.jsp</result>
+		</action>
+		
+		<action name="delete"   class="com.adm.actions.AdmManagerAction"  method="delete">
+	        <result name="success">/back/listAllAdm.jsp</result>
+	        <result name="input">/index.jsp</result>
+		</action>
+	</package>
+	
+</struts>

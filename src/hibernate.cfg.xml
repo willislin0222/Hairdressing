@@ -31,6 +31,8 @@
 		<mapping resource="com/morder/model/morder.hbm.xml" />
 		<mapping resource="com/reservation/model/reservation.hbm.xml" />
 		<mapping resource="com/orderlist/model/orderlist.hbm.xml" />
+		<mapping resource="com/news/model/news.hbm.xml" />
+		<mapping resource="com/adm/model/adm.hbm.xml" />
 
 	</session-factory>
 	

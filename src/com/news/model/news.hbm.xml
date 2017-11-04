@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.news.model.NewsVO" table="news" >
+        
+        <id name="news_no" column="news_no">
+            <generator class="com.news.model.NEWSNOGenerator" />            
+        </id>
+        
+        <property name="news_title" column="news_title" />
+        <property name="news_content" column="news_content" />
+        <property name="news_createdate" column="news_createdate" />
+        <property name="news_status" column="news_status" />
+        
+    </class>
+</hibernate-mapping>
