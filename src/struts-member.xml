@@ -64,6 +64,9 @@
 		<!-- 如果沒有class屬性代表沒有execute()方法 -->
 		<!-- 目前因為有此設定，所以 authentication的自定攔截器才能作用於所有JSP -->
 		<action name="*" >
+<!-- 	           以下設定表示整個reservation package都被攔截器攔截  
+			只要輸入http://localhost:8081/hairdressing/reservation/xxx.action 就都會先被判斷是否有登入會員
+			如果要將其他網頁也加入攔截器可再增加如<result>/offer/{1}.jsp</result> 的設定即可-->
               <result>/reservation/{1}.jsp</result>                      <!-- 沒有name屬性代表name="sucess" -->
          </action>    
 	</package>

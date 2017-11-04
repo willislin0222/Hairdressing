@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="">
@@ -13,63 +15,53 @@
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/product/productmain.css">
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/imgView.css">
 		<script type="text/javascript" src="<%= request.getContextPath()%>/js/product/ProductImageView.js"></script>
-		<!--[if lt IE 9]>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
 	</head>
 	<body>
-	<c:if test="${not empty errorMsgs}">
-		<font color="red">請修正以下錯誤
-			<c:forEach var="message" items="${errorMsgs}">
-				<li>${message}</li>
-			</c:forEach> 
-		</font>
-	</c:if>	
+	<%-- 錯誤表列 --%>
+    <s:fielderror cssStyle="color: red" />
 		
 			<div class="container">
-				<form  method="post" action="<%= request.getContextPath()%>/product/productServlet.do" enctype="multipart/form-data">
+				<s:form action="addProduct" namespace="/product" enctype="multipart/form-data" method="POST">
 					<div class="product">	
 						<H3 class="producttitle">編輯商品資訊</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品名稱</span>
-					 	<input type="text" name="pro_name" class="form-control" placeholder="商品名稱" aria-describedby="basic-addon1">
+					 	<input type="text" name="productVO.pro_name" class="form-control" placeholder="商品名稱" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品描述</span>
-					    <input type="text" name="pro_desc" class="form-control" placeholder="商品描述" aria-describedby="basic-addon1">
+					    <input type="text" name="productVO.pro_desc" class="form-control" placeholder="商品描述" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品單價</span>
-					    <input type="text" name="pro_price" class="form-control" placeholder="商品單價" aria-describedby="basic-addon1">
+					    <input type="text" name="productVO.pro_price" class="form-control" placeholder="商品單價" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品圖片1</span>
-					    <input type="file" name="pro_image" class="form-control" aria-describedby="basic-addon1">
+					    <input type="file" name="fileUpload" class="form-control" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group" id="imageView1"></div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品圖片2</span>
-					    <input type="file" name="pro_image" class="form-control" aria-describedby="basic-addon1">
+					    <input type="file" name=fileUpload class="form-control" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group" id="imageView2"></div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品圖片3</span>
-					    <input type="file" name="pro_image" class="form-control" aria-describedby="basic-addon1">
+					    <input type="file" name="fileUpload" class="form-control" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group" id="imageView3"></div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品圖片4</span>
-					    <input type="file" name="pro_image" class="form-control" aria-describedby="basic-addon1">
+					    <input type="file" name="fileUpload" class="form-control" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group" id="imageView4"></div>
 					<div class="input-group btndiv">
-						<input type="hidden" name="pro_number" value="0">
-						<input type="hidden" name="action" value="addProduct">
+						<input type="hidden" name="productVO.pro_number" value="0">
 						<button type="submit" class="btn btn-primary btn-lg">新增商品</button>  	
 					</div>	
-				</form>	
+				</s:form>	
 			</div>
 
 		

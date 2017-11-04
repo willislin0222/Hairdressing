@@ -3,6 +3,8 @@ package com.product.model;
 import java.sql.Date;
 import java.util.List;
 
+import com.offer.model.OfferVO;
+
 public class ProductService {
 	ProductDAO_interface dao;
 	public ProductService(){
@@ -40,6 +42,15 @@ public class ProductService {
 		productVO.setPro_number(pro_number);
 		dao.insert(productVO);
 		return productVO;
+	}
+	
+	//給struct2用
+	public void addProduct(ProductVO productVO) {
+		dao.insert(productVO);
+	}
+			
+	public void updateProduct(ProductVO productVO) {
+		dao.update(productVO);
 	}
 	
 	public void delete(String pro_no){

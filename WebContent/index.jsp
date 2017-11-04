@@ -58,7 +58,7 @@
 			            	</c:if>
 			            <li><a href="<%= request.getContextPath()%>/reservation/fullcalendar.action">預約專區</a></li>		         
 			            <li><a href="#">美髮商城</a></li>
-			            <li><a href="#">聯絡我</a></li>
+			            <li><a href="">聯絡我</a></li>
 			            	
 			          </ul>
 			        </div>

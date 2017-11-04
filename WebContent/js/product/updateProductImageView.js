@@ -1,5 +1,3 @@
-var i
-
 function renderImageFile1() {  
 		file = this.files[0];
 		var imgReader = new FileReader();
@@ -83,14 +81,12 @@ function renderImageFile4() {
 	imgReader.readAsDataURL(file);
 }
 
-
 function init(){
-	  var files = document.getElementsByName("fileUpload");
-	  
-	  files[0].addEventListener("change",renderImageFile1,false);
-	  files[1].addEventListener("change",renderImageFile2,false);
-	  files[2].addEventListener("change",renderImageFile3,false);
-	  files[3].addEventListener("change",renderImageFile4,false);
+	
+	 document.getElementById("pro_image1").addEventListener("change",renderImageFile1,false);
+	 document.getElementById("pro_image2").addEventListener("change",renderImageFile2,false);
+	 document.getElementById("pro_image3").addEventListener("change",renderImageFile3,false);
+	 document.getElementById("pro_image4").addEventListener("change",renderImageFile4,false);
 }
 
 window.addEventListener("load",init,false);

@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.product.model.*"%>
 <%-- 此頁練習採用 EL 的寫法取值 --%>
@@ -45,20 +47,16 @@
 			<td><img src="productImage.do?imglist=4&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>			
 			<td>${productVO.pro_number}</td>		
 			<td>
-			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/product/productServlet.do">
+			  <s:form method="post" action="getOne_For_Update" namespace="/product">
 			     <input type="submit" value="修改"> 
 			     <input type="hidden" name="pro_no" value="${productVO.pro_no}">
-			     <input type="hidden" name="requestURL"	value="<%=request.getServletPath()%>"><!--送出本網頁的路徑給Controller-->
-			    <input type="hidden" name="whichPage"	value="<%=whichPage%>">               <!--送出當前是第幾頁給Controller-->
-			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
+			  </s:form>
 			</td>
 			<td>
-			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/product/productServlet.do">
+			  <s:form method="post" action="delete" namespace="/product">
 			    <input type="submit" value="刪除">
 			    <input type="hidden" name="pro_no" value="${productVO.pro_no}">
-			    <input type="hidden" name="requestURL"	value="<%=request.getServletPath()%>"><!--送出本網頁的路徑給Controller-->
-			    <input type="hidden" name="whichPage"	value="<%=whichPage%>">               <!--送出當前是第幾頁給Controller-->
-			    <input type="hidden" name="action"value="delete"></FORM>
+			  </s:form>
 			</td>
 		</tr>
 	</c:forEach>

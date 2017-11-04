@@ -1,4 +1,4 @@
-package com.product.controller;
+package com.product.actions;
 
 import java.io.*;
 import java.sql.*;

@@ -68,12 +68,16 @@
 <!-- 	ProductImage Servlet -->
 	<servlet>
 	    <servlet-name>ProductImage</servlet-name>
-	    <servlet-class>com.product.controller.ProductImage</servlet-class>
+	    <servlet-class>com.product.actions.ProductImage</servlet-class>
     </servlet>
 
     <servlet-mapping>
 	    <servlet-name>ProductImage</servlet-name>
 	    <url-pattern>/product/productImage.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+	    <servlet-name>ProductImage</servlet-name>
+	    <url-pattern>/back/productImage.do</url-pattern>
     </servlet-mapping>
 
 <!-- 	MorderServlet -->

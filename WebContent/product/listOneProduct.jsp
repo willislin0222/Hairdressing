@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%@ page import="com.product.model.*" %>
-
-<%
-	ProductVO productVO = (ProductVO) request.getAttribute("productVO");
-%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,18 +36,16 @@
 			<td><img src="productImage.do?imglist=4&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>			
 			<td>${productVO.pro_number}</td>	
 			<td>
-			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/product/productServlet.do">
+			  <s:form method="post" action="getOne_For_Update" namespace="/product">
 			     <input type="submit" value="修改"> 
 			     <input type="hidden" name="pro_no" value="${productVO.pro_no}">
-			     <input type="hidden" name="requestURL"	value="<%=request.getServletPath()%>"><!--送出本網頁的路徑給Controller-->
-			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
+			  </s:form>
 			</td>
 			<td>
-			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/product/productServlet.do">
+			  <s:form method="post" action="delete" namespace="/product">
 			    <input type="submit" value="刪除">
 			    <input type="hidden" name="pro_no" value="${productVO.pro_no}">
-			    <input type="hidden" name="requestURL"	value="<%=request.getServletPath()%>"><!--送出本網頁的路徑給Controller-->
-			    <input type="hidden" name="action"value="delete"></FORM>
+			  </s:form>
 			</td>
 		</tr>
 </table>

@@ -8,5 +8,26 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
 	
+	<package name="product" namespace="/product" extends="struts-default">
+
+	    <action name="addProduct"   class="com.product.actions.ProductAction"  method="addProduct">
+	        <result name="success">/product/listAllProduct.jsp</result>
+            <result name="input">/product/addProduct.jsp</result>
+		</action>
+			
+		<action name="getOne_For_Update"   class="com.product.actions.ProductManagerAction"  method="getOne_For_Update">
+	        <result name="success">/product/updateProduct.jsp</result>
+		</action>
+		
+		<action name="updateProduct"   class="com.product.actions.ProductAction"  method="updateProduct">
+	        <result name="success">/product/listOneProduct.jsp</result>
+	        <result name="input">/product/updateProduct.jsp</result>
+		</action>
+		
+		<action name="delete"   class="com.product.actions.ProductManagerAction"  method="delete">
+	        <result name="success">/product/listAllProduct.jsp</result>
+	        <result name="input">/index.jsp</result>
+		</action>
+	</package>
 
 </struts>
