@@ -12,22 +12,23 @@
 <script src='<%= request.getContextPath()%>/js/fullcalendar/moment.min.js'></script>
 <script src='<%= request.getContextPath()%>/js/fullcalendar/jquery.min.js'></script>
 <script src='<%= request.getContextPath()%>/js/fullcalendar/fullcalendar.min.js'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='<%= request.getContextPath()%>/js/bootstrap.min.js'></script>
 <link href='<%= request.getContextPath()%>/css/fullcalendar/calendar.css' rel='stylesheet' />
 <script src="<%= request.getContextPath()%>/js/fullcalendar/calendar.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<%-- <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/bootstrap.min.css"> --%>
 <!-- 彈跳出預約輸入視窗用 -->
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/reservation/reservationmain.css">
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery.timepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/jquery.timepicker.css" />
 <script type="text/javascript" src="<%= request.getContextPath()%>/js/site.js"></script>
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/site.css" />
+<%-- <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/site.css" /> --%>
 
 		
 </head>
 <body>
-
+<!-- header -->
+    	<jsp:include page="/header.jsp" />
 <div class="container">
 	<div id="title">${memberVO.mem_name}的預約清單</div>
 	<!-- 標籤面板：標籤區 -->
@@ -100,7 +101,9 @@
 					</s:form>
 				</div>
 			</div>
-			
-</div>			
+		</div>	
+</div>		
+ <!-- Footer -->
+    	<jsp:include page="/footer.jsp" /> 	
 </body>
 </html>

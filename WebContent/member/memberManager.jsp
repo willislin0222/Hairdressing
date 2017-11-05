@@ -1,11 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
-<!--
-	Strata by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Strata by HTML5 UP</title>
@@ -16,14 +11,14 @@
 	<body id="top">
 		<!-- Wrapper -->
 		<div id="wrapper">
-
 			<!-- Header -->
 				<header id="header">
 					<div class="inner">
 
 						<!-- Introduction -->
+						
 						<a href="#" class="image avatar"><img src="<%= request.getContextPath()%>/images/5gold.jpg" alt="" /></a>
-						<h1><strong>�ڬO�����Z</strong>, �L�_�y�]�աI�A�{�b���򨭥��H�R���աI</h1>
+						<h1><strong>我是金城武</strong>, 林北流氓啦！你現在什麼身份？俘虜啦！</h1>
 						<!-- Nav -->
 						<nav>
 							<ul>
@@ -38,9 +33,9 @@
 					<h2>Menu</h2>
 					<ul>
 						<li><a href="<%= request.getContextPath()%>/index.jsp">Home</a></li>
-						<li><a href="<%= request.getContextPath()%>/member/updateMember.jsp">�ק�ӤH���</a></li>
-						<li><a href="<%= request.getContextPath()%>/reservation/fullcalendar.action">�d�߹w������</a></li>
-						<li><a href="generic.html">�d���ʪ�����</a></li>
+						<li><a href="<%= request.getContextPath()%>/member/updateMember.jsp">修改個人資料</a></li>
+						<li><a href="<%= request.getContextPath()%>/reservation/fullcalendar.action">查詢預約紀錄</a></li>
+						<li><a href="generic.html">查詢購物紀錄</a></li>
 					</ul>
 				</nav>
 
@@ -50,9 +45,9 @@
 					<!-- One -->
 						<section id="one">
 							<header class="major">
-								<h2>�u���x�W�ӱСv</h2>
+								<h2>「為台灣而教」</h2>
 							</header>
-							<p>�ڭ̴��\�C�ӤH����z�L�إߦۤv���ҵ{���覡�A�F��оǬ۪��B���Ѧ@�ɪ��ت��A�@�P�׵��x�W�Ш|���ʳ��H���������������D�A���@�ӫĤl���X�����A����L�����ӡC</p>
+							<p>我們期許每個人都能透過建立自己的課程的方式，達到教學相長、知識共享的目的，共同終結台灣教育體制的缺陷以ㄐㄧ不平等的問題，讓一個孩子的出身不再限制他的未來。</p>
 							<ul class="actions">
 								<li><a href="#" class="button">Learn More</a></li>
 							</ul>
@@ -65,7 +60,7 @@
 								<article class="6u 12u$(xsmall) work-item">
 									<a href="<%= request.getContextPath()%>/images/pic01.jpg" class="image fit thumb">
 										<img src="<%= request.getContextPath()%>/images/pic01.jpg" alt="" />
-										<h3>�p����@�Ӱ��T���u�{�v</h3>
+										<h3>如何當一個假掰的工程師</h3>
 									</a>
 								</article>
 								<article class="6u$ 12u$(xsmall) work-item">
@@ -115,7 +110,7 @@
 							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 						</ul>
 						<ul class="copyright">
-							<li>&copy; ���_��</li>
+							<li>&copy; 藝起學</li>
 						</ul>
 					</div>
 				</footer>
