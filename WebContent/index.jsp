@@ -25,6 +25,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="<%= request.getContextPath()%>/vendor/jquery/jquery.min.js"></script>
+    <script src="<%= request.getContextPath()%>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <title>index</title>
 
@@ -88,7 +90,8 @@
 	      <div class="row">
 	        <div class="panel-group" id="accordion1">
 				<div class="panel panel-info">
-					<c:forEach var="newsVO" items="${newslist}">
+					<%@ include file="/pages/newspage.file" %>
+					<c:forEach var="newsVO" items="${newslist}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 					    <div class="panel-heading">
 					        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= count%>">${newsVO.news_title}</a></h4>
 					    </div>
@@ -96,9 +99,10 @@
 					       <div class="panel-body">${newsVO.news_content}</div>
 					    </div>
 					</c:forEach>
-				</div>		        
+				</div>	        
 			</div>
 	      </div>
+	      <%@ include file="/pages/page4.file" %>	
       </div>
       <!-- /.row -->
 
