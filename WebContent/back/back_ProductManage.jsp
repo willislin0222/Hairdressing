@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/css/productManage.css">
 <title>後端管理系統</title>
 </head>
 <body>
@@ -22,6 +23,11 @@
 	        </li>
 	      </ol>
 	<!-- Breadcrumbs結束-->	
+	<div class="main-content addbtn">
+		 <a href="<%=request.getContextPath()%>/back/back_addProduct.jsp" role="button" class="btn btn-primary back_btn reg_adm_btn">新增商品</a>
+	</div><br>
+	
+	
 	<div class="card mb-3">
         <div class="card-body">
           <div class="table-responsive">
@@ -37,35 +43,39 @@
 						<th>商品圖片3</th>
 						<th>商品圖片4</th>
 						<th>訂購人數</th>
+						<th>建立日期</th>
 						<th>修改</th>
-						<th>刪除</th>
+						<th>下架</th>
 					</tr>
               </thead>
               <tbody>
              	<c:forEach var="productVO" items="${list}">
-					<tr align='center' valign='middle' ${(productVO.pro_no==param.pro_no) ? 'bgcolor=#CCCCFF':''}><!--將修改的那一筆加入對比色而已-->
-						<td>${productVO.pro_no}</td>
-						<td>${productVO.pro_name}</td>
-						<td>${productVO.pro_desc}</td>
-						<td>${productVO.pro_price}</td>
-						<td><img src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>
-						<td><img src="productImage.do?imglist=2&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>
-						<td><img src="productImage.do?imglist=3&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>
-						<td><img src="productImage.do?imglist=4&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>			
-						<td>${productVO.pro_number}</td>		
-						<td>
-						  <s:form method="post" action="getOne_For_Update" namespace="/product">
-						     <input type="submit" value="修改"> 
-						     <input type="hidden" name="pro_no" value="${productVO.pro_no}">
-						  </s:form>
-						</td>
-						<td>
-						  <s:form method="post" action="delete" namespace="/product">
-						    <input type="submit" value="刪除">
-						    <input type="hidden" name="pro_no" value="${productVO.pro_no}">
-						  </s:form>
-						</td>
-					</tr>
+             		<c:if test="${productVO.pro_status.equals('1')}">
+						<tr align='center' valign='middle' ${(productVO.pro_no==param.pro_no) ? 'bgcolor=#CCCCFF':''}><!--將修改的那一筆加入對比色而已-->
+							<td>${productVO.pro_no} </td>
+							<td>${productVO.pro_name}</td>
+							<td>${productVO.pro_desc}</td>
+							<td>${productVO.pro_price}</td>
+							<td><img src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>
+							<td><img src="productImage.do?imglist=2&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>
+							<td><img src="productImage.do?imglist=3&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>
+							<td><img src="productImage.do?imglist=4&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>			
+							<td>${productVO.pro_number}</td>		
+							<td>${productVO.pro_createdate}</td>		
+							<td>
+							  <s:form method="post" action="getOne_For_Update" namespace="/product">
+							     <input type="submit" value="修改"> 
+							     <input type="hidden" name="pro_no" value="${productVO.pro_no}">
+							  </s:form>
+							</td>
+							<td>
+							  <s:form method="post" action="end" namespace="/product">
+							    <input type="submit" value="下架">
+							    <input type="hidden" name="pro_no" value="${productVO.pro_no}">
+							  </s:form>
+							</td>
+						</tr>
+					</c:if>
 				</c:forEach>
               </tbody>
             </table>
@@ -73,5 +83,6 @@
         </div>
      </div>	
 	<%@ include file="back_template/back_template_bottom.file"%>	
+	
 </body>
 </html>

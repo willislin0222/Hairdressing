@@ -78,10 +78,14 @@
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">訂購人數</span>
-					 	<input class="form-control" type="text" placeholder="${productVO.pro_number}" readonly > 
+					 	<input class="form-control" type="text" name="productVO.pro_number" value="${productVO.pro_number}" readonly > 
+					</div>
+					<div class="input-group">
+					  	<span class="input-group-addon" id="basic-addon1">建立日期</span>
+					 	<input class="form-control" name="productVO.pro_createdate" type="date" value="${productVO.pro_createdate}" readonly > 
 					</div>
 					<div class="input-group btndiv">
-						<input type="hidden" name="productVO.pro_number" value="${productVO.pro_number}">
+						<input type="hidden" name="productVO.pro_status" value="${productVO.pro_status}">
 						<button type="submit" class="btn btn-primary btn-lg">修改商品資訊</button>  	
 					</div>	
 				</s:form>	

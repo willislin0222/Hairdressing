@@ -1,5 +1,7 @@
 package com.product.model;
 
+import java.sql.Date;
+
 public class ProductVO {
 	private String pro_no;
 	private String pro_name;
@@ -10,6 +12,8 @@ public class ProductVO {
 	private byte[] pro_image3;
 	private byte[] pro_image4;
 	private Integer pro_number;
+	private Date pro_createdate;
+	private String pro_status;
 	public String getPro_no() {
 		return pro_no;
 	}
@@ -64,7 +68,18 @@ public class ProductVO {
 	public void setPro_number(Integer pro_number) {
 		this.pro_number = pro_number;
 	}
+	public Date getPro_createdate() {
+		return pro_createdate;
+	}
+	public void setPro_createdate(Date pro_createdate) {
+		this.pro_createdate = pro_createdate;
+	}
+	public String getPro_status() {
+		return pro_status;
+	}
+	public void setPro_status(String pro_status) {
+		this.pro_status = pro_status;
+	}
 	
-	
-	
+
 }

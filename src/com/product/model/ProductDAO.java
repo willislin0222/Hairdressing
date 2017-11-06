@@ -9,7 +9,7 @@ import hibernate.util.HibernateUtil;
 
 public class ProductDAO implements ProductDAO_interface{
 
-	private static final String GET_ALL_STMT="from ProductVO order by pro_no";
+	private static final String GET_ALL_STMT="from " + ProductVO.class.getName() +" order by pro_createdate desc";	
 	
 	@Override
 	public void insert(ProductVO productVO) {
@@ -94,5 +94,6 @@ public class ProductDAO implements ProductDAO_interface{
 		
 		return list;
 	}
+
 
 }

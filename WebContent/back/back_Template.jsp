@@ -4,6 +4,11 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 <%@ page import="java.util.*"%>
+<%@ page import="com.adm.model.*"%>
+<%
+	AdmVO admVO =(AdmVO) session.getAttribute("admVO");
+  
+%>
 <!DOCTYPE html>
 <html>
 
@@ -13,13 +18,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>後端管理系統</title>
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<%=request.getContextPath()%>/back/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="<%=request.getContextPath()%>/back/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="<%=request.getContextPath()%>/back/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="<%=request.getContextPath()%>/back/css/sb-admin.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -102,6 +107,12 @@
             </div>
           </form>
         </li>
+        <c:if test="${admVO.adm_id != null }">
+	        <li class="nav-item">
+	          <a class="nav-link" data-toggle="modal">
+	            <i class="fa fa-fw fa-sign-out"></i>${admVO.adm_id}</a>
+	        </li>   
+        </c:if>
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -155,19 +166,19 @@
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<%=request.getContextPath()%>/back/vendor/jquery/jquery.min.js"></script>
+    <script src="<%=request.getContextPath()%>/back/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<%=request.getContextPath()%>/back/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="<%=request.getContextPath()%>/back/vendor/chart.js/Chart.min.js"></script>
+    <script src="<%=request.getContextPath()%>/back/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="<%=request.getContextPath()%>/back/vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
+    <script src="<%=request.getContextPath()%>/back/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/sb-admin-charts.min.js"></script>
+    <script src="<%=request.getContextPath()%>/back/js/sb-admin-datatables.min.js"></script>
+    <script src="<%=request.getContextPath()%>/back/js/sb-admin-charts.min.js"></script>
   </div>
 </body>
 </html>

@@ -17,6 +17,8 @@
         <property name="pro_image3" column="pro_image3" />
         <property name="pro_image4" column="pro_image4" />
         <property name="pro_number" column="pro_number" />
+        <property name="pro_createdate" column="pro_createdate" />
+        <property name="pro_status" column="pro_status" />
         
     </class>
 </hibernate-mapping>

@@ -29,3 +29,13 @@ body{
 .btndiv{
 	text-align: center;
 }
+/* 調整商品詳情圖片大小 */
+.img-fluid1{
+    width: 600px;
+    height: 600px;
+}
+.img-fluid2{
+	
+    width: 350px;
+    height: 300px;
+}

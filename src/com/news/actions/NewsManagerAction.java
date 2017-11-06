@@ -26,14 +26,21 @@ public class NewsManagerAction extends ActionSupport{
 		newsSvc.delete(news_no);
 		return "success";
 	}
+	
+	//最新消息結束公告
+	public String end(){
+		NewsService newsSvc = new NewsService();
+		NewsVO newsVO = newsSvc.getOneNews(news_no);
+		newsVO.setNews_status("0");
+		newsSvc.updateNews(newsVO);
+		return "success";
+	}
+	
 	public String getNews_no() {
 		return news_no;
 	}
 	public void setNews_no(String news_no) {
 		this.news_no = news_no;
 	}
-	
-
-	
 	
 }

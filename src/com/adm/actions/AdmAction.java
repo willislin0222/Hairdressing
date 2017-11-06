@@ -2,6 +2,7 @@ package com.adm.actions;
 
 
 import java.io.IOException;
+import java.util.Base64;
 
 import com.adm.model.AdmService;
 import com.adm.model.AdmVO;
@@ -16,6 +17,15 @@ public class AdmAction extends ActionSupport{
 	public String addAdm() throws IOException{
 		AdmService admSvc = new AdmService();
 		admVO.setAdm_createdate(new java.sql.Date(System.currentTimeMillis()));
+		if(admSvc.getOneAdmByAdmid(admVO.getAdm_id()).getAdm_no() != null){
+			super.addFieldError("adm_id", "此帳號已申請過");
+			return "input";
+		}
+		//密碼加密
+		Base64.Encoder encoder = Base64.getEncoder();
+		final String psw_new64 = encoder.encodeToString(admVO.getAdm_psw().getBytes());
+		admVO.setAdm_psw(psw_new64);
+		admVO.setAdm_status("1");
 		admSvc.addAdm(admVO);
 		return "success";
 	}

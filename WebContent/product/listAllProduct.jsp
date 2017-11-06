@@ -31,6 +31,7 @@
 		<th>商品圖片3</th>
 		<th>商品圖片4</th>
 		<th>訂購人數</th>
+		<th>建立日期</th>
 		<th>修改</th>
 		<th>刪除</th>
 	</tr>
@@ -46,6 +47,7 @@
 			<td><img src="productImage.do?imglist=3&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>
 			<td><img src="productImage.do?imglist=4&pro_no=${productVO.pro_no}" width="200px" height="200px"></td>			
 			<td>${productVO.pro_number}</td>		
+			<td>${productVO.pro_createdate}</td>		
 			<td>
 			  <s:form method="post" action="getOne_For_Update" namespace="/product">
 			     <input type="submit" value="修改"> 

@@ -38,7 +38,7 @@ public class MemberDAO implements MemberDAO_interface{
 		
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(memberVO);
+			session.saveOrUpdate(session.merge(memberVO));
 			session.getTransaction().commit();
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
@@ -126,6 +126,7 @@ public class MemberDAO implements MemberDAO_interface{
 				memberVO.setMem_email(member.getMem_email());
 				memberVO.setMem_mobile(member.getMem_mobile());
 				memberVO.setMem_joindate(member.getMem_joindate());
+				memberVO.setMem_status(member.getMem_status());
 			}
 			session.getTransaction().commit();
 		} catch (RuntimeException e) {

@@ -195,6 +195,7 @@
                       <div class="col-sm-6 col-sm-offset-3">
                         <input type="hidden" name="memberVO.mem_no" value="${memberVO.mem_no}">
 						<input type="hidden" name="memberVO.mem_joindate" value="${memberVO.mem_joindate}">
+						<input type="hidden" name="memberVO.mem_status" value="${memberVO.mem_status}">
                         <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="修改會員資料">
                       </div>
                     </div>

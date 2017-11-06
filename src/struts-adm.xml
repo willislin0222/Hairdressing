@@ -11,8 +11,13 @@
 	<package name="adm" namespace="/adm" extends="struts-default">
 
 	    <action name="addAdm"   class="com.adm.actions.AdmAction"  method="addAdm">
-	        <result name="success">/back/listAllAdm.jsp</result>
+	        <result name="success">/back/back_AdmManage.jsp</result>
             <result name="input">/back/addAdm.jsp</result>
+		</action>
+		
+		<action name="login" class="com.adm.actions.AdmManagerAction"  method="login">
+	        <result name="success">/back/back_AdmManage.jsp</result>
+	        <result name="input">/back/admin.jsp</result>
 		</action>
 			
 		<action name="getOne_For_Update"   class="com.adm.actions.AdmManagerAction"  method="getOne_For_Update">

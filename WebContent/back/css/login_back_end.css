@@ -1,0 +1,247 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: #f3f3f3;
+}
+
+body{
+    font:14px/1.5 Arial, Helvetica, sans-serif;
+    margin:0;
+}
+
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: .5;
+}
+
+.errMsg{
+    font-size: 10px;
+    height: auto;
+    width: 300px;
+    margin-left: 40%;
+    color: #f00;
+}
+
+.display{
+    display: inline-block;
+    width: 250px;
+    height: 40px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    margin: 10px 5px;
+    border: 1px solid #a1bb96;
+}
+
+.main-content{
+    margin-top: 100px;
+    margin-bottom: 75px;
+}
+
+.form-basic{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 55px;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,0.7);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.8);
+    font: bold 25px sans-serif;
+    text-align: center;
+}
+
+.form-basic .form-row{
+    text-align: left;
+    margin-bottom: 22px;
+}
+
+.form-basic .form-title-row{
+    text-align: center;
+    margin-bottom: 55px;
+    border-bottom: 3px solid #337ab7;
+    /*border: 1px solid #a1bb96;*/
+    transition: 1.2s;
+}
+
+.form-basic .form-row-submit{
+    text-align: center;
+    /*border: 1px solid #a1bb96;*/
+    transition: 1s;
+}
+
+/* The form title */
+
+.form-basic h1{
+    display: inline-block;
+    box-sizing: border-box;
+    color:  #000;
+    font-size: 30px;
+    padding: 0 10px 15px;
+    margin: 0;
+    font-weight: 900;
+}
+
+.form-basic .form-row > label span{
+    display: inline-block;
+    box-sizing: border-box;
+    color: #333;
+    width: 180px;
+    text-align: right;
+    vertical-align: top;
+    padding: 20px 25px;
+    /*border: 1px solid #a1bb96;*/
+}
+
+.form-basic input{
+    outline: none !important;
+    color:  #333;
+    box-sizing: border-box;
+    width: 250px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px;
+    border: 1px solid #337ab7;
+    margin: 10px 5px;
+    transition: width 0.5s;
+}
+
+/*.form-basic select{
+    outline: none !important;
+    background-color: #ffffff;
+    color:  #333;
+    box-sizing: border-box;
+    width: 250px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px 8px;
+    border: 1px solid #a1bb96;
+    margin: 10px 5px;
+    transition: width 0.5s, border-radius 0.8s;
+}*/
+
+.form-basic input:focus,
+.form-basic select:focus{
+    width: 280px;
+    box-sizing: border-box;
+    /*border: 1px solid #a1bb96;*/
+    border-radius: 5px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1);
+    transition: width 0.5s, border-radius 0.8s;
+}
+
+.form-basic input[type=submit]{
+    /*display: inline-block;*/
+    border-radius: 5px;
+    background-color: #337ab7;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 30px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 1px 0px;
+    border: 0;
+    margin: 10px 0 0;
+    width: 200px;
+    height: 80px;
+    transition: border-radius 0.5s;
+    /*border: 1px solid #a1bb96;*/
+}
+.form-basic input[type=submit]:hover{
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+#forgetPsw{
+    text-decoration: none;
+    display: inline-block;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 30px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 13px;
+    margin: 10px 0 0;
+    width: 200px;
+    height: 80px;
+    font-size: 20px;
+    background-color: #acacac;
+    width: 150px;
+    height: 50px;
+    transform: translateY(20%);
+    border-radius: 5px;
+    transition: border-radius 0.5s;
+}#forgetPsw:hover{
+	border-radius: 15px;
+	transition: border-radius 0.5s;
+}
+
+#fastForward{
+    border: none;
+    background-color: #acacac;
+    width: 10px;
+    height: 10px;
+    margin: 10px 0 0;
+    transform: translateY(50%);
+}
+
+#fastForward:hover{
+    border-radius: 100%;
+    transition: 0.8s;
+    
+}
+
+
+
+/*	Making the form responsive. Remove this media query
+    if you don't need the form to work on mobile devices. */
+
+@media (max-width: 600px) {
+    
+    .form-basic{
+        padding: 30px;
+        max-width: 480px;
+    }
+
+    .form-basic .form-row{
+        max-width: 300px;
+        margin: 25px auto;
+        text-align: left;
+    }
+
+    .form-basic .form-title-row{
+        margin-bottom: 50px;
+    }
+
+    .form-basic .form-row > label span{
+        display: block;
+        text-align: left;
+        padding: 0 0 15px;
+    }
+
+    .form-basic select{
+        width: 240px;
+    }
+
+    .form-basic button{
+        margin: 0;
+    }
+
+    video{
+        margin: 0;
+    }
+
+    .errMsg{
+        max-width: 200px;
+        margin: 10px 10px;
+        text-align: left;
+    }
+
+}

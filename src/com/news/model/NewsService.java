@@ -31,4 +31,8 @@ private NewsDAO_interface dao;
 	public List<NewsVO> getAll(){
 		return dao.getAll();
 	}
+	
+	public List<NewsVO> getNewsByStatus(){
+		return dao.getNewsByStatus();
+	}
 }

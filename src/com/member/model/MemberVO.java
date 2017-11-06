@@ -18,6 +18,7 @@ public class MemberVO {
 	private	Date mem_joindate;
 	private Set<ReservationVO> reservations = new HashSet<ReservationVO>();
 	private Set<MorderVO> morders = new HashSet<MorderVO>();
+	private String mem_status;
 	public String getMem_no() {
 		return mem_no;
 	}
@@ -78,9 +79,11 @@ public class MemberVO {
 	public void setMorders(Set<MorderVO> morders) {
 		this.morders = morders;
 	}
-
-	
-	
-	
+	public String getMem_status() {
+		return mem_status;
+	}
+	public void setMem_status(String mem_status) {
+		this.mem_status = mem_status;
+	}
 	
 }

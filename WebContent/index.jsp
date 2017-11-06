@@ -4,17 +4,25 @@
 <%@ page import="com.offer.model.*"%>
 <%@ page import="com.member.model.*"%>
 <%@ page import="com.news.model.*"%>
+<%@ page import="com.product.model.*"%>
 <%@ page import="java.util.*"%>
 <% 
 	int count=1;
+	int productNumber = 1;
 
 	OfferService offerSvc = new OfferService();
 	List<OfferVO> list = offerSvc.getAll();
 	pageContext.setAttribute("list",list);	
 	
 	NewsService newsSvc = new NewsService();
-	List<NewsVO> newslist = newsSvc.getAll();
+	List<NewsVO> newslist = newsSvc.getNewsByStatus();
 	pageContext.setAttribute("newslist",newslist);
+	System.out.println(newslist.size());
+	
+	ProductService productSvc = new ProductService();
+	List<ProductVO> productlist = productSvc.getAll();
+	pageContext.setAttribute("productlist",productlist);
+	System.out.println(productlist.size());
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +101,7 @@
 					<%@ include file="/pages/newspage.file" %>
 					<c:forEach var="newsVO" items="${newslist}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 					    <div class="panel-heading">
-					        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= count%>">${newsVO.news_title}</a></h4>
+					        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= count%>">${newsVO.news_title} - ${newsVO.news_createdate}</a></h4>
 					    </div>
 					    <div id="collapseOne<%= count++%>" class="panel-collapse collapse in">
 					       <div class="panel-body">${newsVO.news_content}</div>
@@ -110,72 +118,22 @@
       <h2>最新商品</h2>
 
       <div class="row">
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project One</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Two</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Three</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Four</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Five</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">Project Six</a>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
-            </div>
-          </div>
-        </div>
+      	 <c:forEach var="productVO" items="${productlist}">
+      	 	<c:if test="<%= productNumber++<=6%>">
+		        <div class="col-lg-4 col-sm-6 portfolio-item">
+		          <div class="card h-100">
+		            <a href="product/getOne_For_Display?pro_no=${productVO.pro_no}"><img height="400px class="card-img-top" src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" alt=""></a>
+		            <div class="card-body">
+		              <h4 class="card-title">
+		                <a href="product/getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
+		              </h4>
+		              <p class="card-text">${productVO.pro_desc}</p>
+		              ${productVO.pro_createdate}
+		            </div>
+		          </div>
+		        </div>
+			</c:if>
+		</c:forEach>
       </div>
       <!-- /.row -->
     </div>

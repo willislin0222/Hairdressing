@@ -38,11 +38,7 @@ public class ProductImage extends HttpServlet {
 				out.write(proimg);
 	
 			} catch (Exception e) {
-				InputStream in = getServletContext().getResourceAsStream("/images/nopic.jpg");
-				byte[] buf = new byte[in.available()];
-				in.read(buf);
-				out.write(buf);
-				in.close();
+				System.out.println("沒有圖片");
 			}
 
 	}

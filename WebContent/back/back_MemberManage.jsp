@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.member.model.*"%>
+<%@ page import="java.util.*"%>
 <%
 	MemberService memberSvc = new MemberService();
 	List<MemberVO> list = memberSvc.getAll();
 	request.setAttribute("list", list);	
+
+	List<String> memstatus = new ArrayList<>();
+	memstatus.add("停用");
+	memstatus.add("正常");
+    request.setAttribute("memstatus", memstatus);
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,7 +44,8 @@
 						<th>會員電子郵件</th>
 						<th>會員電話</th>
 						<th>會員加入日期</th>
-						<th>修改</th>
+						<th>會員狀態</th>
+						<th>停用</th>
 						<th>刪除</th> 
 					</tr>
               </thead>
@@ -52,16 +60,18 @@
 						<td>${memberVO.mem_email}</td>
 						<td>${memberVO.mem_mobile}</td>	
 						<td>${memberVO.mem_joindate}</td>		
+						<td>${memstatus[memberVO.mem_status]}</td>		
 						<td>
-						  <s:form action="getOne_For_Update" namespace="/member">
-						     <input type="submit" value="修改"> 
-						     <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
-						  </s:form>
+							  <s:form action="end" namespace="/member" >
+							    <input type="submit" value="停用">
+							    <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
+							  </s:form>
 						</td>
 						<td>
-						  <s:form action="delete" namespace="/member">
+						  <s:form action="delete" namespace="/member" >
 						    <input type="submit" value="刪除">
-						    <input type="hidden" name="mem_no" value="${memberVO.mem_no}"></s:form>
+						    <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
+						  </s:form>
 						</td>
 					</tr>
 				</c:forEach>

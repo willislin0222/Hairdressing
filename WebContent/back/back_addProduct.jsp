@@ -23,7 +23,7 @@
 			<div class="container">
 				<s:form action="addProduct" namespace="/product" enctype="multipart/form-data" method="POST">
 					<div class="product">	
-						<H3 class="producttitle">編輯商品資訊</H3>
+						<H3 class="producttitle">輸入商品資訊</H3>
 					</div>
 					<div class="input-group">
 					  	<span class="input-group-addon" id="basic-addon1">商品名稱</span>

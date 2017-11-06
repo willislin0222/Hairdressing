@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+  
 
     <title>Modern Business - Start Bootstrap Template</title>
 
@@ -50,13 +51,13 @@
       <c:forEach var="productVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">        
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img height="400px" class="card-img-top" src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" alt=""></a>
+            <a href="getOne_For_Display?pro_no=${productVO.pro_no}"><img height="400px" class="card-img-top" src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                	<a href="productdetail.jsp">${productVO.pro_name}</a>
+                	<a href="getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
               </h4>
-            	 <h5>$<span class="card-text">${productVO.pro_price}</span></h5>
-            	   商品介紹:<span class="card-text">${productVO.pro_desc}</span>
+            	 <h5>$<span class="card-text">${productVO.pro_price}-${productVO.pro_createdate}</span></h5>
+            	   商品介紹:<span class="card-text">${productVO.pro_desc}</span> <br>
             </div>
           </div>
         </div>

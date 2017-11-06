@@ -12,6 +12,7 @@ import hibernate.util.HibernateUtil;
 public class NewsDAO implements NewsDAO_interface{
 
 	private static final String GET_ALL_STMT="from NewsVO order by news_no";
+	private static final String GET_NEWS_BY_STATUS="from NewsVO where news_status=1 order by news_createdate desc";
 	@Override
 	public void insert(NewsVO newsVO) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -82,6 +83,24 @@ public class NewsDAO implements NewsDAO_interface{
 		try {
 			session.beginTransaction();
 			Query query = session.createQuery(GET_ALL_STMT);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<NewsVO> getNewsByStatus() {
+		List<NewsVO> list = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery(GET_NEWS_BY_STATUS);
 			list = query.list();
 			session.getTransaction().commit();
 		} catch (RuntimeException e) {

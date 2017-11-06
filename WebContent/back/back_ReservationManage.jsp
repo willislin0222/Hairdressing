@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/css/reservationManage.css">
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
 <title>後端管理系統</title>
 </head>
@@ -23,6 +24,10 @@
 	        <li class="breadcrumb-item active">所有預約明細</li>
 	      </ol>
 	<!-- Breadcrumbs結束-->	
+	<div class="main-content addbtn">
+		 <a href="<%=request.getContextPath()%>/reservation/fullcalendar.action" role="button" class="btn btn-primary back_btn reg_adm_btn">新增預約</a>
+	</div><br>
+	
 	<div class="card mb-3">
         <div class="card-body">
           <div class="table-responsive">

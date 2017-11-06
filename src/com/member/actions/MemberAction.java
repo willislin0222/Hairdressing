@@ -22,6 +22,7 @@ public class MemberAction extends ActionSupport {
 		Base64.Encoder encoder = Base64.getEncoder();
 		final String psw_new64 = encoder.encodeToString(memberVO.getMem_psw().getBytes());
 		memberVO.setMem_psw(psw_new64);
+		memberVO.setMem_status("1");
 		memberSvc.addMember(memberVO);
 		return "success";
 	}
@@ -36,7 +37,7 @@ public class MemberAction extends ActionSupport {
 		memberSvc.updateMembe(memberVO);
 		return "success";
 	}
-
+	
 	public MemberVO getMemberVO() {
 		return memberVO;
 	}

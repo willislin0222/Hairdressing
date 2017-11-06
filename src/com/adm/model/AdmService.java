@@ -24,8 +24,12 @@ private AdmDAO_interface dao;
 		dao.delete(adm_no);
 	}
 	
-	public AdmVO getOneNews(String adm_no){
+	public AdmVO getOneAdm(String adm_no){
 		return dao.findByPrimaryKey(adm_no);
+	}
+	
+	public AdmVO getOneAdmByAdmid(String adm_id){
+		return dao.findByAdmmid(adm_id);
 	}
 	
 	public List<AdmVO> getAll(){

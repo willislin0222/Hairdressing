@@ -30,7 +30,12 @@
 		</action>
 		
 		<action name="delete"   class="com.member.actions.MemberManagerAction"  method="delete">
-	        <result name="success">/member/listAllMember.jsp</result>
+	        <result name="success">/back/back_MemberManage.jsp</result>
+	        <result name="input">/index.jsp</result>
+		</action>
+		
+		<action name="end"  class="com.member.actions.MemberManagerAction" method="end">
+	        <result name="success">/back/back_MemberManage.jsp</result>
 	        <result name="input">/index.jsp</result>
 		</action>
 		

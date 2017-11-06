@@ -76,6 +76,15 @@ public class MemberManagerAction extends ActionSupport{
 		memberSvc.delete(mem_no);
 		return "success";
 	}
+	
+	//停用會員
+	public String end(){
+		MemberService memberSvc = new MemberService();
+		MemberVO memberVO = memberSvc.getOneMember(mem_no);
+		memberVO.setMem_status("0");
+		memberSvc.updateMembe(memberVO);
+		return "success";
+	}
 
 	public String getMem_id() {
 		return mem_id;

@@ -11,21 +11,26 @@
 	<package name="news" namespace="/news" extends="struts-default">
 
 	    <action name="addNews"   class="com.news.actions.NewsAction"  method="addNews">
-	        <result name="success">/news/listAllNews.jsp</result>
+	        <result name="success">/back/back_NewsManage.jsp</result>
             <result name="input">/news/addNews.jsp</result>
 		</action>
 			
 		<action name="getOne_For_Update"   class="com.news.actions.NewsManagerAction"  method="getOne_For_Update">
-	        <result name="success">/news/updateNews.jsp</result>
+	        <result name="success">/back/back_updateNews.jsp</result>
 		</action>
 		
 		<action name="updateNews"   class="com.news.actions.NewsAction"  method="updateNews">
-	        <result name="success">/news/listOneNews.jsp</result>
+	        <result name="success">/back/back_NewsManage.jsp</result>
 	        <result name="input">/news/updateNews.jsp</result>
 		</action>
 		
 		<action name="delete"   class="com.news.actions.NewsManagerAction"  method="delete">
 	        <result name="success">/news/listAllNews.jsp</result>
+	        <result name="input">/index.jsp</result>
+		</action>
+		
+		<action name="end"   class="com.news.actions.NewsManagerAction"  method="end">
+	        <result name="success">/back/back_NewsManage.jsp</result>
 	        <result name="input">/index.jsp</result>
 		</action>
 	</package>

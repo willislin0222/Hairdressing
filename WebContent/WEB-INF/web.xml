@@ -79,6 +79,10 @@
 	    <servlet-name>ProductImage</servlet-name>
 	    <url-pattern>/back/productImage.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+	    <servlet-name>ProductImage</servlet-name>
+	    <url-pattern>/productImage.do</url-pattern>
+    </servlet-mapping>
 
 <!-- 	MorderServlet -->
 	<servlet>

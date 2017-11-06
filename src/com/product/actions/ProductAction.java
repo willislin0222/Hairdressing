@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class ProductAction {
 	public String addProduct() throws IOException{
 		ProductService productSvc = new ProductService();
 		//處理前端送來的file List
+		Date pro_createdate = new java.sql.Date(System.currentTimeMillis());
 		int count = 1;
 		byte[] imagetemp=null;
 		for (File file: fileUpload) {
@@ -49,6 +51,8 @@ public class ProductAction {
 					productVO.setPro_image4(imagetemp);
 					break;
 			}
+			productVO.setPro_createdate(pro_createdate);
+			productVO.setPro_status("1");
 			count++;
 		}
 		productSvc.addProduct(productVO);
@@ -113,6 +117,7 @@ public class ProductAction {
 		return "success";
 	}
 	
+	
 	public ProductVO getProductVO() {
 		return productVO;
 	}
@@ -160,15 +165,5 @@ public class ProductAction {
 	public void setPro_image4(File pro_image4) {
 		this.pro_image4 = pro_image4;
 	}
-
-	
-
-	
-
-	
-	
-	
-	
-	
 
 }
