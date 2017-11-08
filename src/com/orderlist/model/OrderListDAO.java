@@ -123,5 +123,16 @@ public class OrderListDAO implements OrderListDAO_interface{
 		return list;
 	}
 
+	@Override
+	public void insert2(OrderListVO orderListVO, Session oldsession) {	
+		try {
+			oldsession.saveOrUpdate(orderListVO);	
+		} catch (RuntimeException e) {
+			oldsession.getTransaction().rollback();
+			throw e;
+		}
+		
+	}
+
 
 }

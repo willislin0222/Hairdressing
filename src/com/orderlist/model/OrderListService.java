@@ -3,6 +3,8 @@ package com.orderlist.model;
 import java.sql.Date;
 import java.util.List;
 
+import org.hibernate.Session;
+
 import com.morder.model.MorderVO;
 import com.product.model.ProductVO;
 
@@ -59,5 +61,9 @@ private OrderListDAO_interface dao;
 	
 	public List<OrderListVO> getAll(){
 		return dao.getAll();
+	}
+	
+	public void insert2 (OrderListVO orderListVO , Session oldsession){
+		dao.insert2(orderListVO, oldsession);
 	}
 }

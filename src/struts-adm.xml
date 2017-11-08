@@ -16,7 +16,7 @@
 		</action>
 		
 		<action name="login" class="com.adm.actions.AdmManagerAction"  method="login">
-	        <result name="success">/back/back_AdmManage.jsp</result>
+	        <result name="success">/back/back_index.jsp</result>
 	        <result name="input">/back/admin.jsp</result>
 		</action>
 			

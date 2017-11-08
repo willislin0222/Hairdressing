@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.member.model.MemberVO;
+import com.orderlist.model.OrderListVO;
 
 
 
@@ -53,4 +54,9 @@ public class MorderService {
 	public List<MorderVO> getAll(){
 		return dao.getAll();
 	}
+	
+	public void insertWithOrderList(MorderVO morderVO, List<OrderListVO> list){
+		dao.insertWithOrderList(morderVO, list);
+	}
+	
 }

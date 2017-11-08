@@ -3,6 +3,7 @@ package com.product.model;
 import java.sql.Date;
 import java.util.List;
 
+import com.news.model.NewsVO;
 import com.offer.model.OfferVO;
 
 public class ProductService {
@@ -63,5 +64,9 @@ public class ProductService {
 	
 	public List<ProductVO> getAll(){
 		return dao.getAll();
+	}
+	
+	public List<ProductVO> getProductsByStatus(){
+		return dao.getProductsByStatus();
 	}
 }

@@ -2,9 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="com.member.model.*"%>
+<%@ page import="com.product.model.*"%>
 <%@ page import="java.util.*"%>
 <% 
 	MemberVO memberVO = (MemberVO) session.getAttribute("memberVO");
+	Vector<ProductVO> buylist =(Vector<ProductVO>) session.getAttribute("shoppingcart");
+	if(buylist != null){
+		System.out.println(buylist.size());
+	 	int buylistcount = buylist.size();
+	 	pageContext.setAttribute("buylistcount", buylistcount);
+	}
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -55,7 +63,7 @@
               <a class="nav-link" href="<%=request.getContextPath()%>/product/productlist.jsp">美髮商城</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">購物車</a>
+              <a class="nav-link" href="<%=request.getContextPath()%>/shopping/cart.jsp">購物車<span style="font-size:16px;" class="badge">${buylistcount}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<%=request.getContextPath()%>/contact.jsp">聯絡我</a>

@@ -9,5 +9,6 @@ public interface NewsDAO_interface {
 	public void delete(String news_no);
 	public NewsVO findByPrimaryKey(String news_no);
 	public List<NewsVO> getAll();
+	//取得狀態為為1的最新消息清單
 	public List<NewsVO> getNewsByStatus();
 }

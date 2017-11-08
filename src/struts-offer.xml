@@ -11,21 +11,21 @@
 	<package name="offer" namespace="/offer" extends="struts-default">
 
 	    <action name="addOffer"   class="com.offer.actions.OfferAction"  method="addOffer">
-	        <result name="success">/offer/listAllOffer.jsp</result>
-            <result name="input">/offer/addOffer.jsp</result>
+	        <result name="success">/back/back_OfferManage.jsp</result>
+            <result name="input">/back/back_addOffer.jsp</result>
 		</action>
 			
 		<action name="getOne_For_Update"   class="com.offer.actions.OfferManagerAction"  method="getOne_For_Update">
-	        <result name="success">/offer/updateOffer.jsp</result>
+	        <result name="success">/back/back_updateOffer.jsp</result>
 		</action>
 		
 		<action name="updateOffer"   class="com.offer.actions.OfferAction"  method="updateOffer">
-	        <result name="success">/offer/listOneOffer.jsp</result>
-	        <result name="input">/offer/updateOffer.jsp</result>
+	        <result name="success">/back/back_OfferManage.jsp</result>
+	        <result name="input">/back/back_updateOffer.jsp</result>
 		</action>
 		
 		<action name="delete"   class="com.offer.actions.OfferManagerAction"  method="delete">
-	        <result name="success">/offer/listAllOffer.jsp</result>
+	        <result name="success">/back/back_OfferManage.jsp</result>
 	        <result name="input">/index.jsp</result>
 		</action>
 	</package>

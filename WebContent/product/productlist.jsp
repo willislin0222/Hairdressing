@@ -9,7 +9,7 @@
 
 <%
 	ProductService productSvc = new ProductService();
-	List<ProductVO> list = productSvc.getAll();
+	List<ProductVO> list = productSvc.getProductsByStatus();
 	pageContext.setAttribute("list",list);
 %>
 <!DOCTYPE html>
@@ -49,19 +49,21 @@
       <div class="row">
       <%@ include file="/pages/productpage.file" %>
       <c:forEach var="productVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">        
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="getOne_For_Display?pro_no=${productVO.pro_no}"><img height="400px" class="card-img-top" src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                	<a href="getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
-              </h4>
-            	 <h5>$<span class="card-text">${productVO.pro_price}-${productVO.pro_createdate}</span></h5>
-            	   商品介紹:<span class="card-text">${productVO.pro_desc}</span> <br>
-            </div>
-          </div>
-        </div>
-</c:forEach>       
+	     <c:if test="${productVO.pro_status.equals('1')}">   
+	        <div class="col-lg-4 col-sm-6 portfolio-item">
+	          <div class="card h-100">
+	            <a href="getOne_For_Display?pro_no=${productVO.pro_no}"><img height="400px" class="card-img-top" src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" alt=""></a>
+	            <div class="card-body">
+	              <h4 class="card-title">
+	                	<a href="getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
+	              </h4>
+	            	 <h5>$<span class="card-text">${productVO.pro_price}-${productVO.pro_createdate}</span></h5>
+	            	   商品介紹:<span class="card-text">${productVO.pro_desc}</span> <br>
+	            </div>
+	          </div>
+	        </div>
+	     </c:if>   
+	</c:forEach>       
        
         
         

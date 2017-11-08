@@ -20,7 +20,7 @@
 	System.out.println(newslist.size());
 	
 	ProductService productSvc = new ProductService();
-	List<ProductVO> productlist = productSvc.getAll();
+	List<ProductVO> productlist = productSvc.getProductsByStatus();
 	pageContext.setAttribute("productlist",productlist);
 	System.out.println(productlist.size());
 %>
@@ -120,18 +120,20 @@
       <div class="row">
       	 <c:forEach var="productVO" items="${productlist}">
       	 	<c:if test="<%= productNumber++<=6%>">
-		        <div class="col-lg-4 col-sm-6 portfolio-item">
-		          <div class="card h-100">
-		            <a href="product/getOne_For_Display?pro_no=${productVO.pro_no}"><img height="400px class="card-img-top" src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" alt=""></a>
-		            <div class="card-body">
-		              <h4 class="card-title">
-		                <a href="product/getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
-		              </h4>
-		              <p class="card-text">${productVO.pro_desc}</p>
-		              ${productVO.pro_createdate}
-		            </div>
-		          </div>
-		        </div>
+		       <c:if test="${productVO.pro_status.equals('1')}">   
+			        <div class="col-lg-4 col-sm-6 portfolio-item">
+			          <div class="card h-100">
+			            <a href="product/getOne_For_Display?pro_no=${productVO.pro_no}"><img height="400px class="card-img-top" src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" alt=""></a>
+			            <div class="card-body">
+			              <h4 class="card-title">
+			                <a href="product/getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
+			              </h4>
+			              <p class="card-text">${productVO.pro_desc}</p>
+			              ${productVO.pro_createdate}
+			            </div>
+			          </div>
+			        </div>
+		        </c:if>
 			</c:if>
 		</c:forEach>
       </div>

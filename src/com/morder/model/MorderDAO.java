@@ -7,6 +7,10 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import com.orderlist.model.OrderListDAO;
+import com.orderlist.model.OrderListService;
+import com.orderlist.model.OrderListVO;
+
 import hibernate.util.HibernateUtil;
 
 public class MorderDAO implements MorderDAO_interface{
@@ -20,6 +24,8 @@ public class MorderDAO implements MorderDAO_interface{
 		try {
 			session.beginTransaction();
 			session.saveOrUpdate(morderVO);
+			String key =(String) session.getIdentifier(morderVO);
+			System.out.println(key);
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			session.getTransaction().rollback();
@@ -96,5 +102,35 @@ public class MorderDAO implements MorderDAO_interface{
 		}
 		return list;
 	}
+
+	@Override
+	public void insertWithOrderList(MorderVO morderVO, List<OrderListVO> list) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		try {
+			session.beginTransaction();
+			
+			//先新增訂單
+			session.saveOrUpdate(morderVO);
+			//取對應的自增主鍵值
+			String key =(String) session.getIdentifier(morderVO);
+			
+			//在新增訂單明細
+			OrderListService orderListSvc = new OrderListService();
+			for(OrderListVO aOrderList : list){
+				morderVO.setMord_no(key);
+				aOrderList.setMorderVO(morderVO);
+				orderListSvc.insert2(aOrderList, session);
+			}
+			
+			//交易commit，要在訂單這邊做commit
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		
+	}
+
 
 }

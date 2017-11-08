@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/css/offerManage.css">
 <link href="css/breadcrumb.css" rel="stylesheet"/>
 <title>後端管理系統</title>
 </head>
@@ -23,6 +24,10 @@
 	        </li>
 	      </ol>
 	<!-- Breadcrumbs結束-->	
+	<div class="main-content addbtn">
+		  <a href="<%=request.getContextPath()%>/back/back_addOffer.jsp" role="button" class="btn btn-primary back_btn reg_adm_btn">新增優惠</a>
+	</div><br>
+	
 	<div class="card mb-3">
         <div class="card-body">
           <div class="table-responsive">
