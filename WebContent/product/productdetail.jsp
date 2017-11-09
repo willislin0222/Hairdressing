@@ -66,18 +66,18 @@
       <div class="row">
 	        <div class="col-md-4 col-sm-6 mb-4 productimage2">
 	          <a href="#">
-	            <img class="img-fluid2" src="<%=request.getContextPath()%>/productproductImage.do?imglist=2&pro_no=${productVO.pro_no}" alt="">
+	            <img class="img-fluid2" src="<%=request.getContextPath()%>/product/productImage.do?imglist=2&pro_no=${productVO.pro_no}" alt="">
 	          </a>
 	        </div>
 	        <div class="col-md-4 col-sm-6 mb-4">
 	          <a href="#">
-	            <img class="img-fluid2" src="<%=request.getContextPath()%>/productproductImage.do?imglist=3&pro_no=${productVO.pro_no}" alt="">
+	            <img class="img-fluid2" src="<%=request.getContextPath()%>/product/productImage.do?imglist=3&pro_no=${productVO.pro_no}" alt="">
 	          </a>
 	        </div>
 
 	        <div class="col-md-4 col-sm-6 mb-4">
 	          <a href="#">
-	            <img class="img-fluid2" src="<%=request.getContextPath()%>/productproductImage.do?imglist=4&pro_no=${productVO.pro_no}" alt="">
+	            <img class="img-fluid2" src="<%=request.getContextPath()%>/product/productImage.do?imglist=4&pro_no=${productVO.pro_no}" alt="">
 	          </a>
 	        </div>
 

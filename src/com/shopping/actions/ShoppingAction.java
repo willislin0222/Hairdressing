@@ -128,6 +128,7 @@ public class ShoppingAction extends ActionSupport {
 		 MorderService MorderSvc = new MorderService();
 		 MorderSvc.insertWithOrderList(morderVO, orderListVOlist);
 
+		 session.removeAttribute("shoppingcart");
 		return "success";
 	}
 
