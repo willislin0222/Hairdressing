@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/mordersByMemno.css"">
+<link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/memreservations.css"">
 
 
 <meta charset='utf-8' />

@@ -26,8 +26,8 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/mordersByMemno.css"">
+<link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/mordersByMemno.css"> 
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-latest.pack.js"></script>
 <script>
 	var $j = $.noConflict();
@@ -58,15 +58,12 @@
 </style>
 </head>
 <body bgcolor='white'>
-<b><font color=red>此頁練習採用 EL 的寫法取值:</font></b>
 <!-- header -->
     	<jsp:include page="/header.jsp" />
-    	
-  
-搜尋框
-<div class="listtable"> 
-	 <div class="col-sm-12">
-			<div class="input-group">
+    	<div id="title">${memberVO.mem_name}的訂單明細</div>
+<!--複合查詢 -->
+	 <div class="container ">
+			<div class="input-group search">
 				<input placeholder="輸入 ID" class="form-control input-lg" type="text">
 				<span class="input-group-btn">
 				<button class="btn btn-primary btn-lg">查詢</button>
@@ -75,14 +72,14 @@
 <%@ include file="/pages/orderpage.file"%>   
 <c:forEach var="morderVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<tr>
+	<tr class="tabeltitle">
 		<td width="26" align="center" bgcolor="#eeeeee"><a href="#tr<%= count%>">+</a></td>
 	  	<td width="200">訂單編號</td>
 	  	<td width="200">金額</td>
 	  	<td width="200">下單日期</td>
 	  	<td width="200">取消</td>
  	</tr>
- 	<tr>
+ 	<tr class="tabelcontext">
  		<td width="200"></td>
  		<td width="200">${morderVO.mord_no}</td>
  		<td width="200">${morderVO.mord_price}</td>
@@ -100,7 +97,7 @@
    		<td colspan="5" class="content">
            	<div id="tr<%= count++%>" style="display:none;">訂單${morderVO.mord_no}明細內容
 				 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr>
+					<tr class="tabeltitle">
 					  	<td width="500">商品名稱</td>
 					  	<td width="500">數量</td>
 					  	<td width="500">單價</td>
@@ -108,7 +105,7 @@
 				 	</tr>
 				 	<c:forEach var="orderslistVO" items="${orderslist}">
 					 	<c:if test="${orderslistVO.morderVO.mord_no == morderVO.mord_no}">
-						 	<tr>
+						 	<tr class="tabelcontext">
 							  	<td width="500">${orderslistVO.productVO.pro_name}</td>
 							  	<td width="500">${orderslistVO.ordl_number}</td>
 							  	<td width="500">${orderslistVO.productVO.pro_price}</td>
@@ -122,12 +119,16 @@
    	</tr>
  </table>
  </c:forEach>
+ <%@ include file="/pages/page4.file" %>
 </div>
 	
-<%@ include file="/pages/page4.file" %>
-	
-	
 
+<div class="content"></div>
+
+
+<jsp:include page="/footer.jsp" />	
+
+    	
 
 </body>
 </html>

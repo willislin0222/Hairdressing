@@ -1,0 +1,10 @@
+.listtable{
+	margin-top: 30px;
+}
+.pb-5, .py-5 {
+    padding-bottom: 3rem!important;
+    position:fixed;
+	bottom: 0px;
+	width:100%;
+}
+}

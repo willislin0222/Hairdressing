@@ -1,3 +1,86 @@
-.listtable{
-	margin-top: 30px;
+@charset "UTF-8";
+.search{
+	margin-top: -1em;
 }
+
+/* 浮動foorter開始 */
+html {
+
+height: 100%;
+}
+body {
+min-height: 100%;
+display: flex;
+flex-direction: column;
+}
+.content {
+flex: 1;
+}
+/* 浮動foorter結束 */
+
+.text-center {
+    text-align: center!important;
+    font-size: 16px;
+}
+
+/* 設定表格置中 */
+.tabeltitle{
+	text-align: center;
+}
+.tabelcontext{
+	text-align: center;
+}
+
+/* 設定訂單明細約頁面的title */
+#title{
+	color:blue;
+	font-size:50px;
+	text-align:center;
+}
+
+/* 下面語法為調整header和footer的CSS樣式 */
+.fixed-top {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    margin-top: 0px;
+    font-size: 16px;
+    height: 53px;
+}
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 20px;
+    line-height: 20px;
+    margin-right: 523px;
+}
+.fc-title {
+    word-break: normal;
+    width: 130px;
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    color: white;
+}
+.text-center {
+    text-align: center!important;
+    font-size: 16px;
+}
+
+/* 設定超連結字體大小 */
+.nav-link{
+	font-size:16px;
+}
+
+
+

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<div style="text-align: center;">
+<div class="pagebtn" style="text-align: center;">
    <%if (pageNumber > 1) {%> 
     <ul class="pagination justify-content-center">
         <li class="page-item">

@@ -30,29 +30,8 @@
 <!-- header -->
     	<jsp:include page="/header.jsp" />
 <div class="container">
-	<div id="title">${memberVO.mem_name}的預約清單</div>
-	<!-- 標籤面板：標籤區 -->
-		<div role="tabpanel">
-		    <!-- 標籤面板：標籤區 -->
-		    <ul class="nav nav-tabs" role="tablist">
-		        <li role="presentation" class="active">
-		            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">所有預約</a>
-		        </li>
-		        <li role="presentation">
-		            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">個人預約明細</a>
-		        </li>
-		    </ul>
-		
-		    <!-- 標籤面板：內容區 -->
-		    <div class="tab-content">
-		        <div role="tabpanel" class="tab-pane active" id="tab1">
-		        	<div id='calendar'></div>
-		        </div>
-		        <div role="tabpanel" class="tab-pane" id="tab2">
-		        	<jsp:include page="/reservation/listReservationsByMemno.jsp" />
-		        </div>
-		    </div>
-		</div>
+	<div id="title">預約專區</div>
+	<div id='calendar'></div>
 	
 	<!-- 使用JQUERY onclick跳出預約視窗內容 -->
 	<a href="#modal-id" id="resdata" role="button" class="modal fade" data-toggle="modal"></a>
@@ -105,5 +84,7 @@
 </div>		
  <!-- Footer -->
     	<jsp:include page="/footer.jsp" /> 	
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/reservation/fullcalendar.css">
 </body>
 </html>

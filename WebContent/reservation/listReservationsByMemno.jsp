@@ -20,7 +20,7 @@
 <head>
 <title>所有預約資料 - listAllReservation.jsp</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/reservation/reservationmain.css">
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/reservation/fullcalendar.css">
 </head>
 <body bgcolor='white'>
 <table border='1' bordercolor='#CCCCFF' width='100%'>
@@ -33,7 +33,7 @@
 		<th>預約項目</th>
 		<th>修改</th>
 	</tr>
-	<%@ include file="/pages/page1.file" %>   
+	<%@ include file="/pages/page5.file" %>   
 	<c:forEach var="reservationVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 		<tr align='center' valign='middle' ${(reservationVO.res_no==param.res_no) ? 'bgcolor=#CCCCFF':''}><!--將修改的那一筆加入對比色而已-->
 			<td>${reservationVO.res_no}</td>
