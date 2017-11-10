@@ -22,6 +22,7 @@ import hibernate.util.HibernateUtil;
 public class OrderListDAO implements OrderListDAO_interface{
 	
 	
+	private static final String GET_ORDERS_BY_MORDNO="from OrderListVO where mord_no=?";
 	private static final String GET_ALL_STMT="from OrderListVO";
 	
 	@Override
@@ -132,6 +133,24 @@ public class OrderListDAO implements OrderListDAO_interface{
 			throw e;
 		}
 		
+	}
+
+	@Override
+	public List<OrderListVO> getOrderListsByMordno(String mord_no) {
+		List<OrderListVO> list = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery(GET_ORDERS_BY_MORDNO);
+			query.setParameter(0, mord_no);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return list;
 	}
 
 

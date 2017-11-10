@@ -14,5 +14,8 @@ public interface MorderDAO_interface {
 	
 	//新增訂單時同時新增訂單明細
     public void insertWithOrderList(MorderVO morderVO , List<OrderListVO> list);
+    
+    //從會員編號取得所有訂單
+    public List<MorderVO> getMordersByMemno(String mem_no);
 	
 }

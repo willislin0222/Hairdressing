@@ -15,5 +15,8 @@ import com.member.model.MemberVO;
 	
 	//新增訂單時同時新增訂單明細
     public void insert2 (OrderListVO orderListVO , Session oldsession);
+    
+    //從訂單編號取得所有訂單明細
+    public List<OrderListVO> getOrderListsByMordno(String mord_no);
 	
 }

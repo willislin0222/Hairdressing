@@ -15,6 +15,7 @@ import hibernate.util.HibernateUtil;
 
 public class MorderDAO implements MorderDAO_interface{
 	
+	private static final String GET_MORDERS_BY_MEMNO ="FROM MorderVO where mem_no=? order by mord_no";
 	private static final String GET_ALL_STMT ="FROM MorderVO order by mord_no";
 	
 	@Override
@@ -130,6 +131,26 @@ public class MorderDAO implements MorderDAO_interface{
 			throw e;
 		}
 		
+	}
+
+	@Override
+	public List<MorderVO> getMordersByMemno(String mem_no) {
+		List<MorderVO> list = null;
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery(GET_MORDERS_BY_MEMNO);
+			query.setParameter(0, mem_no);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return list;
 	}
 
 

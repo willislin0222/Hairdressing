@@ -59,4 +59,8 @@ public class MorderService {
 		dao.insertWithOrderList(morderVO, list);
 	}
 	
+	public List<MorderVO> getMordersByMemno(String mem_no){
+		return dao.getMordersByMemno(mem_no);
+	}
+	
 }

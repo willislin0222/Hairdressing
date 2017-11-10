@@ -66,4 +66,8 @@ private OrderListDAO_interface dao;
 	public void insert2 (OrderListVO orderListVO , Session oldsession){
 		dao.insert2(orderListVO, oldsession);
 	}
+	
+	public List<OrderListVO> getOrderListsByMordno(String mord_no){
+		return dao.getOrderListsByMordno(mord_no);
+	}
 }
