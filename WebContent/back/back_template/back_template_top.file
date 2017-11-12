@@ -60,7 +60,7 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents1">
             <li>
-              <a href="navbar.html">今日預約清單</a>
+              <a href="<%= request.getContextPath()%>/back/back_ReservationsToday.jsp">今日預約清單</a>
             </li>
             <li>
               <a href="<%= request.getContextPath()%>/back/back_ReservationManage.jsp">所有預約明細</a>
@@ -76,14 +76,14 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">商品管理</span>
+            <span class="nav-link-text">商城管理</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents2">
 	            <li>
 	              <a href="<%= request.getContextPath()%>/back/back_ProductManage.jsp">所有商品清單</a>
 	            </li>
 	            <li>
-	              <a href="navbar.html">所有訂單明細</a>
+	              <a href="<%= request.getContextPath()%>/back/back_MordersManage.jsp">所有訂單明細</a>
 	            </li>
           </ul>
         </li>
@@ -91,6 +91,12 @@
           <a class="nav-link" href="<%= request.getContextPath()%>/back/back_AdmManage.jsp">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">管理者帳號管理</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="<%= request.getContextPath()%>/back/back_AdmManage.jsp">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">休假日管理</span>
           </a>
         </li>
       </ul>

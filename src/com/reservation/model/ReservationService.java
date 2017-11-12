@@ -67,4 +67,8 @@ public class ReservationService {
 	public List<ReservationVO> getAll(){
 		return dao.getAll();
 	}
+	
+	public List<ReservationVO> getReservationsByToday(Date res_no){
+		return dao.getReservationsByToday(res_no);
+	}
 }

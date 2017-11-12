@@ -1,5 +1,6 @@
 package com.reservation.model;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -11,6 +12,7 @@ import hibernate.util.HibernateUtil;
 
 public class ReservationDAO implements ReservationDAO_interface{
 
+	private static final String GET_RESERVATIONS_BY_TODAY ="FROM ReservationVO where res_date=? order by res_no";
 	private static final String GET_ALL_STMT ="FROM ReservationVO order by res_no";
 	@Override
 	public void insert(ReservationVO reservationVO) {
@@ -95,5 +97,26 @@ public class ReservationDAO implements ReservationDAO_interface{
 		}
 		return list;
 	}
+
+	@Override
+	public List<ReservationVO> getReservationsByToday(Date res_no) {
+		List<ReservationVO> list = null;
+		
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		
+		
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery(GET_RESERVATIONS_BY_TODAY);
+			query.setParameter(0, res_no);
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			throw e;
+		}
+		return list;
+	}
+
 
 }
