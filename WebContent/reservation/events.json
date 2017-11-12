@@ -1,11 +1,13 @@
 [
   {
     "title": "All Day Event",
-    "start": "2017-11-12"
+    "start": "2017-11-12",
+    "color":"red"
   },
   {
     "title": "Long Event",
     "start": "2017-11-13",
-    "end": "2017-11-13"
+    "end": "2017-11-13",
+    "color":"red"
   }
 ]

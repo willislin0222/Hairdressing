@@ -33,23 +33,25 @@ $(document).ready(function() {
 		firstDay:0,
 //		events:  "/Hairdressing/reservation/events.json",	
 //		events:  "/Hairdressing/reservation/actions/getReservationsByMemno.action?mem_no="+ memno,	
-		events: function(start, end, timezone, callback) {
-		        $.ajax({
-		            url: 'reservation/actions/getAllReservations.action',
-		            dataType: 'json',
-		            success: function(result) {
-		                var events = [];
-		                result.forEach(function(element) {
-		                    events.push({
-		                        title: element.title,
-		                        start: moment(element.start).format('YYYY-MM-DD'), 
-		                    });
-		                });
-
-		                callback(events);
-		            }
-		        });
-		   }
+		eventSources:[
+				function(start, end, timezone, callback) {
+			        $.ajax({
+			            url: 'reservation/actions/getAllReservations.action',
+			            dataType: 'json',
+			            success: function(result) {
+			                var events = [];
+			                result.forEach(function(element) {
+			                    events.push({
+			                        title: element.title,
+			                        start: moment(element.start).format('YYYY-MM-DD'), 
+			                    });
+			                });
+	
+			                callback(events);
+			            }
+			        });
+				},"/Hairdressing/reservation/events.json"
+		]
 	});	
 	
 });
