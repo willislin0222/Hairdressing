@@ -14,8 +14,9 @@ public class DayoffAction extends ActionSupport{
 		
 	//新增休假日
 	public String addDayoff() throws IOException{
-		DayoffService dayoffSvc = new DayoffService();
+		DayoffService dayoffSvc = new DayoffService();	
 		dayoffSvc.addDayoff(dayoffVO);
+		dayoffVO = null;
 		return "success";
 	}
 	
@@ -23,6 +24,7 @@ public class DayoffAction extends ActionSupport{
 	public String updateDayoff() throws IOException{
 		DayoffService dayoffSvc = new DayoffService();		
 		dayoffSvc.updateDayoff(dayoffVO);
+		dayoffVO = null;
 		return "success";
 	}
 
@@ -33,9 +35,5 @@ public class DayoffAction extends ActionSupport{
 	public void setDayoffVO(DayoffVO dayoffVO) {
 		this.dayoffVO = dayoffVO;
 	}
-
-	
-
-	
 	
 }

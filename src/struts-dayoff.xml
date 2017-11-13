@@ -13,7 +13,8 @@
 		    <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
 		</result-types>
 	    <action name="addDayoff"   class="com.dayoff.actions.DayoffAction"  method="addDayoff">
-	        <result name="success">/dayoff/listAllDayoff.jsp</result>
+	        <result name="success">/back/back_DayoffManage.jsp</result>
+	        <result name="input">/back/back_DayoffManage.jsp</result>
 		</action>
 			
 		<action name="getOne_For_Update"   class="com.dayoff.actions.DayoffManagerAction"  method="getOne_For_Update">
@@ -21,11 +22,12 @@
 		</action>
 		
 		<action name="updateDayoff"   class="com.dayoff.actions.DayoffAction"  method="updateDayoff">
-	        <result name="success">/dayoff/listOneDayoff.jsp</result>
+	        <result name="success">/back/back_DayoffManage.jsp</result>
+	        <result name="input">/back/back_DayoffManage.jsp</result>
 		</action>
 		
 		<action name="delete"   class="com.dayoff.actions.DayoffManagerAction"  method="delete">
-	        <result name="success">/dayoff/listAllDayoff.jsp</result>
+	        <result name="success">/back/back_DayoffManage.jsp</result>
 		</action>
 		
 		<action name="getAllDayoffs"   class="com.dayoff.actions.DayoffManagerAction"  method="getAllDayoffs">

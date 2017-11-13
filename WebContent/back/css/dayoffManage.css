@@ -1,0 +1,28 @@
+@charset "utf-8"
+.addbtn{
+	text-align: right;
+}
+
+/* 調整彈跳視窗CSS樣式 */
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    color: blue;
+    font-size: 35px;
+    margin-left: 4em;
+}
+
+.input-group {
+    width: 80%;
+    margin-bottom: 15px;
+}
+.update{
+	background:red;
+}
+/* .updatedayofftitle{ */
+/* 	margin-bottom: 0; */
+/*     line-height: 1.5; */
+/*     color: blue; */
+/*     font-size: 35px; */
+/*     margin-left: auto; */
+/* } */

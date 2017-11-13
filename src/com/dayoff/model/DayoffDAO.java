@@ -11,7 +11,7 @@ import hibernate.util.HibernateUtil;
 
 public class DayoffDAO implements DayoffDAO_interface{
 
-	private static final String GET_ALL_STMT="from DayoffVO";
+	private static final String GET_ALL_STMT="from DayoffVO order by day_no desc";
 	@Override
 	public void insert(DayoffVO dayoffVO) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
