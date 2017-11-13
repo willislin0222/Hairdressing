@@ -50,7 +50,25 @@ $(document).ready(function() {
 			                callback(events);
 			            }
 			        });
-				},"/Hairdressing/reservation/events.json"
+				},
+				function(start1, end1, timezone1, callback1) {
+			        $.ajax({
+			            url: '/Hairdressing/dayoff/actions/getAllDayoffs.action',
+			            dataType: 'json',
+			            success: function(result) {
+			                var events = [];
+			                result.forEach(function(element) {
+			                    events.push({
+			                        title: element.title,
+			                        start: moment(element.start).format('YYYY-MM-DD'), 
+			                        color: "red" 
+			                    });
+			                });
+	
+			                callback1(events);
+			            }
+			        });
+				}
 		]
 	});	
 	

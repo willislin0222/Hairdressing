@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.dayoff.model.DayoffVO" table="dayoff" >
+        
+        <id name="day_no" column="day_no">
+            <generator class="com.dayoff.model.DAYNOGenerator" />            
+        </id>
+        
+        <property name="day_title" column="day_title" />
+        <property name="day_date" column="day_date" />
+        
+    </class>
+</hibernate-mapping>

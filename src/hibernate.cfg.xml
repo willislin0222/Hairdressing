@@ -33,6 +33,7 @@
 		<mapping resource="com/orderlist/model/orderlist.hbm.xml" />
 		<mapping resource="com/news/model/news.hbm.xml" />
 		<mapping resource="com/adm/model/adm.hbm.xml" />
+		<mapping resource="com/dayoff/model/dayoff.hbm.xml" />
 
 	</session-factory>
 	

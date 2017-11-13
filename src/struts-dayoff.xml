@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	
+	<package name="dayoff" namespace="/dayoff" extends="struts-default">
+		<result-types>
+		    <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+		</result-types>
+	    <action name="addDayoff"   class="com.dayoff.actions.DayoffAction"  method="addDayoff">
+	        <result name="success">/dayoff/listAllDayoff.jsp</result>
+		</action>
+			
+		<action name="getOne_For_Update"   class="com.dayoff.actions.DayoffManagerAction"  method="getOne_For_Update">
+	        <result name="success">/dayoff/updateDayoff.jsp</result>
+		</action>
+		
+		<action name="updateDayoff"   class="com.dayoff.actions.DayoffAction"  method="updateDayoff">
+	        <result name="success">/dayoff/listOneDayoff.jsp</result>
+		</action>
+		
+		<action name="delete"   class="com.dayoff.actions.DayoffManagerAction"  method="delete">
+	        <result name="success">/dayoff/listAllDayoff.jsp</result>
+		</action>
+		
+		<action name="getAllDayoffs"   class="com.dayoff.actions.DayoffManagerAction"  method="getAllDayoffs">
+	        <result name="success" type="json">
+               <param name="root">events</param>
+            </result>
+		</action>
+		
+	</package>
+	
+</struts>

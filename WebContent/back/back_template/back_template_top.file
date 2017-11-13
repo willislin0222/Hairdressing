@@ -94,7 +94,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="<%= request.getContextPath()%>/back/back_AdmManage.jsp">
+          <a class="nav-link" href="<%= request.getContextPath()%>/back/back_DayoffManage.jsp">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">休假日管理</span>
           </a>
