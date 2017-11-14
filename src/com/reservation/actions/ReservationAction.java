@@ -19,8 +19,23 @@ public class ReservationAction extends ActionSupport{
 		return "success";
 	}
 	
+	//後台新增預約
+	public String backaddReservation(){
+		addReservation();
+		return "success";
+	}
+	
 	//修改預約資料
 	public String updateReservation(){
+		ReservationService reservationSvc = new ReservationService();
+		MemberService memberSvc = new MemberService();
+		MemberVO memberVO = memberSvc.getOneMember(reservationVO.getMemberVO().getMem_no());
+		reservationVO.setMemberVO(memberVO);
+		reservationSvc.updateReservation(reservationVO);
+		return "success";
+	}
+	//後台修改預約資料
+	public String backupdateReservation(){
 		ReservationService reservationSvc = new ReservationService();
 		MemberService memberSvc = new MemberService();
 		MemberVO memberVO = memberSvc.getOneMember(reservationVO.getMemberVO().getMem_no());

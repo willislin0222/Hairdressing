@@ -61,19 +61,11 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="<%= request.getContextPath()%>/back/back_ReservationManage.jsp">
+            <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">預約管理</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents1">
-            <li>
-              <a href="<%= request.getContextPath()%>/back/back_ReservationsToday.jsp">今日預約清單</a>
-            </li>
-            <li>
-              <a href="<%= request.getContextPath()%>/back/back_ReservationManage.jsp">所有預約明細</a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="<%= request.getContextPath()%>/back/back_OfferManage.jsp">

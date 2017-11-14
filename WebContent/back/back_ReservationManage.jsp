@@ -25,7 +25,8 @@
 	      </ol>
 	<!-- Breadcrumbs結束-->	
 	<div class="main-content addbtn">
-		 <a href="<%=request.getContextPath()%>/reservation/fullcalendar.action" role="button" class="btn btn-primary back_btn reg_adm_btn">新增預約</a>
+		 <a href="<%=request.getContextPath()%>/reservation/fullcalendar.jsp" role="button" class="btn btn-primary back_btn reg_adm_btn">預約行事曆</a>
+		 <a href="<%=request.getContextPath()%>/back/back_addReservation.jsp" role="button" class="btn btn-primary back_btn reg_adm_btn">新增預約</a>
 	</div><br>
 	
 	<div class="card mb-3">
@@ -55,13 +56,13 @@
 						<td>${reservationVO.res_content}</td>
 						<td>
 						  <s:form action="getOne_For_Update" namespace="/reservation">
-						     <input type="submit" value="修改"> 
+						     <input type="submit"  class="btn btn-primary" value="修改"> 
 						     <input type="hidden" name="res_no" value="${reservationVO.res_no}">
 						  </s:form>
 						</td>
 						<td>
-						  <s:form action="delete" namespace="/reservation">
-						    <input type="submit" value="刪除">
+						  <s:form action="backdelete" namespace="/reservation">
+						    <input type="submit"  class="btn btn-primary" value="刪除">
 						    <input type="hidden" name="res_no" value="${reservationVO.res_no}">
 						  </s:form>
 						</td>

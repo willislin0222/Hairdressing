@@ -39,6 +39,12 @@ public class ReservationManagerAction {
 		return "success";
 	}
 	
+	//後台刪除預約
+	public String backdelete(){
+		delete();
+		return "success";
+	}
+	
 	
 	//取得所有預約資料
 	public String getAllReservations(){

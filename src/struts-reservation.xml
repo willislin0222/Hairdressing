@@ -16,9 +16,13 @@
 	        <result name="success">/reservation/addresyes.jsp</result>
             <result name="input">/reservation/addReservation.jsp</result>
 		</action>
+		<action name="backaddReservation"   class="com.reservation.actions.ReservationAction"  method="backaddReservation">
+	        <result name="success">/back/back_ReservationManage.jsp</result>
+            <result name="input">/back/back_addReservation.jsp</result>
+		</action>
 		
 		<action name="getOne_For_Update"   class="com.reservation.actions.ReservationManagerAction"  method="getOne_For_Update">
-	        <result name="success">/reservation/listReservationsByMemno.jsp</result>
+	        <result name="success">/back/back_updateReservation.jsp</result>
 		</action>
 		
 		<action name="updateReservation"   class="com.reservation.actions.ReservationAction"  method="updateReservation">
@@ -26,10 +30,19 @@
 	        <result name="input">/reservation/updateReservation.jsp</result>
 		</action>
 		
+		<action name="backupdateReservation"   class="com.reservation.actions.ReservationAction"  method="backupdateReservation">
+	        <result name="success">/back/back_ReservationManage.jsp</result>
+	        <result name="input">/back/back_updateReservation.jsp</result>
+		</action>
+		
 		<action name="delete"   class="com.reservation.actions.ReservationManagerAction"  method="delete">
 	        <result name="success">/reservation/listAllReservation.jsp</result>
 	        <result name="input">/index.jsp</result>
 		</action>	
+		
+			<action name="backdelete"   class="com.reservation.actions.ReservationManagerAction"  method="backdelete">
+	        <result name="success">/back/back_ReservationManage.jsp</result>
+		</action>
 		
 		
 		<action name="getAllReservations"   class="com.reservation.actions.ReservationManagerAction"  method="getAllReservations">
