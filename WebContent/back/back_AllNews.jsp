@@ -44,33 +44,17 @@
 						<th>內容</th>
 						<th>建立日期</th>
 						<th>狀態</th>
-						<th>修改</th>
-						<th>停止發布</th>
 					</tr>
               </thead>
               <tbody>
              	<c:forEach var="newsVO" items="${list}">
-             		<c:if test="${newsVO.news_status.equals('1')}">
 						<tr align='center' valign='middle' ${(newsVO.news_no==param.news_no) ? 'bgcolor=#CCCCFF':''}><!--將修改的那一筆加入對比色而已-->
 							<td>${newsVO.news_no}</td>
 							<td>${newsVO.news_title}</td>
 							<td>${newsVO.news_content}</td>
 							<td>${newsVO.news_createdate}</td>		
 							<td>${newsstatus[newsVO.news_status]}</td>		
-							<td>
-							  <s:form action="getOne_For_Update" namespace="/news">
-							  	 <input type="submit"  class="btn btn-primary" value="修改">
-							     <input type="hidden" name="news_no" value="${newsVO.news_no}">
-							  </s:form>
-							</td>
-							<td>
-							  <s:form action="end" namespace="/news">
-							     <input type="submit"  class="btn btn-primary" value="停止發布">
-							     <input type="hidden" name="news_no" value="${newsVO.news_no}">
-							  </s:form>
-							</td>
 						</tr>
-					</c:if>
 				</c:forEach>
               </tbody>
             </table>

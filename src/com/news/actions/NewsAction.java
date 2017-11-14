@@ -22,7 +22,7 @@ public class NewsAction extends ActionSupport{
 	
 	//修改最新訊息
 	public String updateNews() throws IOException{
-		NewsService newsSvc = new NewsService();		
+		NewsService newsSvc = new NewsService();	
 		newsSvc.updateNews(newsVO);
 		return "success";
 	}

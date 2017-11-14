@@ -36,12 +36,20 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="<%= request.getContextPath()%>/back/back_NewsManage.jsp">
-            <i class="fa fa-fw fa-table"></i>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">最新消息管理</span>
           </a>
-        </li>
+          <ul class="sidenav-second-level collapse" id="collapseComponents3">
+          	<li>
+              <a href="<%= request.getContextPath()%>/back/back_NewsManage.jsp">公告中的消息列表</a>
+            </li>
+            <li>
+              <a href="<%= request.getContextPath()%>/back/back_AllNews.jsp">所有消息列表</a>
+            </li>
+          </ul>
+        </li> 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>

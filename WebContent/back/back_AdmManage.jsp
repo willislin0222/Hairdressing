@@ -54,7 +54,7 @@
 						</td>
 						<td>
 						  <s:form action="delete" namespace="/adm">
-						    <input type="submit" value="刪除">
+						    <input type="submit"  class="btn btn-primary" value="刪除">
 						    <input type="hidden" name="adm_no" value="${admVO.adm_no}">
 						  </s:form>
 						</td>

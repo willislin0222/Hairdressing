@@ -63,13 +63,13 @@
 						<td>${memstatus[memberVO.mem_status]}</td>		
 						<td>
 							  <s:form action="end" namespace="/member" >
-							    <input type="submit" value="停用">
+							    <input type="submit"  class="btn btn-primary" value="停用">
 							    <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
 							  </s:form>
 						</td>
 						<td>
 						  <s:form action="delete" namespace="/member" >
-						    <input type="submit" value="刪除">
+						    <input type="submit"  class="btn btn-primary" value="刪除">
 						    <input type="hidden" name="mem_no" value="${memberVO.mem_no}">
 						  </s:form>
 						</td>
