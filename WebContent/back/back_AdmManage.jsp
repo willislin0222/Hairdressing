@@ -11,6 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/breadcrumb.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/back/css/admManage.css">
 <title>後端管理系統</title>
 </head>
 <body>
@@ -23,6 +24,10 @@
 	        </li>
 	      </ol>
 	<!-- Breadcrumbs結束-->	
+	<div class="main-content addbtn">
+		  <a href="<%=request.getContextPath()%>/back/back_addAdm.jsp" role="button" class="btn btn-primary back_btn reg_adm_btn">新增管理者</a>
+	</div><br>
+	
 	<div class="card mb-3">
         <div class="card-body">
           <div class="table-responsive">
@@ -48,7 +53,7 @@
 						<td>${admVO.adm_status}</td>
 						<td>
 						  <s:form action="getOne_For_Update" namespace="/adm">
-						     <input type="submit" value="修改"> 
+						     <input type="submit"  class="btn btn-primary" value="修改"> 
 						     <input type="hidden" name="adm_no" value="${admVO.adm_no}">
 						  </s:form>
 						</td>

@@ -12,7 +12,7 @@
 
 	    <action name="addAdm"   class="com.adm.actions.AdmAction"  method="addAdm">
 	        <result name="success">/back/back_AdmManage.jsp</result>
-            <result name="input">/back/addAdm.jsp</result>
+            <result name="input">/back/back_addAdm.jsp</result>
 		</action>
 		
 		<action name="login" class="com.adm.actions.AdmManagerAction"  method="login">
@@ -21,17 +21,16 @@
 		</action>
 			
 		<action name="getOne_For_Update"   class="com.adm.actions.AdmManagerAction"  method="getOne_For_Update">
-	        <result name="success">/back/updateAdm.jsp</result>
+	        <result name="success">/back/back_updateAdm.jsp</result>
 		</action>
 		
 		<action name="updateAdm"   class="com.adm.actions.AdmAction"  method="updateAdm">
-	        <result name="success">/back/listOneAdm.jsp</result>
-	        <result name="input">/back/updateAdm.jsp</result>
+	        <result name="success">/back/back_AdmManage.jsp</result>
+	        <result name="input">/back/back_updateAdm.jsp</result>
 		</action>
 		
 		<action name="delete"   class="com.adm.actions.AdmManagerAction"  method="delete">
-	        <result name="success">/back/listAllAdm.jsp</result>
-	        <result name="input">/index.jsp</result>
+	        <result name="success">/back/back_AdmManage.jsp</result>
 		</action>
 	</package>
 	

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="admVO.adm_id">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>管理員帳號: 請勿空白</message>
+		</field-validator>
+	</field>
+	
+	<field name="admVO.adm_psw">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>管理員密碼: 請勿空白</message>
+		</field-validator>
+	</field>
+
+	
+
+
+
+</validators>

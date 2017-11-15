@@ -52,6 +52,10 @@ public class AdmManagerAction extends ActionSupport{
 	public String getOne_For_Update(){
 		AdmService admSvc = new AdmService();
 		AdmVO admVO = admSvc.getOneAdm(adm_no);
+		//密碼解密
+		final Base64.Decoder decoder = Base64.getDecoder();
+		final String adm_psw = new String(decoder.decode(admVO.getAdm_psw()));
+		admVO.setAdm_psw(adm_psw);
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.setAttribute("admVO", admVO);
 		return "success";
