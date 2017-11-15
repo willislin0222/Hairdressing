@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="offerVO.off_title">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>優惠標題: 請勿空白</message>
+		</field-validator>
+	</field>
+	<field name="offerVO.off_content">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param><!-- 預設為true -->
+			<message>優惠內容: 請勿空白</message>
+		</field-validator>
+	</field>	
+	<field name="offerVO.off_start">
+		<field-validator type="required">
+			<message>開始日期: 請勿空白</message>
+		</field-validator>
+	</field>
+	<field name="offerVO.off_end">
+		<field-validator type="required">
+			<message>結束日期: 請勿空白</message>
+		</field-validator>
+	</field>
+</validators>

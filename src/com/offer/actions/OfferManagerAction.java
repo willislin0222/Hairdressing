@@ -26,6 +26,15 @@ public class OfferManagerAction extends ActionSupport{
 		offerSvc.delete(off_no);
 		return "success";
 	}
+	
+	//停用優惠訊息
+	public String end(){
+		OfferService offerSvc = new OfferService();
+		OfferVO offerVO = offerSvc.getOneOffer(off_no);
+		offerVO.setOff_status(0);
+		offerSvc.updateOffer(offerVO);
+		return "success";
+	}
 
 	public String getOff_no() {
 		return off_no;

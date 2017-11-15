@@ -4,7 +4,12 @@
 <%
 	OfferService offerSvc = new OfferService();
 	List<OfferVO> list = offerSvc.getAll();
-	request.setAttribute("list", list);	
+	request.setAttribute("list", list);
+	
+	List<String> offerstatus = new ArrayList<>();
+	offerstatus.add("優惠結束");
+	offerstatus.add("優惠進行中");
+    request.setAttribute("offerstatus", offerstatus);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -54,16 +59,16 @@
 						<td><img src="offerImage.do?off_no=${offerVO.off_no}" width="200px" height="200px"></td>
 						<td>${offerVO.off_start}</td>
 						<td>${offerVO.off_end}</td>	
-						<td>${offerVO.off_status}</td>		
+						<td>${offerstatus[offerVO.off_status]}</td>		
 						<td>
 						  <s:form action="getOne_For_Update" namespace="/offer">
-						     <input type="submit" value="修改"> 
+						     <input type="submit"  class="btn btn-primary" value="修改">  
 						     <input type="hidden" name="off_no" value="${offerVO.off_no}">
 						  </s:form>
 						</td>
 						<td>
-						  <s:form action="delete" namespace="/offer">
-						    <input type="submit" value="刪除">
+						  <s:form action="end" namespace="/offer">
+						    <input type="submit"  class="btn btn-primary" value="停止優惠">
 						    <input type="hidden" name="off_no" value="${offerVO.off_no}">
 						  </s:form>
 						</td>

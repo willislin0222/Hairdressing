@@ -28,6 +28,10 @@
 	        <result name="success">/back/back_OfferManage.jsp</result>
 	        <result name="input">/index.jsp</result>
 		</action>
+		
+		<action name="end"   class="com.offer.actions.OfferManagerAction"  method="end">
+	        <result name="success">/back/back_OfferManage.jsp</result>
+		</action>
 	</package>
 	
 </struts>

@@ -24,6 +24,10 @@ public class OfferAction extends ActionSupport{
 	public String addOffer() throws IOException{
 		OfferService offerSvc = new OfferService();
 		//處理前端送來的file List
+		if(fileUpload.size() == 0){
+			super.addFieldError("off_image", "優惠圖片請勿空白");
+			return "input";
+		}
 		byte[] off_image=null;
 		for (File file: fileUpload) {
 			InputStream in = new FileInputStream(file);  
