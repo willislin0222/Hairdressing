@@ -12,7 +12,7 @@
 
 	    <action name="addProduct"   class="com.product.actions.ProductAction"  method="addProduct">
 	        <result name="success">/back/back_ProductManage.jsp</result>
-            <result name="input">/product/addProduct.jsp</result>
+            <result name="input">/back/back_addProduct.jsp</result>
 		</action>
 			
 		<action name="getOne_For_Update"   class="com.product.actions.ProductManagerAction"  method="getOne_For_Update">
@@ -25,17 +25,15 @@
 		
 		<action name="updateProduct"   class="com.product.actions.ProductAction"  method="updateProduct">
 	        <result name="success">/back/back_ProductManage.jsp</result>
-	        <result name="input">/product/updateProduct.jsp</result>
+	        <result name="input">/back/back_updateProduct.jsp</result>
 		</action>
 		
 		<action name="delete"   class="com.product.actions.ProductManagerAction"  method="delete">
 	        <result name="success">/back/back_ProductManage.jsp</result>
-	        <result name="input">/index.jsp</result>
 		</action>
 		
 		<action name="end"   class="com.product.actions.ProductManagerAction"  method="end">
 	        <result name="success">/back/back_ProductManage.jsp</result>
-	        <result name="input">/index.jsp</result>
 		</action>
 	</package>
 

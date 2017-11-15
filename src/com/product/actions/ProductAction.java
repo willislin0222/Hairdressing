@@ -8,11 +8,11 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.offer.model.OfferService;
+import com.opensymphony.xwork2.ActionSupport;
 import com.product.model.ProductService;
 import com.product.model.ProductVO;
 
-public class ProductAction {
+public class ProductAction extends ActionSupport{
 	
 	private ProductVO productVO;
 	
@@ -27,6 +27,10 @@ public class ProductAction {
 
 	//新增商品
 	public String addProduct() throws IOException{
+		if(fileUpload.size() == 0){
+			super.addFieldError("pro_image1", "商品圖片1請勿空白");
+			return "input";
+		}
 		ProductService productSvc = new ProductService();
 		//處理前端送來的file List
 		Date pro_createdate = new java.sql.Date(System.currentTimeMillis());
@@ -53,9 +57,11 @@ public class ProductAction {
 			}
 			productVO.setPro_createdate(pro_createdate);
 			productVO.setPro_status("1");
+			productVO.setPro_number(0);
 			count++;
 		}
 		productSvc.addProduct(productVO);
+		productVO = null;
 		return "success";
 	}
 		
@@ -114,6 +120,7 @@ public class ProductAction {
 			productVO.setPro_image4(getpro_image4);
 		}	
 		productSvc.updateProduct(productVO);
+		productVO = null;
 		return "success";
 	}
 	

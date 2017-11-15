@@ -64,13 +64,13 @@
 							<td>${productVO.pro_createdate}</td>		
 							<td>
 							  <s:form method="post" action="getOne_For_Update" namespace="/product">
-							     <input type="submit" value="修改"> 
+							     <input type="submit"  class="btn btn-primary" value="修改">  
 							     <input type="hidden" name="pro_no" value="${productVO.pro_no}">
 							  </s:form>
 							</td>
 							<td>
 							  <s:form method="post" action="end" namespace="/product">
-							    <input type="submit" value="下架">
+							    <input type="submit"  class="btn btn-primary" value="下架">
 							    <input type="hidden" name="pro_no" value="${productVO.pro_no}">
 							  </s:form>
 							</td>

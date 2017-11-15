@@ -3,95 +3,114 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
-<%@ page  import="com.product.model.*"%>
-<%@ page  import="java.util.*"%>
+<!DOCTYPE html>
+<html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-		<title>修改商品</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/product/productmain.css">
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/imgView.css">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>修改商品資訊</title>
+
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/back/css/news/form-basic.css">
+	<script src='<%= request.getContextPath()%>/js/fullcalendar/jquery.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/imgView.css">
 		<script type="text/javascript" src="<%= request.getContextPath()%>/js/product/updateProductImageView.js"></script>
-	</head>
-	<body>
-	<c:if test="${not empty errorMsgs}">
-		<font color="red">請修正以下錯誤
-			<c:forEach var="message" items="${errorMsgs}">
-				<li>${message}</li>
-			</c:forEach> 
-		</font>
-	</c:if>	
-		
-			<div class="container">
-				<s:form  method="post" action="updateProduct" namespace="/product" enctype="multipart/form-data">
-					<div class="product">	
-						<H3 class="producttitle">修改商品資訊</H3>
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">商品編號</span>
-					 	<input name="productVO.pro_no" class="form-control" type="text" value="${productVO.pro_no}" readonly > 
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">商品名稱</span>
-					 	<input type="text" name="productVO.pro_name" class="form-control" value="${productVO.pro_name}" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">商品描述</span>
-					    <input type="text" name="productVO.pro_desc" class="form-control" value="${productVO.pro_desc}" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">商品單價</span>
-					    <input type="text" name="productVO.pro_price" class="form-control" value="${productVO.pro_price}" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">商品圖片1</span>
-					    <input id="pro_image1" type="file" name="pro_image1" class="form-control" aria-describedby="basic-addon1" >
-					</div>
-					<div class="input-group" id="imageView1">
-					<img src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" width="100%">
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">商品圖片2</span>
-					    <input id="pro_image2" type="file" name="pro_image2" class="form-control" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group" id="imageView2">
-					<img src="productImage.do?imglist=2&pro_no=${productVO.pro_no}" width="100%">
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">商品圖片3</span>
-					    <input id="pro_image3" type="file" name="pro_image3" class="form-control" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group" id="imageView3">
-					<img src="productImage.do?imglist=3&pro_no=${productVO.pro_no}" width="100%">
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">商品圖片4</span>
-					    <input id="pro_image4" type="file" name="pro_image4" class="form-control" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group" id="imageView4">
-					<img src="productImage.do?imglist=4&pro_no=${productVO.pro_no}" width="100%">
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">訂購人數</span>
-					 	<input class="form-control" type="text" name="productVO.pro_number" value="${productVO.pro_number}" readonly > 
-					</div>
-					<div class="input-group">
-					  	<span class="input-group-addon" id="basic-addon1">建立日期</span>
-					 	<input class="form-control" name="productVO.pro_createdate" type="date" value="${productVO.pro_createdate}" readonly > 
-					</div>
-					<div class="input-group btndiv">
-						<input type="hidden" name="productVO.pro_status" value="${productVO.pro_status}">
-						<button type="submit" class="btn btn-primary btn-lg">修改商品資訊</button>  	
-					</div>	
-				</s:form>	
-			</div>
+</head>
+<body>
+    <div class="main-content">
 
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</body>
+        <!-- You only need this form and the form-basic.css -->
+		<div class="form-basic">
+        <s:form action="updateProduct" namespace="/product" enctype="multipart/form-data" method="POST">
+
+            <div class="form-title-row">
+                <h1>修改商品資訊</h1>
+            </div>
+			<s:fielderror cssStyle="color: red" />
+			<div class="form-row">
+                <label>
+                    <span>商品編號</span>
+                    <input type="text" name="productVO.pro_no" value="${productVO.pro_no}" readonly>
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>商品名稱</span>
+                    <input type="text" name="productVO.pro_name" value="${productVO.pro_name}">
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>商品描述</span>
+                    <input type="text" name="productVO.pro_desc" value="${productVO.pro_desc}">
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>商品單價</span>
+                    <input type="text" name="productVO.pro_price" value="${productVO.pro_price}">
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>商品圖片1</span>
+                    <input id="pro_image1" type="file" name="pro_image1">
+                </label>
+            </div>
+            <div class="input-group" id="imageView1">
+			<img class="showimage" src="productImage.do?imglist=1&pro_no=${productVO.pro_no}" width="100%">
+			</div>
+            <div class="form-row">
+                <label>
+                    <span>商品圖片2</span>
+                    <input id="pro_image2" type="file" name="pro_image2">
+                </label>
+            </div>
+            <div class="input-group" id="imageView2">
+			<img class="showimage" src="productImage.do?imglist=2&pro_no=${productVO.pro_no}" width="100%">
+			</div>
+            <div class="form-row">
+                <label>
+                    <span>商品圖片3</span>
+                    <input id="pro_image3" type="file" name="pro_image3">
+                </label>
+            </div>
+            <div class="input-group" id="imageView3">
+			<img class="showimage" src="productImage.do?imglist=3&pro_no=${productVO.pro_no}" width="100%">
+			</div>
+            <div class="form-row">
+                <label>
+                    <span>商品圖片4</span>
+                    <input id="pro_image4" type="file" name="pro_image4">
+                </label>
+            </div>
+            <div class="input-group" id="imageView4">
+			<img class="showimage" src="productImage.do?imglist=4&pro_no=${productVO.pro_no}" width="100%">
+			</div>
+      		<div class="form-row">
+                <label>
+                    <span>訂購人數</span>
+                    <input type="text" name="productVO.pro_number" value="${productVO.pro_number}">
+                </label>
+            </div>
+            <div class="form-row">
+                <label>
+                    <span>建立日期</span>
+                    <input type="date" name="productVO.pro_createdate" value="${productVO.pro_createdate}">
+                </label>
+            </div>
+            <div class="form-row">
+            	<input type="hidden" name="productVO.pro_status" value="${productVO.pro_status}">
+                <button type="submit" class="btn btn-primary btn-lg">修改商品資訊</button>  
+            </div>
+        </s:form>
+        </div>
+
+    </div>
+
+</body>
+
 </html>

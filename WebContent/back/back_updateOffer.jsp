@@ -66,7 +66,7 @@
                 </label>
             </div>
             <div class="input-group" id="imageView">
-			    <img src="offerImage.do?off_no=${offerVO.off_no}" width="100%">
+			    <img class="showimage" src="offerImage.do?off_no=${offerVO.off_no}" width="100%">
 			</div>	
             <div class="form-row">
                 <label>

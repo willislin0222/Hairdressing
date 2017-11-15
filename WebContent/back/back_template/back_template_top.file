@@ -30,7 +30,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand" href="<%= request.getContextPath()%>/back/back_index.jsp">後端管理</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -73,14 +73,20 @@
             <span class="nav-link-text">優惠管理</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="<%= request.getContextPath()%>/back/back_ProductManage.jsp">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">商品管理</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">商城管理</span>
+            <span class="nav-link-text">訂單管理</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents2">
 	            <li>
-	              <a href="<%= request.getContextPath()%>/back/back_ProductManage.jsp">所有商品清單</a>
+	              <a href="">訂單數量統計</a>
 	            </li>
 	            <li>
 	              <a href="<%= request.getContextPath()%>/back/back_MordersManage.jsp">所有訂單明細</a>
