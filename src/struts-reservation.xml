@@ -40,7 +40,7 @@
 	        <result name="input">/index.jsp</result>
 		</action>	
 		
-			<action name="backdelete"   class="com.reservation.actions.ReservationManagerAction"  method="backdelete">
+		<action name="backdelete"   class="com.reservation.actions.ReservationManagerAction"  method="backdelete">
 	        <result name="success">/back/back_ReservationManage.jsp</result>
 		</action>
 		
@@ -49,6 +49,11 @@
 	        <result name="success" type="json">
                <param name="root">events</param>
             </result>
+		</action>
+		
+<!-- 		Hibernate+Struct2 分頁DEMO用 -->
+		<action name="personAction"   class="com.page.actions.ReservationAction">
+	        <result name="success">/reservation/pageReservation.jsp</result>
 		</action>
 		
 	</package>
