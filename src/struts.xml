@@ -27,6 +27,7 @@
 	  <include file="struts-adm.xml"/>
 	  <include file="struts-shopping.xml"/>
 	  <include file="struts-dayoff.xml"/>
+	  <include file="struts-pagedemo.xml"/>
 	  
 	  
 </struts>

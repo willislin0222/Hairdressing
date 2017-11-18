@@ -49,13 +49,7 @@
 	        <result name="success" type="json">
                <param name="root">events</param>
             </result>
-		</action>
-		
-<!-- 		Hibernate+Struct2 分頁DEMO用 -->
-		<action name="personAction"   class="com.page.actions.ReservationAction">
-	        <result name="success">/reservation/pageReservation.jsp</result>
-		</action>
-		
+		</action>		
 	</package>
 
 </struts>
