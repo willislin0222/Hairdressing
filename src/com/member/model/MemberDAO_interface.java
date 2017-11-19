@@ -15,9 +15,13 @@ public interface MemberDAO_interface {
 	public MemberVO findByMemid(String mem_id);
 	public List<MemberVO> getAll();
 	
-	 //查詢某會員的預約紀錄從會員編號(一對多)(回傳 Set)
+	//查詢某會員的預約紀錄從會員編號(一對多)(回傳 Set)
     public Set<ReservationVO> getReservationsByMemno(String mem_no);
     
     //查詢某部門的員工(一對多)(回傳 Set)
     public Set<MorderVO> getMordersByMemno(String mem_no);
+    
+    //Hibernate+Struct2 分頁功能用
+  	public List<ReservationVO> queryByPage(String hql, int offset, int pageSize);
+    public int getAllRowCount(String hql);
 }

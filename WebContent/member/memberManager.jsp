@@ -34,7 +34,7 @@
 					<ul>
 						<li><a href="<%= request.getContextPath()%>/index.jsp">Home</a></li>
 						<li><a href="<%= request.getContextPath()%>/member/updateMember.jsp">修改個人資料</a></li>
-						<li><a href="<%= request.getContextPath()%>/member/memreservations.jsp">查詢個人預約紀錄</a></li>
+						<li><a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action">查詢個人預約紀錄</a></li>
 						<li><a href="<%= request.getContextPath()%>/member/mordersByMemno.jsp">查詢訂單紀錄</a></li>
 					</ul>
 				</nav>

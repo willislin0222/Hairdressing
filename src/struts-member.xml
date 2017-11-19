@@ -39,6 +39,11 @@
 	        <result name="input">/index.jsp</result>
 		</action>
 		
+		<!--使用Hibernate+Struct2 分頁功能來實作從會員編號取得預約紀錄功能 -->
+		<action name="GetDataByMemAction"   class="com.member.actions.GetDataByMemAction">
+	        <result name="success">/member/memreservations.jsp</result>
+		</action>
+		
 	</package>
 	
 <!-- 	驗證是否登入會員 -->
