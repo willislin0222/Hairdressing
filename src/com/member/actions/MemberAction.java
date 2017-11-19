@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MemberAction extends ActionSupport {
 	private MemberVO memberVO;
+	private int page=1;
 	
 	//新增會員
 	public String addMember(){

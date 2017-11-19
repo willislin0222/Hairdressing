@@ -14,13 +14,21 @@ import org.apache.struts2.ServletActionContext;
 
 import com.fullcalendarevent.model.Event;
 import com.member.model.MemberService;
+import com.member.model.MemberVO;
+import com.member.model.PageBean;
 import com.reservation.model.ReservationService;
 import com.reservation.model.ReservationVO;
 
 public class ReservationManagerAction {
 	private String res_no;
 	private String mem_no;	
+	private int page=1;
 	List<Event> events;
+	
+	private MemberVO memberVO = new MemberVO();
+	HttpServletRequest request = ServletActionContext.getRequest();
+	HttpSession session = request.getSession();
+	private MemberService memberSvc = new MemberService();
 	
 	//取得修改預約資料
 	public String getOne_For_Update(){
@@ -32,10 +40,16 @@ public class ReservationManagerAction {
 			
 	}
 		
-	//刪除預約，從listAllReservation.jsp送出的刪除請求
+	//刪除預約
 	public String delete(){
 		ReservationService reservationSvc = new ReservationService();
 		reservationSvc.delete(res_no);
+		//重新查詢會員預約紀錄
+		memberVO = (MemberVO) session.getAttribute("memberVO");
+		PageBean pageBean = memberSvc.getPageBean(5, page ,memberVO.getMem_no());
+	    HttpServletRequest request = ServletActionContext.getRequest();    
+	    request.setAttribute("pageBean", pageBean);
+	        
 		return "success";
 	}
 	
@@ -52,7 +66,6 @@ public class ReservationManagerAction {
 		List<ReservationVO> reslist = reservationSvc.getAll();
 		Event event = null;	
 		events = new LinkedList();
-		System.out.println(reslist.size());
 		for(ReservationVO reservation : reslist){
 			event = new Event();  //每次要建立一個新的event物件，不然events內的值都會是同一筆
 			String title = reservation.getRes_timestart() + "~" + reservation.getRes_timeend() 
@@ -89,7 +102,23 @@ public class ReservationManagerAction {
 		this.events = events;
 	}
 
+	public int getPage() {
+		return page;
+	}
 
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public MemberVO getMemberVO() {
+		return memberVO;
+	}
+
+	public void setMemberVO(MemberVO memberVO) {
+		this.memberVO = memberVO;
+	}
+
+	
 	
 	
 }

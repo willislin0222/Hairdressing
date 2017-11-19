@@ -55,7 +55,7 @@
 						<td>${reservationVO.res_timeend}</td>
 						<td>${reservationVO.res_content}</td>
 						<td>
-						  <s:form action="getOne_For_Update" namespace="/reservation">
+						  <s:form action="backgetOne_For_Update" namespace="/reservation">
 						     <input type="submit"  class="btn btn-primary" value="修改"> 
 						     <input type="hidden" name="res_no" value="${reservationVO.res_no}">
 						  </s:form>

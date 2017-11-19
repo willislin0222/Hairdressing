@@ -31,7 +31,9 @@
     	<jsp:include page="/header.jsp" />
 <div class="container">
 	<div id="title">預約專區</div>
+	<div id="title"><a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action" class="btn btn-primary">前往個人預約清單</a></div>
 	<div id='calendar'></div>
+	
 	
 	<!-- 使用JQUERY onclick跳出預約視窗內容 -->
 	<a href="#modal-id" id="resdata" role="button" class="modal fade" data-toggle="modal"></a>

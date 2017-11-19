@@ -21,3 +21,13 @@ body {
 	word-wrap : break-word ;
 	overflow: hidden ;
 }
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    width: max-content;
+}

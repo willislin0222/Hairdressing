@@ -22,12 +22,15 @@
 		</action>
 		
 		<action name="getOne_For_Update"   class="com.reservation.actions.ReservationManagerAction"  method="getOne_For_Update">
+	        <result name="success">/reservation/updateReservation.jsp</result>
+		</action>
+		
+		<action name="backgetOne_For_Update"   class="com.reservation.actions.ReservationManagerAction"  method="getOne_For_Update">
 	        <result name="success">/back/back_updateReservation.jsp</result>
 		</action>
 		
 		<action name="updateReservation"   class="com.reservation.actions.ReservationAction"  method="updateReservation">
 	        <result name="success">/reservation/resupdateyes.jsp</result>
-	        <result name="input">/reservation/updateReservation.jsp</result>
 		</action>
 		
 		<action name="backupdateReservation"   class="com.reservation.actions.ReservationAction"  method="backupdateReservation">
@@ -36,8 +39,7 @@
 		</action>
 		
 		<action name="delete"   class="com.reservation.actions.ReservationManagerAction"  method="delete">
-	        <result name="success">/reservation/listAllReservation.jsp</result>
-	        <result name="input">/index.jsp</result>
+	        <result name="success">/member/memreservations.jsp</result>
 		</action>	
 		
 		<action name="backdelete"   class="com.reservation.actions.ReservationManagerAction"  method="backdelete">

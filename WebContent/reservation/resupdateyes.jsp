@@ -66,8 +66,8 @@
 						<caption></caption>
 							
 						
-						<h2><form name=form1><input class="time" name=timespent ></form>後自動回到預約頁面</h2>
-						<a href="<%= request.getContextPath()%>/reservation/fullcalendar.jsp"><h4>返回預約頁面</h4></a>
+						<h2><form name=form1><input class="time" name=timespent ></form>後自動回到預約專區</h2>
+						<a href="<%= request.getContextPath()%>/reservation/fullcalendar.jsp"><h4>返回預約專區</h4></a>
 						</table>
 					</div>
 				</div>

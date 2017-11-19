@@ -7,6 +7,12 @@
     
     <title>My JSP 'pagePerson.jsp' starting page</title>
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/memreservations.css"">
+    <script src='<%= request.getContextPath()%>/js/fullcalendar/moment.min.js'></script>
+	<script src='<%= request.getContextPath()%>/js/fullcalendar/jquery.min.js'></script>
+	<script src='<%= request.getContextPath()%>/js/bootstrap.min.js'></script>
+	<!-- 彈跳出預約輸入視窗用 -->
+	<script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery.timepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/jquery.timepicker.css" />
     <meta http-equiv="pragma" content="no-cache"> 
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">    
@@ -65,13 +71,10 @@
             <td><s:property value="#reservationVO.res_timeend"/></td>        
             <td><s:property value="#reservationVO.res_content"/></td>      
             <td>
-				 <a href="#resupdateform${reservationVO.res_no}" data-toggle="modal" class="btn btn-primary">修改</a>
+				 <a href="<%= request.getContextPath()%>/reservation/getOne_For_Update.action?res_no=${reservationVO.res_no}" class="btn btn-primary">修改</a>
 			</td>
 			<td>
-			  <s:form action="delete" namespace="/reservation">
-			    <input type="submit" value="刪除">
-			    <input type="hidden" name="res_no" value="${reservationVO.res_no}">
-			  </s:form>
+			 	 <a href="<%= request.getContextPath()%>/reservation/delete.action?res_no=${reservationVO.res_no}"  class="btn btn-primary">取消預約</a>
 			</td>  
         </tr>
     
@@ -90,15 +93,15 @@
         </s:if>
         
         <s:else>
-            <a href="GetDataByMemAction.action">首页</a>
+            <a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action">首页</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="GetDataByMemAction.action?page=<s:property value="#request.pageBean.currentPage - 1"/>">上一页</a>
+            <a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action?page=<s:property value="#request.pageBean.currentPage - 1"/>">上一页</a>
         </s:else>
         
         <s:if test="#request.pageBean.currentPage != #request.pageBean.totalPage">
-            <a href="GetDataByMemAction.action?page=<s:property value="#request.pageBean.currentPage + 1"/>">下一页</a>
+            <a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action?page=<s:property value="#request.pageBean.currentPage + 1"/>">下一页</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="GetDataByMemAction.action?page=<s:property value="#request.pageBean.totalPage"/>">尾页</a>
+            <a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action?page=<s:property value="#request.pageBean.totalPage"/>">尾页</a>
         </s:if>
         
         <s:else>
@@ -109,7 +112,7 @@
     
     <center>
         
-        <form action="GetDataByMemAction.action" onsubmit="return validate();">
+        <form action="<%= request.getContextPath()%>/member/GetDataByMemAction.action" onsubmit="return validate();">
             <font size="4">至</font>
             <input type="text" size="2" name="page">页
             <input type="submit" value="前往">
@@ -118,6 +121,6 @@
     </center>
 </div>    
     <jsp:include page="/footer.jsp" />
-    
+  
   </body>
 </html>
