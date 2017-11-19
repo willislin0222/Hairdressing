@@ -1,5 +1,7 @@
 package com.member.actions;
 
+import java.sql.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,8 +18,25 @@ public class GetDataByMemAction extends ActionSupport{
 	HttpServletRequest request = ServletActionContext.getRequest();
 	HttpSession session = request.getSession();
 	private MemberService memberSvc = new MemberService();
+	private Date today;
     
     private int page=1;
+    
+    @Override
+    public String execute() throws Exception
+    {
+    	memberVO = (MemberVO) session.getAttribute("memberVO");
+    	//取得今日日期，用於前台判斷預約清單時間是否已過
+    	today = new Date(System.currentTimeMillis());
+        //表示每页显示5条记录，page表示当前网页
+        PageBean pageBean = memberSvc.getPageBean(5, page ,memberVO.getMem_no());
+        
+        HttpServletRequest request = ServletActionContext.getRequest();
+        
+        request.setAttribute("pageBean", pageBean);
+        
+        return SUCCESS;
+    }
     
     public int getPage()
     {
@@ -29,17 +48,13 @@ public class GetDataByMemAction extends ActionSupport{
         this.page = page;
     }
 
-    @Override
-    public String execute() throws Exception
-    {
-    	memberVO = (MemberVO) session.getAttribute("memberVO");
-        //表示每页显示5条记录，page表示当前网页
-        PageBean pageBean = memberSvc.getPageBean(5, page ,memberVO.getMem_no());
-        
-        HttpServletRequest request = ServletActionContext.getRequest();
-        
-        request.setAttribute("pageBean", pageBean);
-        
-        return SUCCESS;
-    }
+	public Date getToday() {
+		return today;
+	}
+
+	public void setToday(Date today) {
+		this.today = today;
+	}
+    
+    
 }

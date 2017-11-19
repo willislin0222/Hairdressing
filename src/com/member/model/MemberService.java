@@ -46,7 +46,7 @@ public class MemberService {
 	    {
 	        PageBean pageBean = new PageBean();
 	        
-	        String hql = "from ReservationVO where mem_no='" + mem_no + "' order by res_no desc";
+	        String hql = "from ReservationVO where mem_no='" + mem_no + "' order by res_date desc";
 	        
 	        int allRows = dao.getAllRowCount(hql);
 	        

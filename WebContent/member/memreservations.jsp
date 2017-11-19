@@ -46,6 +46,7 @@
   	<jsp:include page="/header.jsp" />
 
     <div id="title">${memberVO.mem_name}的預約清單</div>
+    <div id="title"><a href="<%= request.getContextPath()%>/reservation/fullcalendar.action" class="btn btn-primary">前往預約專區</a></div>
     
     <table border="1" align="center" bordercolor="#CCCCFF" width="100%">
     
@@ -71,10 +72,14 @@
             <td><s:property value="#reservationVO.res_timeend"/></td>        
             <td><s:property value="#reservationVO.res_content"/></td>      
             <td>
-				 <a href="<%= request.getContextPath()%>/reservation/getOne_For_Update.action?res_no=${reservationVO.res_no}" class="btn btn-primary">修改</a>
+            	<s:if test="#reservationVO.res_date > today">
+					 <a href="<%= request.getContextPath()%>/reservation/getOne_For_Update.action?res_no=${reservationVO.res_no}" class="btn btn-primary">修改</a>
+				</s:if>
 			</td>
 			<td>
-			 	 <a href="<%= request.getContextPath()%>/reservation/delete.action?res_no=${reservationVO.res_no}"  class="btn btn-primary">取消預約</a>
+				<s:if test="#reservationVO.res_date > today">
+			 		 <a href="<%= request.getContextPath()%>/reservation/delete.action?res_no=${reservationVO.res_no}"  class="btn btn-primary">取消預約</a>
+				</s:if>
 			</td>  
         </tr>
     
