@@ -1,5 +1,6 @@
 package com.reservation.actions;
 
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -21,7 +22,8 @@ import com.reservation.model.ReservationVO;
 
 public class ReservationManagerAction {
 	private String res_no;
-	private String mem_no;	
+	private String mem_no;
+	private Date today;
 	private int page=1;
 	List<Event> events;
 	
@@ -32,6 +34,7 @@ public class ReservationManagerAction {
 	
 	//取得修改預約資料
 	public String getOne_For_Update(){
+		today = new Date(System.currentTimeMillis());
 		ReservationService reservationSvc = new ReservationService();
 		ReservationVO reservationVO = reservationSvc.getOneReservation(res_no);
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -44,9 +47,10 @@ public class ReservationManagerAction {
 	public String delete(){
 		ReservationService reservationSvc = new ReservationService();
 		reservationSvc.delete(res_no);
+		today = new Date(System.currentTimeMillis());
 		//重新查詢會員預約紀錄
 		memberVO = (MemberVO) session.getAttribute("memberVO");
-		PageBean pageBean = memberSvc.getPageBean(5, page ,memberVO.getMem_no());
+		PageBean pageBean = memberSvc.getReservationsPageBeanByMemno(5, page ,memberVO.getMem_no());
 	    HttpServletRequest request = ServletActionContext.getRequest();    
 	    request.setAttribute("pageBean", pageBean);
 	        
@@ -116,6 +120,14 @@ public class ReservationManagerAction {
 
 	public void setMemberVO(MemberVO memberVO) {
 		this.memberVO = memberVO;
+	}
+
+	public Date getToday() {
+		return today;
+	}
+
+	public void setToday(Date today) {
+		this.today = today;
 	}
 
 	

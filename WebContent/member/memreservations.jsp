@@ -98,15 +98,15 @@
         </s:if>
         
         <s:else>
-            <a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action">首页</a>
+            <a href="<%= request.getContextPath()%>/member/GetReservationDataByMemAction.action">首页</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action?page=<s:property value="#request.pageBean.currentPage - 1"/>">上一页</a>
+            <a href="<%= request.getContextPath()%>/member/GetReservationDataByMemAction.action?page=<s:property value="#request.pageBean.currentPage - 1"/>">上一页</a>
         </s:else>
         
         <s:if test="#request.pageBean.currentPage != #request.pageBean.totalPage">
-            <a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action?page=<s:property value="#request.pageBean.currentPage + 1"/>">下一页</a>
+            <a href="<%= request.getContextPath()%>/member/GetReservationDataByMemAction.action?page=<s:property value="#request.pageBean.currentPage + 1"/>">下一页</a>
             &nbsp;&nbsp;&nbsp;
-            <a href="<%= request.getContextPath()%>/member/GetDataByMemAction.action?page=<s:property value="#request.pageBean.totalPage"/>">尾页</a>
+            <a href="<%= request.getContextPath()%>/member/GetReservationDataByMemAction.action?page=<s:property value="#request.pageBean.totalPage"/>">尾页</a>
         </s:if>
         
         <s:else>

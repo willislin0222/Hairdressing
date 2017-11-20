@@ -38,7 +38,7 @@ public class ReservationAction extends ActionSupport{
 		reservationVO.setMemberVO(memberVO);
 		reservationSvc.updateReservation(reservationVO);
 		//重新查詢會員預約紀錄
-		PageBean pageBean = memberSvc.getPageBean(5, page ,memberVO.getMem_no());
+		PageBean pageBean = memberSvc.getReservationsPageBeanByMemno(5, page ,memberVO.getMem_no());
 		HttpServletRequest request = ServletActionContext.getRequest();    
 		request.setAttribute("pageBean", pageBean);
 		return "success";

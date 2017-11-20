@@ -40,8 +40,13 @@
 		</action>
 		
 		<!--使用Hibernate+Struct2 分頁功能來實作從會員編號取得預約紀錄功能 -->
-		<action name="GetDataByMemAction"   class="com.member.actions.GetDataByMemAction">
+		<action name="GetReservationDataByMemAction"   class="com.member.actions.GetDataByMemAction" method="getReservationsPageBeanByMemno">
 	        <result name="success">/member/memreservations.jsp</result>
+		</action>
+		
+		<!--使用Hibernate+Struct2 分頁功能來實作從會員編號取得訂單紀錄功能 -->
+		<action name="GetMorderDataByMemAction"   class="com.member.actions.GetDataByMemAction" method="getMordersPageBeanByMemno">
+	        <result name="success">/member/memmorders.jsp</result>
 		</action>
 		
 	</package>
