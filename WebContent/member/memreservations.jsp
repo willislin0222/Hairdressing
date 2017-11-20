@@ -75,11 +75,18 @@
             	<s:if test="#reservationVO.res_date > today">
 					 <a href="<%= request.getContextPath()%>/reservation/getOne_For_Update.action?res_no=${reservationVO.res_no}" class="btn btn-primary">修改</a>
 				</s:if>
+				<s:else>
+					 <a href="<%= request.getContextPath()%>/reservation/getOne_For_Update.action?res_no=${reservationVO.res_no}" class="btn btn-primary disabled">修改</a>
+				</s:else>
+				
 			</td>
 			<td>
 				<s:if test="#reservationVO.res_date > today">
 			 		 <a href="<%= request.getContextPath()%>/reservation/delete.action?res_no=${reservationVO.res_no}"  class="btn btn-primary">取消預約</a>
 				</s:if>
+				<s:else>
+			 		 <a href="<%= request.getContextPath()%>/reservation/delete.action?res_no=${reservationVO.res_no}"  class="btn btn-primary disabled" readonly>取消預約</a>
+				</s:else>
 			</td>  
         </tr>
     

@@ -20,5 +20,11 @@
         <property name="pro_createdate" column="pro_createdate" />
         <property name="pro_status" column="pro_status" />
         
+        <set name="orderLists" table="orderlist" lazy="false" cascade="all"  inverse="true"  order-by="pro_no asc">			
+			<key>
+				<column name="pro_no" />
+			</key>
+			<one-to-many class="com.orderlist.model.OrderListVO" />
+		</set>
     </class>
 </hibernate-mapping>

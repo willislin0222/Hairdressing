@@ -32,8 +32,8 @@
 			<s:fielderror cssStyle="color: red" />
             <div class="form-row">
                 <label>
-                    <span>會員編號</span>
-                    <input type="text" name="reservationVO.memberVO.mem_no" value="${reservationVO.memberVO.mem_no}" readonly>
+                    <span>預約編號</span>
+                    <input type="text" name="reservationVO.res_no" value="${reservationVO.res_no}" readonly>
                 </label>
             </div>
             <div class="form-row">
@@ -71,8 +71,8 @@
                 </label>
             </div>
             <div class="form-row">
-          		<input type="hidden" name="reservationVO.res_no" value="${reservationVO.res_no}">
-                <button type="submit" class="btn btn-primary btn-lg">預約</button>  
+          		<input type="hidden" name="reservationVO.memberVO.mem_no" value="${reservationVO.memberVO.mem_no}">
+                <button type="submit" class="btn btn-primary btn-lg">修改預約</button>  
             </div>
 
         </s:form>
