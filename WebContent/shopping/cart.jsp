@@ -52,6 +52,9 @@
 						
 						<%Vector<ProductVO> buylist = (Vector<ProductVO>) session.getAttribute("shoppingcart");%>
 						
+						<%if (!(buylist != null && (buylist.size() > 0))) {%>
+							<div style="text-align:center"><font style="color:red"><h1>購物車內沒有商品</h1></font></div>
+						<%}%>
 						<%if (buylist != null && (buylist.size() > 0)) {%>
 						
 						
@@ -101,7 +104,7 @@
 						           </s:form>
 						     </div>
 					</div>
-<%}%>
+			<%}%>
 				</div>
 			</div>
 </div>
