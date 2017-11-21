@@ -13,14 +13,7 @@
                           <column name="pro_no"/>
             </key-many-to-one>
         </composite-id>
-        
-<!--         <many-to-one name="MorderVO" class="com.morder.model.MorderVO" lazy="false"> -->
-<!--             <column name="mord_no" /> -->
-<!--         </many-to-one> -->
-        
+                
         <property name="ordl_number" column="ordl_number" />
-   
-   		
-        
     </class>
 </hibernate-mapping>

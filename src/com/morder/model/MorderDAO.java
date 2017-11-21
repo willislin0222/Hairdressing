@@ -57,6 +57,7 @@ public class MorderDAO implements MorderDAO_interface{
 		try {
 			session.beginTransaction();
 			MorderVO morderVO = new MorderVO();
+			morderVO.getProducts().remove(mord_no);
 			morderVO.setMord_no(mord_no);
 			session.delete(morderVO);
 			session.getTransaction().commit();

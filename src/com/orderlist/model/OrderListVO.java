@@ -2,8 +2,6 @@ package com.orderlist.model;
 
 import java.io.Serializable;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import com.morder.model.MorderVO;
 import com.product.model.ProductVO;

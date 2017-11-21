@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import com.fullcalendarevent.model.Event;
+import com.member.actions.GetDataByMemAction;
 import com.member.model.MemberService;
 import com.member.model.MemberVO;
 import com.member.model.PageBean;
@@ -27,10 +28,6 @@ public class ReservationManagerAction {
 	private int page=1;
 	List<Event> events;
 	
-	private MemberVO memberVO = new MemberVO();
-	HttpServletRequest request = ServletActionContext.getRequest();
-	HttpSession session = request.getSession();
-	private MemberService memberSvc = new MemberService();
 	
 	//取得修改預約資料
 	public String getOne_For_Update(){
@@ -44,21 +41,20 @@ public class ReservationManagerAction {
 	}
 		
 	//刪除預約
-	public String delete(){
+	public String delete() throws Exception{
 		ReservationService reservationSvc = new ReservationService();
 		reservationSvc.delete(res_no);
 		today = new Date(System.currentTimeMillis());
 		//重新查詢會員預約紀錄
-		memberVO = (MemberVO) session.getAttribute("memberVO");
-		PageBean pageBean = memberSvc.getReservationsPageBeanByMemno(5, page ,memberVO.getMem_no());
+		GetDataByMemAction getDataByMemAction = new GetDataByMemAction();
+		getDataByMemAction.getReservationsPageBeanByMemno();	
 	    HttpServletRequest request = ServletActionContext.getRequest();    
-	    request.setAttribute("pageBean", pageBean);
 	        
 		return "success";
 	}
 	
 	//後台刪除預約
-	public String backdelete(){
+	public String backdelete() throws Exception{
 		delete();
 		return "success";
 	}
@@ -112,14 +108,6 @@ public class ReservationManagerAction {
 
 	public void setPage(int page) {
 		this.page = page;
-	}
-
-	public MemberVO getMemberVO() {
-		return memberVO;
-	}
-
-	public void setMemberVO(MemberVO memberVO) {
-		this.memberVO = memberVO;
 	}
 
 	public Date getToday() {

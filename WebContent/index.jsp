@@ -129,7 +129,6 @@
 			                <a href="<%=request.getContextPath()%>/product/getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
 			              </h4>
 			              <p class="card-text">${productVO.pro_desc}</p>
-			              ${productVO.pro_createdate}
 			            </div>
 			          </div>
 			        </div>

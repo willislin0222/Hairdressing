@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.morder.model.MorderVO;
 import com.orderlist.model.OrderListVO;
 
 public class ProductVO {
@@ -19,8 +20,9 @@ public class ProductVO {
 	private Date pro_createdate;
 	private String pro_status;
 	
-	//ONE-TO-MANY
-	private Set<OrderListVO> orderLists = new HashSet<OrderListVO>();
+	//MANY-TO-MANY
+	private Set<MorderVO> morders = new HashSet<MorderVO>();
+	
 		
 	public String getPro_no() {
 		return pro_no;
@@ -88,11 +90,11 @@ public class ProductVO {
 	public void setPro_status(String pro_status) {
 		this.pro_status = pro_status;
 	}
-	public Set<OrderListVO> getOrderLists() {
-		return orderLists;
+	public Set<MorderVO> getMorders() {
+		return morders;
 	}
-	public void setOrderLists(Set<OrderListVO> orderLists) {
-		this.orderLists = orderLists;
+	public void setMorders(Set<MorderVO> morders) {
+		this.morders = morders;
 	}
 	
 	

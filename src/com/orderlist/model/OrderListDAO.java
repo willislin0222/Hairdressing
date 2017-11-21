@@ -58,21 +58,9 @@ public class OrderListDAO implements OrderListDAO_interface{
 	@Override
 	public void delete(String mord_no, String pro_no) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		OrderListVO orderlistVO =null;
-		OrderListVO user = new OrderListVO();
-		
-		MorderVO morderVO = new MorderVO();
-		morderVO.setMord_no(mord_no);
-		user.setMorderVO(morderVO);
-		
-		ProductVO productVO = new ProductVO();
-		productVO.setPro_no(pro_no);
-		user.setProductVO(productVO);
-		
-		try {
-				
+		try {			
 			session.beginTransaction();
-			orderlistVO =(OrderListVO) session.get(OrderListVO.class, user);
+			OrderListVO orderlistVO =(OrderListVO) session.get(OrderListVO.class, mord_no);
 			session.delete(orderlistVO);
 			session.getTransaction().commit();
 		} catch (RuntimeException e) {

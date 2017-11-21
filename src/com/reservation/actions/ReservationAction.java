@@ -1,14 +1,8 @@
 package com.reservation.actions;
 
-
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.ServletActionContext;
-
+import com.member.actions.GetDataByMemAction;
 import com.member.model.MemberService;
 import com.member.model.MemberVO;
-import com.member.model.PageBean;
 import com.opensymphony.xwork2.ActionSupport;
 import com.reservation.model.ReservationService;
 import com.reservation.model.ReservationVO;
@@ -31,16 +25,15 @@ public class ReservationAction extends ActionSupport{
 	}
 	
 	//修改預約資料
-	public String updateReservation(){
+	public String updateReservation() throws Exception{
 		ReservationService reservationSvc = new ReservationService();
 		MemberService memberSvc = new MemberService();
 		MemberVO memberVO = memberSvc.getOneMember(reservationVO.getMemberVO().getMem_no());
 		reservationVO.setMemberVO(memberVO);
 		reservationSvc.updateReservation(reservationVO);
 		//重新查詢會員預約紀錄
-		PageBean pageBean = memberSvc.getReservationsPageBeanByMemno(5, page ,memberVO.getMem_no());
-		HttpServletRequest request = ServletActionContext.getRequest();    
-		request.setAttribute("pageBean", pageBean);
+		GetDataByMemAction getDataByMemAction = new GetDataByMemAction();
+		getDataByMemAction.getReservationsPageBeanByMemno();
 		return "success";
 	}
 	//後台修改預約資料

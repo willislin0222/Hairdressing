@@ -86,7 +86,7 @@
  		<td width="200"><s:property value="#morderVO.mord_price"/></td>
  		<td width="200"><s:property value="#morderVO.mord_createdate"/></td>
  		<td>
-	  		<a href="<%= request.getContextPath()%>/reservation/delete.action?res_no=${reservationVO.res_no}"  class="btn btn-primary">取消訂單</a>
+	  		<a href="<%= request.getContextPath()%>/morder/delete.action?mord_no=<s:property value="#morderVO.mord_no"/>"  class="btn btn-primary">取消訂單</a>
 		</td>	
    	</tr>
    	<tr>

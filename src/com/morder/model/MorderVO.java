@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.member.model.MemberVO;
 import com.orderlist.model.OrderListVO;
+import com.product.model.ProductVO;
 
 public class MorderVO {
 	private String mord_no; 
@@ -13,9 +14,8 @@ public class MorderVO {
 	private Integer mord_price;
 	private Date mord_createdate;
 	private Integer mord_status;
-	
-	//ONE-TO-MANY
-	private Set<OrderListVO> orderLists = new HashSet<OrderListVO>();
+	//MANY-TO-MANY
+	private Set<ProductVO> products = new HashSet<ProductVO>();
 	
 	public String getMord_no() {
 		return mord_no;
@@ -48,14 +48,11 @@ public class MorderVO {
 	public void setMord_status(Integer mord_status) {
 		this.mord_status = mord_status;
 	}
-	public Set<OrderListVO> getOrderLists() {
-		return orderLists;
+	
+	public Set<ProductVO> getProducts() {
+		return products;
 	}
-	public void setOrderLists(Set<OrderListVO> orderLists) {
-		this.orderLists = orderLists;
+	public void setProducts(Set<ProductVO> products) {
+		this.products = products;
 	}
-	
-	
-	
-	
 }

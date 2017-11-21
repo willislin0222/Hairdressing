@@ -17,12 +17,12 @@
         <property name="mord_createdate" column="mord_createdate" />
         <property name="mord_status" column="mord_status" />
         
-        <set name="orderLists" table="orderlist" lazy="false" cascade="all"  inverse="true"  order-by="mord_no asc">			
-			<key>
-				<column name="mord_no" />
-			</key>
-			<one-to-many class="com.orderlist.model.OrderListVO" />
-		</set>
+		
+		<set name="products" table="orderlist" cascade="save-update"> 
+             <key column="mord_no"/> 
+            <many-to-many class="com.product.model.ProductVO"
+                          column="pro_no"/> 
+        </set> 
         
     </class>
 </hibernate-mapping>

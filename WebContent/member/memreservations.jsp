@@ -124,7 +124,7 @@
     
     <center>
         
-        <form action="<%= request.getContextPath()%>/member/GetDataByMemAction.action" onsubmit="return validate();">
+        <form action="<%= request.getContextPath()%>/member/GetReservationDataByMemAction.action" onsubmit="return validate();">
             <font size="4">至</font>
             <input type="text" size="2" name="page">页
             <input type="submit" value="前往">

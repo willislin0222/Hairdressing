@@ -57,7 +57,7 @@
 	              <h4 class="card-title">
 	                	<a href="getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
 	              </h4>
-	            	 <h5>$<span class="card-text">${productVO.pro_price}-${productVO.pro_createdate}</span></h5>
+	            	 <h5>$<span class="card-text">${productVO.pro_price}</span></h5>
 	            	   商品介紹:<span class="card-text">${productVO.pro_desc}</span> <br>
 	            </div>
 	          </div>
