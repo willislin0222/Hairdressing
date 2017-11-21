@@ -1,18 +1,13 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.member.model.*"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
-
 <!DOCTYPE html>
-<!-- saved from url=(0085)file:///C: -->
 <html lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>會員登入</title>
-    <link rel="icon" href="images/logo_aa.ico">
+    <title>Title Page</title>
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/bootstrap.min.css">
 
     <style type="text/css">
@@ -27,11 +22,9 @@
     -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
 }
-
 .panel-login>.panel-heading {
     text-align:center;
 }
-
 .panel-login>.panel-heading a{
     text-decoration: none;
     font-weight: bold;
@@ -40,11 +33,9 @@
     -moz-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
-
 .panel-login>.panel-heading a.active{
     font-size: 34px;
 }
-
 .panel-login>.panel-heading hr{
     margin-top: 10px;
     margin-bottom: 0px;
@@ -139,16 +130,11 @@
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
-.loginbtn{
-	text-align: center;
-}
     </style>
    
 
   </head>
   <body>
-  
-      
   
   <div id="fullscreen_bg" class="fullscreen_bg">
 <div id="regContainer" class="container">
@@ -158,42 +144,37 @@
           <div class="panel-heading">
             <div class="row">
               <div class="col-xs-6">
-               <a href="" class="active" id="login-form-link">登入輸入資料</a>
+               <a href="#" class="active" id="login-form-link">取得帳號密碼</a>
               </div>
               
             </div>
             <hr>
-          </div>     
-         <%-- 錯誤表列 --%>
-		<s:fielderror fieldName="errorMsg" cssStyle="color: red" />
-
+          </div>
+          
+          
+          <%-- 錯誤表列 --%>
+          <s:fielderror cssStyle="color: red" />
+<%--           <s:fielderror fieldName="mem_id" cssStyle="color: red" /> 取個別錯誤訊息--%> 
+        
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-				<s:form  action="login" namespace="/member">
-                  <div class="form-group">
-                    <label for="ID">帳號</label>
-                    <input type="text" name="mem_id" id=" ID" tabindex="1" class="form-control" placeholder="ID" value="">
-                  </div>
+				<s:form  action="sentpswmail">
+				                 
 
                   <div class="form-group">
-
-					 <label for="ID">密碼</label>
-                  
-                  <input type="password" name="mem_psw" id=" PASWWORD" tabindex="1" class="form-control" placeholder="PASWWORD" value="">
+                    <label for="ID">請輸入您的帳號</label>
+                    <input type="text" name="memberVO.mem_id" tabindex="1" class="form-control" placeholder="登入帳號" value="${memberVO.mem_id}">
                   </div>
 
-                    
                   <div class="form-group">
                     <div class="row">
-                      <div class="col-sm-12 loginbtn">
-                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="登入">
-                      	<a class="d-block small" href="<%=request.getContextPath()%>/member/joinMember.jsp">註冊會員</a><br>
-                      	<a class="d-block small" href="<%=request.getContextPath()%>/member/forgetpsw.jsp">忘記密碼</a><br>
+                      <div class="col-sm-12">
+                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="取得密碼">
                       </div>
                     </div>
                   </div>
-				</s:form>
+               </s:form>
               </div>
             </div>
           </div>
@@ -201,5 +182,7 @@
       </div>
     </div>
   </div>
-    
-</div></body></html>
+
+</div>
+</body>
+</html>

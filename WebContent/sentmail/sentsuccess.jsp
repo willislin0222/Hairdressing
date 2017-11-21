@@ -31,7 +31,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<strong><h4 class="modal-title">郵件已成功寄到<s:property value="to"/>的信箱</h4></strong>
+						<strong><h4 class="modal-title"><s:property value="subject"/>郵件已成功寄到<s:property value="to"/>的信箱</h4></strong>
 					</div>
 					<div class="modal-body">
 

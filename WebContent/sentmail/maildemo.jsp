@@ -10,7 +10,7 @@
 	 <em>The form below uses Google's SMTP server. 
    So you need to enter a gmail username and password
    </em>
-   <form action="sentmail" method="post">
+   <form action="sentpswmail" method="post">
 	   <label for="to">To</label><br/>
 	   <input type="text" name="to"/><br/>
 	   <label for="subject">Subject</label><br/>

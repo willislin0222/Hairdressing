@@ -8,13 +8,7 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
 	
-<!-- 	寄送mail用struct2 -->
-	  <package name="helloworld" extends="struts-default">
-	     <action name="sentmail" class="com.mail.actions.Sentmail" method="execute">
-	        <result name="success">/sentmail/sentsuccess.jsp</result>
-	        <result name="error">/sentmail/senterror.jsp</result>
-	     </action>
-      </package>
+
       
 <!--  引用其他struct2設定檔   --> 
 	  <include file="struts-member.xml"/>
@@ -28,6 +22,7 @@
 	  <include file="struts-shopping.xml"/>
 	  <include file="struts-dayoff.xml"/>
 	  <include file="struts-pagedemo.xml"/>
+	  <include file="struts-sentmail.xml"/>
 	  
 	  
 </struts>

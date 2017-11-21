@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	
+	<!-- 	寄送mail用struct2 -->
+	  <package name="sentmail" extends="struts-default">
+	     <action name="sentpswmail" class="com.mail.actions.Sentmail" method="sentpswmail">
+	        <result name="success">/sentmail/sentsuccess.jsp</result>
+	        <result name="input">/member/forgetpsw.jsp</result>
+	     </action>
+      </package>
+
+</struts>
