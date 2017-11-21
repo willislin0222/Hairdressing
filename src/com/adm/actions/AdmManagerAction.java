@@ -30,6 +30,16 @@ public class AdmManagerAction extends ActionSupport{
 		Base64.Encoder encoder = Base64.getEncoder();
 		//密碼加密
 		String psw_new64 = encoder.encodeToString(adm_psw.getBytes());
+		if(adm_id.equals("") && adm_psw.equals("")){
+			super.addFieldError("errorMsg", "請輸入帳號和密碼");
+			return "input";
+		}else if(adm_psw.equals("")){
+			super.addFieldError("errorMsg", "請輸入密碼");
+			return "input";
+		}else if(adm_id.equals("")){
+			super.addFieldError("errorMsg", "請輸入帳號");
+			return "input";
+		}
 		if(admVO.getAdm_no() == null){
 			super.addFieldError("errorMsg", "無此帳號");
 			return "input";
@@ -61,6 +71,14 @@ public class AdmManagerAction extends ActionSupport{
 		return "success";
 			
 	}
+	//登出管理員
+	public String logout(){
+	 HttpServletRequest request = ServletActionContext.getRequest();
+	 HttpSession session = request.getSession();	
+	 session.invalidate();
+	  return "success";
+	}
+	
 	//刪除管理員
 	public String delete(){
 		AdmService admSvc = new AdmService();

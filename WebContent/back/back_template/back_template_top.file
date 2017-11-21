@@ -110,7 +110,7 @@
       	<c:if test="${admVO.adm_id != null }">
 	        <li class="nav-item">
 	          <a class="nav-link" data-toggle="modal">
-	            <i class="fa fa-fw fa-sign-out"></i>${admVO.adm_id}</a>
+	            	登入管理者:&nbsp;${admVO.adm_id}</a>
 	        </li>   
      	 </c:if>
         <li class="nav-item">
