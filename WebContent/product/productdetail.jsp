@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/product/productmain.css">
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>商品詳情</title>
 
 
   </head>
@@ -27,15 +27,14 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">Portfolio Item
-        <small>Subheading</small>
-      </h1>
+      <h2 class="mt-4 mb-3">${productVO.pro_name}
+      </h2>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">首頁</a>
+          <a href="<%= request.getContextPath()%>/index.jsp">首頁</a>
         </li>
-        <li class="breadcrumb-item active">商品詳情${productVO.pro_no}</li>
+        <li class="breadcrumb-item active">商品詳情</li>
       </ol>
 <s:form action="addbuylist" namespace="/shopping">
       <!-- Portfolio Item Row -->
@@ -48,11 +47,11 @@
         <div class="col-md-5">
           <font style="color:red"><h3 class="my-3">${productVO.pro_name}</h3></font>
           <h6 class="my-3">${productVO.pro_desc}</h6>
-       	  <h1 class="my-3">${productVO.pro_price}</h1>
+       	  <h1 class="my-3">$${productVO.pro_price}</h1>
        	  <input class="btn btn-primary btn-lg" type="hidden" name="productVO.pro_no" value="${productVO.pro_no}">
        	  <input class="btn btn-primary btn-lg" type="hidden" name="productVO.pro_name" value="${productVO.pro_name}">
        	  <input class="btn btn-primary btn-lg" type="hidden" name="productVO.pro_price" value="${productVO.pro_price}">
-       	  <input type="text" name="productVO.pro_number" value="1">
+       	  <label>數量</label>&nbsp;&nbsp;<input type="text" size="1" name="productVO.pro_number" value="1"><br>
        	  <input class="btn btn-primary btn-lg" type="submit" name="Submit" value="加入購物車">
         </div>
         

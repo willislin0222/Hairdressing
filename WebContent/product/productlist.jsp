@@ -23,7 +23,7 @@
     <meta name="author" content="">
   
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>美髮商品</title>
 
   </head>
 
@@ -41,7 +41,7 @@
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">首頁</a>
+          <a href="<%= request.getContextPath()%>/index.jsp">首頁</a>
         </li>
         <li class="breadcrumb-item active">商品列表</li> 
       </ol>

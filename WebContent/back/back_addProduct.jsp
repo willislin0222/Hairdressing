@@ -39,7 +39,7 @@
             <div class="form-row">
                 <label>
                     <span>商品描述</span>
-                    <input type="text" name="productVO.pro_desc" value="${productVO.pro_desc}">
+               		<textarea class="form-control"  style="width:240px;height:200px;" name="productVO.pro_desc" value="${productVO.pro_desc}"></textarea>
                 </label>
             </div>
             <div class="form-row">

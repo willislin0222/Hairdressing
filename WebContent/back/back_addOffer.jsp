@@ -41,7 +41,7 @@
             <div class="form-row">
                 <label>
                     <span>優惠內容</span>
-                    <input type="text" name="offerVO.off_content" value="${offerVO.off_content}">
+               		<textarea class="form-control"  style="width:240px;height:200px;" name="offerVO.off_content" value="${offerVO.off_content}"></textarea>
                 </label>
             </div>
             <div class="form-row">

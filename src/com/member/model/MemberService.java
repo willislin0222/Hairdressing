@@ -71,7 +71,7 @@ public class MemberService {
 	{
 	    PageBean pageBean = new PageBean();
 	        
-	    String hql = "from MorderVO where mem_no='" + mem_no + "' order by mord_createdate desc";
+	    String hql = "from MorderVO where mem_no='" + mem_no + "' order by mord_no desc";
 	        
 	    int allRows = dao.getAllRowCount(hql);
 	        

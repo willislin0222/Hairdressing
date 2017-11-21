@@ -17,7 +17,7 @@
 <script src="<%= request.getContextPath()%>/js/fullcalendar/calendar.js"></script>
 <%-- <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/bootstrap.min.css"> --%>
 <!-- 彈跳出預約輸入視窗用 -->
-<%-- <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/reservation/reservationmain.css"> --%>
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/reservation/fullcalendar.css">
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="<%= request.getContextPath()%>/js/jquery.timepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/jquery.timepicker.css" />

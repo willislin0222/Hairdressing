@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
 	<title>新增最新消息</title>
 
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/back/css/news/form-basic.css">
@@ -35,9 +35,9 @@
                 </label>
             </div>
             <div class="form-row">
-                <label>
+                <label class="label">
                     <span>最新消息內容</span>
-                    <input type="textarea" name="newsVO.news_content" placeholder="最新消息內容">
+                    <textarea class="form-control"  style="width:245px;height:200px;" name="newsVO.news_content" placeholder="最新消息內容"></textarea>
                 </label>
             </div>
             <div class="form-row">
@@ -49,7 +49,7 @@
         </div>
 
     </div>
-
+	
 </body>
 
 </html>

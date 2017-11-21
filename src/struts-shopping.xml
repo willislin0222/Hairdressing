@@ -24,7 +24,7 @@
 		
 		<!--確認下單 -->
 		<action name="confirm"   class="com.shopping.actions.ShoppingAction" method="confirm">
-	        <result name="success">/index.jsp</result>
+	        <result name="success">/shopping/orderok.jsp</result>
 		</action>
 
 	</package>
