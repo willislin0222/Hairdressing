@@ -22,6 +22,6 @@ public interface MemberDAO_interface {
     public Set<MorderVO> getMordersByMemno(String mem_no);
     
     //Hibernate+Struct2 分頁功能用
-  	public List<ReservationVO> queryByPage(String hql, int offset, int pageSize);
+  	public List<?> queryByPage(String hql, int offset, int pageSize);
     public int getAllRowCount(String hql);
 }

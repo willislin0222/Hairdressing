@@ -3,6 +3,7 @@ package com.member.model;
 import java.util.List;
 import java.util.Set;
 
+import com.page.model.PageBean;
 import com.reservation.model.ReservationVO;
 
 public class MemberService {
@@ -56,7 +57,7 @@ public class MemberService {
 	        
 	    int offset = pageBean.getCurrentPageOffset(pageSize, currentPage);
 	        
-	    List<ReservationVO> list = dao.queryByPage(hql, offset, pageSize);
+	    List<?> list = dao.queryByPage(hql, offset, pageSize);
 	        
 	    pageBean.setList(list);
 	    pageBean.setAllRows(allRows);
@@ -81,7 +82,7 @@ public class MemberService {
 	        
 	    int offset = pageBean.getCurrentPageOffset(pageSize, currentPage);
 	        
-	    List<ReservationVO> list = dao.queryByPage(hql, offset, pageSize);
+	    List<?> list = dao.queryByPage(hql, offset, pageSize);
 	        
 	    pageBean.setList(list);
 	    pageBean.setAllRows(allRows);

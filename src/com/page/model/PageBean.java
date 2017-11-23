@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PageBean {
 
-	 private List<ReservationVO> list; //根據hql從數據庫分頁查詢出來的list集合
+	 private List<?> list; //根據hql從數據庫分頁查詢出來的list集合
 	    
 	    private int allRows; //總記錄數
 	    
@@ -12,17 +12,15 @@ public class PageBean {
 	    
 	    private int currentPage; //當前頁數
 
-	    public List<ReservationVO> getList()
-	    {
-	        return list;
-	    }
+	    public List<?> getList() {
+			return list;
+		}
 
-	    public void setList(List<ReservationVO> list)
-	    {
-	        this.list = list;
-	    }
+		public void setList(List<?> list) {
+			this.list = list;
+		}
 
-	    public int getAllRows()
+		public int getAllRows()
 	    {
 	        return allRows;
 	    }

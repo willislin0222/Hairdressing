@@ -17,7 +17,6 @@ import com.fullcalendarevent.model.Event;
 import com.member.actions.GetDataByMemAction;
 import com.member.model.MemberService;
 import com.member.model.MemberVO;
-import com.member.model.PageBean;
 import com.reservation.model.ReservationService;
 import com.reservation.model.ReservationVO;
 

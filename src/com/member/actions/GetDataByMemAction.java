@@ -11,12 +11,12 @@ import org.apache.struts2.ServletActionContext;
 
 import com.member.model.MemberService;
 import com.member.model.MemberVO;
-import com.member.model.PageBean;
 import com.morder.model.MorderService;
 import com.morder.model.MorderVO;
 import com.opensymphony.xwork2.ActionSupport;
 import com.orderlist.model.OrderListService;
 import com.orderlist.model.OrderListVO;
+import com.page.model.PageBean;
 
 public class GetDataByMemAction extends ActionSupport{
 	

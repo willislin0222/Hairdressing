@@ -137,7 +137,7 @@ public class MemberDAO implements MemberDAO_interface{
 	}
 
 	@Override
-	public List<ReservationVO> queryByPage(String hql, int offset, int pageSize) {
+	public List<?> queryByPage(String hql, int offset, int pageSize) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = null;
         List<ReservationVO> list = null;
