@@ -1,5 +1,6 @@
 package com.member.actions;
 
+import com.aes256.AES256;
 import com.member.model.MemberService;
 import com.member.model.MemberVO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -24,17 +25,28 @@ public class MemberManagerAction extends ActionSupport{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		MemberVO memberVO = memberSvc.getOneMemberBymemid(mem_id);
-		Base64.Encoder encoder = Base64.getEncoder();
-		//密碼加密
-		String psw_new64 = encoder.encodeToString(mem_psw.getBytes());
+//		Base64.Encoder encoder = Base64.getEncoder();
+		//密碼加密(使用AES256)
+		
+		AES256 aes256 = new AES256();
+		String passwordkey="zdtyukd"; //加密金鑰
+        byte[] encryptResult = AES256.encrypt(mem_psw, passwordkey);  	
+		String psw_new64 = aes256.parseByte2HexStr(encryptResult);
+		System.out.println("輸入密碼=" + mem_psw);
+		System.out.println("加密key：" + passwordkey);
+		System.out.println("加密密碼" + psw_new64);
+		System.out.println("資料庫密碼" + memberVO.getMem_psw());
+		
 		if(memberVO.getMem_no() == null){
 			super.addFieldError("errorMsg", "無此帳號");
 			return "input";
 		}else if(psw_new64.equals(memberVO.getMem_psw())){	
 			//密碼解密
-			final Base64.Decoder decoder = Base64.getDecoder();
-			final String mem_psw = new String(decoder.decode(memberVO.getMem_psw()));
-			memberVO.setMem_psw(mem_psw);
+			 String decryptResult = AES256.decrypt(encryptResult, passwordkey);  
+			 System.out.println("解密密碼" + decryptResult);
+//			final Base64.Decoder decoder = Base64.getDecoder();
+//			final String mem_psw = new String(decoder.decode(memberVO.getMem_psw()));
+			 memberVO.setMem_psw(decryptResult);
 			session.setAttribute("memberVO", memberVO);// *工作1: 在session內做已經登入過的標識
 			
 			try {                                      //*工作2: 看看有無來源網頁 (-如有:則重導之)                  
@@ -59,10 +71,15 @@ public class MemberManagerAction extends ActionSupport{
 	public String getOne_For_Update(){
 		MemberService memberSvc = new MemberService();
 		MemberVO memberVO = memberSvc.getOneMember(mem_no);
+		String passwordkey="zdtyukd"; //加密金鑰
 		//密碼解密
-		final Base64.Decoder decoder = Base64.getDecoder();
-		final String mem_psw = new String(decoder.decode(memberVO.getMem_psw()));
-		memberVO.setMem_psw(mem_psw);
+		byte[] getDbPsw = AES256.tohash256Deal(memberVO.getMem_psw());
+		String decryptResult = AES256.decrypt(getDbPsw, passwordkey); 
+		System.out.println("解密密碼=" + decryptResult);
+//		final Base64.Decoder decoder = Base64.getDecoder();
+//		final String mem_psw = new String(decoder.decode(memberVO.getMem_psw()));
+		memberVO.setMem_psw(decryptResult);
+		System.out.println(memberVO.getMem_psw());
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.setAttribute("memberVO", memberVO);
 		return "success";
