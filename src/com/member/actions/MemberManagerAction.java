@@ -67,24 +67,25 @@ public class MemberManagerAction extends ActionSupport{
 		
 	}
 		
+	//用不到，程式碼是錯誤的，要想辦法將DB的密碼轉成byte在解碼才會正確
 	//取得修改會員資料
-	public String getOne_For_Update(){
-		MemberService memberSvc = new MemberService();
-		MemberVO memberVO = memberSvc.getOneMember(mem_no);
-		String passwordkey="zdtyukd"; //加密金鑰
-		//密碼解密
-		byte[] getDbPsw = AES256.tohash256Deal(memberVO.getMem_psw());
-		String decryptResult = AES256.decrypt(getDbPsw, passwordkey); 
-		System.out.println("解密密碼=" + decryptResult);
-//		final Base64.Decoder decoder = Base64.getDecoder();
-//		final String mem_psw = new String(decoder.decode(memberVO.getMem_psw()));
-		memberVO.setMem_psw(decryptResult);
-		System.out.println(memberVO.getMem_psw());
-		HttpServletRequest request = ServletActionContext.getRequest();
-		request.setAttribute("memberVO", memberVO);
-		return "success";
-		
-	}
+//	public String getOne_For_Update(){
+//		MemberService memberSvc = new MemberService();
+//		MemberVO memberVO = memberSvc.getOneMember(mem_no);
+//		String passwordkey="zdtyukd"; //加密金鑰
+//		//密碼解密
+//		byte[] getDbPsw = AES256.tohash256Deal(memberVO.getMem_psw());
+//		String decryptResult = AES256.decrypt(getDbPsw, passwordkey); 
+//		System.out.println("解密密碼=" + decryptResult);
+////		final Base64.Decoder decoder = Base64.getDecoder();
+////		final String mem_psw = new String(decoder.decode(memberVO.getMem_psw()));
+//		memberVO.setMem_psw(decryptResult);
+//		System.out.println(memberVO.getMem_psw());
+//		HttpServletRequest request = ServletActionContext.getRequest();
+//		request.setAttribute("memberVO", memberVO);
+//		return "success";
+//		
+//	}
 	
 
 	//刪除會員
