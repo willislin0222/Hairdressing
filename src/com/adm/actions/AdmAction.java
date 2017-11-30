@@ -8,6 +8,7 @@ import com.adm.model.AdmService;
 import com.adm.model.AdmVO;
 import com.opensymphony.xwork2.ActionSupport;
 
+
 public class AdmAction extends ActionSupport{
 	
 	private AdmVO admVO;
@@ -16,8 +17,7 @@ public class AdmAction extends ActionSupport{
 	//新增管理員
 	public String addAdm() throws IOException{
 		AdmService admSvc = new AdmService();
-		admVO.setAdm_createdate(new java.sql.Date(System.currentTimeMillis()));
-		if(admSvc.getOneAdmByAdmid(admVO.getAdm_id()).getAdm_no() != null){
+		if((admSvc.getOneAdmByAdmid(admVO.getAdm_id()).getAdm_no()) != null){
 			super.addFieldError("adm_id", "此帳號已申請過");
 			return "input";
 		}
@@ -25,6 +25,7 @@ public class AdmAction extends ActionSupport{
 		Base64.Encoder encoder = Base64.getEncoder();
 		final String psw_new64 = encoder.encodeToString(admVO.getAdm_psw().getBytes());
 		admVO.setAdm_psw(psw_new64);
+		admVO.setAdm_createdate(new java.sql.Date(System.currentTimeMillis()));
 		admVO.setAdm_status("1");
 		admSvc.addAdm(admVO);
 		return "success";

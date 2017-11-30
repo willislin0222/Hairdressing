@@ -2,6 +2,9 @@ package com.adm.model;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
 public interface AdmDAO_interface {
 	public void insert(AdmVO admVO);
 	public void update(AdmVO admVO);
