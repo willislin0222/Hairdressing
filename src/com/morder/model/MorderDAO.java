@@ -5,7 +5,6 @@ package com.morder.model;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.orderlist.model.OrderListService;

@@ -4,7 +4,10 @@ import java.sql.Date;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.morder.model.MorderDAO_interface;
 import com.morder.model.MorderVO;
 import com.product.model.ProductVO;
 
@@ -13,7 +16,11 @@ public class OrderListService {
 private OrderListDAO_interface dao;
 	
 	public OrderListService(){
-		dao =new OrderListDAO();
+//		dao =new OrderListDAO();
+		//註1: 雖然model-config1-DriverManagerDataSource.xml也可以用
+		//註2: 但為了使用Apache DBCP連線池,以提高效能,所以底下的model-config2-JndiObjectFactoryBean.xml內部dataSource設定是採用org.springframework.jndi.JndiObjectFactoryBean
+		ApplicationContext context = new ClassPathXmlApplicationContext("model-config.xml");
+		dao =(OrderListDAO_interface) context.getBean("orderlistDAO");
 	}
 	
 	public OrderListVO addOrderList(String mord_no,String pro_no,Integer ordl_number){

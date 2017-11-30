@@ -2,9 +2,11 @@ package com.morder.model;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.orderlist.model.OrderListVO;
 
-
+@Transactional
 public interface MorderDAO_interface {
 	public void insert(MorderVO morderVO);
 	public void update(MorderVO morderVO);

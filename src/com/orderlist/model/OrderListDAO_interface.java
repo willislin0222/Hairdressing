@@ -3,10 +3,13 @@ package com.orderlist.model;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.springframework.transaction.annotation.Transactional;
 
-	public interface OrderListDAO_interface {
+
+public interface OrderListDAO_interface {
 	public void insert(OrderListVO orderlistVO);
 	public void update(OrderListVO orderlistVO);
+	@Transactional
 	public void delete(String mord_no,String pro_no);
 	public OrderListVO findByPrimaryKey(String mord_no,String pro_no);
 	public List<OrderListVO> getAll();

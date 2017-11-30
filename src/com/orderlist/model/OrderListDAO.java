@@ -6,9 +6,6 @@ import java.util.List;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
-import com.morder.model.MorderVO;
-import com.product.model.ProductVO;
-
 
 public class OrderListDAO implements OrderListDAO_interface{
 	
@@ -43,19 +40,19 @@ public class OrderListDAO implements OrderListDAO_interface{
 
 	@Override
 	public OrderListVO findByPrimaryKey(String mord_no, String pro_no) {
-		OrderListVO orderlistVO =null;
-		OrderListVO user = new OrderListVO();
-		
-		MorderVO morderVO = new MorderVO();
-		morderVO.setMord_no(mord_no);
-		user.setMorderVO(morderVO);
-		
-		ProductVO productVO = new ProductVO();
-		productVO.setPro_no(pro_no);
-		user.setProductVO(productVO);
-		
-		orderlistVO =(OrderListVO) hibernateTemplate.get(OrderListVO.class, user);
-		return orderlistVO;
+//		OrderListVO orderlistVO =null;
+//		OrderListVO user = new OrderListVO();
+//		
+//		MorderVO morderVO = new MorderVO();
+//		morderVO.setMord_no(mord_no);
+//		user.setMorderVO(morderVO);
+//		
+//		ProductVO productVO = new ProductVO();
+//		productVO.setPro_no(pro_no);
+//		user.setProductVO(productVO);
+//		
+//		orderlistVO =(OrderListVO) hibernateTemplate.get(OrderListVO.class, user);
+		return null;
 	}
 
 	@Override

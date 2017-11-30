@@ -27,7 +27,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
                 <value>com/offer/model/offer.hbm.xml</value> 
                 <value>com/product/model/product.hbm.xml</value> 
                 <value>com/morder/model/morder.hbm.xml</value> 
-<!--                 <value>com/orderlist/model/orderlist.hbm.xml</value>  -->
+                <value>com/orderlist/model/orderlist.hbm.xml</value> 
                 <value>com/news/model/news.hbm.xml</value> 
                 <value>com/adm/model/adm.hbm.xml</value> 
                 <value>com/dayoff/model/dayoff.hbm.xml</value> 
@@ -72,9 +72,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
         <property name="hibernateTemplate" ref="hibernateTemplate"/> 
     </bean>
     
-<!--     <bean id="orderlistrDAO" class="com.orderlist.model.OrderListDAO"> -->
-<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
-<!--     </bean> -->
+    <bean id="orderlistDAO" class="com.orderlist.model.OrderListDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/> 
+    </bean>
     
 	    <bean id="newsDAO" class="com.news.model.NewsDAO">
 	        <property name="hibernateTemplate" ref="hibernateTemplate"/> 
@@ -98,6 +98,8 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
             <tx:method name="getAll" read-only="true"/>
             <tx:method name="getNewsByStatus" read-only="true"/>
             <tx:method name="getProductsByStatus" read-only="true"/>
+            <tx:method name="insertWithOrderList" rollback-for="Exception" propagation="REQUIRED"/>
+            <tx:method name="insert2" rollback-for="Exception" propagation="REQUIRED"/>
        </tx:attributes>
     </tx:advice>
   	
@@ -139,5 +141,10 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
     <aop:config>
         <aop:pointcut id="morderDAOPointcut" expression="execution(* com.morder.model.MorderDAO_interface.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="morderDAOPointcut"/>
+    </aop:config>
+    
+     <aop:config>
+        <aop:pointcut id="orderlistDAOPointcut" expression="execution(* com.orderlist.model.OrderListDAO_interface.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="orderlistDAOPointcut"/>
     </aop:config>
 </beans>
