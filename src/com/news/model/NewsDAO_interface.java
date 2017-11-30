@@ -2,7 +2,9 @@ package com.news.model;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public interface NewsDAO_interface {
 	public void insert(NewsVO newsVO);
 	public void update(NewsVO newsVO);

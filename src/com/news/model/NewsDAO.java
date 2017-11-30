@@ -2,93 +2,47 @@ package com.news.model;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.query.Query;
-
-import com.offer.model.OfferVO;
-
-import hibernate.util.HibernateUtil;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 public class NewsDAO implements NewsDAO_interface{
 
 	private static final String GET_ALL_STMT="from NewsVO order by news_no";
 	private static final String GET_NEWS_BY_STATUS="from NewsVO where news_status=1 order by news_createdate desc";
+	//springframework hibernate5
+	private HibernateTemplate hibernateTemplate;    
+	
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) { 
+	    this.hibernateTemplate = hibernateTemplate;
+	}
+	
 	@Override
 	public void insert(NewsVO newsVO) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			session.saveOrUpdate(newsVO);
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		hibernateTemplate.saveOrUpdate(newsVO);
 		
 	}
 
 	@Override
 	public void update(NewsVO newsVO) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			session.saveOrUpdate(newsVO);
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		hibernateTemplate.update(newsVO);
 		
 	}
 
 	@Override
 	public void delete(String news_no) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			NewsVO newsVO = (NewsVO) session.get(NewsVO.class, news_no);
-			session.delete(newsVO);
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
-		
+		NewsVO newsVO = (NewsVO) hibernateTemplate.get(NewsVO.class, news_no);
+		hibernateTemplate.delete(newsVO);
 	}
 
 	@Override
 	public NewsVO findByPrimaryKey(String news_no) {
-		NewsVO newsVO = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			newsVO = (NewsVO) session.get(NewsVO.class, news_no);
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		NewsVO	newsVO = (NewsVO) hibernateTemplate.get(NewsVO.class, news_no);
 		return newsVO;
 	}
 
 	@Override
 	public List<NewsVO> getAll() {
 		List<NewsVO> list = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			Query query = session.createQuery(GET_ALL_STMT);
-			list = query.list();
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		list = (List<NewsVO>) hibernateTemplate.find(GET_ALL_STMT);
 		
 		return list;
 	}
@@ -96,17 +50,7 @@ public class NewsDAO implements NewsDAO_interface{
 	@Override
 	public List<NewsVO> getNewsByStatus() {
 		List<NewsVO> list = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			Query query = session.createQuery(GET_NEWS_BY_STATUS);
-			list = query.list();
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		list = (List<NewsVO>) hibernateTemplate.find(GET_NEWS_BY_STATUS);
 		
 		return list;
 	}

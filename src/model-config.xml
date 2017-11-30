@@ -28,7 +28,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 <!--                 <value>com/product/model/product.hbm.xml</value>  -->
 <!--                 <value>com/morder/model/morder.hbm.xml</value>  -->
 <!--                 <value>com/orderlist/model/orderlist.hbm.xml</value>  -->
-<!--                 <value>com/news/model/news.hbm.xml</value>  -->
+                <value>com/news/model/news.hbm.xml</value> 
 <!--                 <value>com/adm/model/adm.hbm.xml</value>  -->
 <!--                 <value>com/dayoff/model/dayoff.hbm.xml</value>  -->
             </list> 
@@ -76,9 +76,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 <!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
 <!--     </bean> -->
     
-<!--     <bean id="newsDAO" class="com.news.model.NewsDAO"> -->
-<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
-<!--     </bean> -->
+	    <bean id="newsDAO" class="com.news.model.NewsDAO">
+	        <property name="hibernateTemplate" ref="hibernateTemplate"/> 
+	    </bean>
     
 <!--      <bean id="dayoffDAO" class="com.dayoff.model.DayoffDAO"> -->
 <!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
@@ -96,6 +96,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
             <tx:method name="delete" rollback-for="Exception" propagation="REQUIRED"/>
             <tx:method name="findByPrimaryKey" read-only="true"/>
             <tx:method name="getAll" read-only="true"/>
+<!--             <tx:method name="getNewsByStatus" read-only="true"/> -->
        </tx:attributes>
     </tx:advice>
   	
@@ -112,5 +113,10 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
     <aop:config>
         <aop:pointcut id="offerDAOPointcut" expression="execution(* com.offer.model.OfferDAO_interface.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="offerDAOPointcut"/>
+    </aop:config>
+    
+      <aop:config>
+        <aop:pointcut id="newsDAOPointcut" expression="execution(* com.newsr.model.NewsDAO_interface.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="newsDAOPointcut"/>
     </aop:config>
 </beans>
