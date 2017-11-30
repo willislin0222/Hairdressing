@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
-import com.orderlist.model.OrderListDAO;
 import com.orderlist.model.OrderListService;
 import com.orderlist.model.OrderListVO;
 
@@ -18,90 +18,43 @@ public class MorderDAO implements MorderDAO_interface{
 	private static final String GET_MORDERS_BY_MEMNO ="FROM MorderVO where mem_no=? order by mord_no";
 	private static final String GET_ALL_STMT ="FROM MorderVO order by mord_no";
 	
+	//springframework hibernate5
+	private HibernateTemplate hibernateTemplate;    
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) { 
+	    this.hibernateTemplate = hibernateTemplate;
+	}
+	
 	@Override
 	public void insert(MorderVO morderVO) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			session.saveOrUpdate(morderVO);
-			String key =(String) session.getIdentifier(morderVO);
-			System.out.println(key);
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		hibernateTemplate.saveOrUpdate(morderVO);
 		
 	}
 
 	@Override
 	public void update(MorderVO morderVO) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			session.saveOrUpdate(morderVO);
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		hibernateTemplate.update(morderVO);
 		
 	}
 
 	@Override
 	public void delete(String mord_no) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			MorderVO morderVO = new MorderVO();
-			morderVO.getProducts().remove(mord_no);
-			morderVO.setMord_no(mord_no);
-			session.delete(morderVO);
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		MorderVO morderVO = new MorderVO();
+		morderVO.getProducts().remove(mord_no);
+		morderVO.setMord_no(mord_no);
+		hibernateTemplate.delete(morderVO);
 		
 	}
 
 	@Override
 	public MorderVO findByPrimarykey(String mord_no) {
-		MorderVO morderVO = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		
-		try {
-			session.beginTransaction();
-			morderVO = (MorderVO) session.get(MorderVO.class, mord_no);
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
-		
+		MorderVO morderVO = (MorderVO) hibernateTemplate.get(MorderVO.class, mord_no);
 		return morderVO;
 	}
 
 	@Override
 	public List<MorderVO> getAll() {
 		List<MorderVO> list = null;
-		
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		
-		try {
-			session.beginTransaction();
-			Query query = session.createQuery(GET_ALL_STMT);
-			list = query.list();
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		list = (List<MorderVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 
@@ -137,20 +90,7 @@ public class MorderDAO implements MorderDAO_interface{
 	@Override
 	public List<MorderVO> getMordersByMemno(String mem_no) {
 		List<MorderVO> list = null;
-		
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		
-		try {
-			session.beginTransaction();
-			Query query = session.createQuery(GET_MORDERS_BY_MEMNO);
-			query.setParameter(0, mem_no);
-			list = query.list();
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		list = (List<MorderVO>) hibernateTemplate.find(GET_MORDERS_BY_MEMNO, mem_no);
 		return list;
 	}
 

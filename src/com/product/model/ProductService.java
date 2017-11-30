@@ -1,49 +1,21 @@
 package com.product.model;
 
-import java.sql.Date;
 import java.util.List;
 
-import com.news.model.NewsVO;
-import com.offer.model.OfferVO;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 public class ProductService {
 	ProductDAO_interface dao;
 	public ProductService(){
-		dao =new ProductDAO();
-	}
-	public ProductVO addProduct(String pro_name,String pro_desc,Integer pro_price,byte[] pro_image1,
-			byte[] pro_image2,byte[] pro_image3,byte[] pro_image4,Integer pro_number){
-		
-		ProductVO productVO = new ProductVO();
-		productVO.setPro_name(pro_name);
-		productVO.setPro_desc(pro_desc);
-		productVO.setPro_price(pro_price);
-		productVO.setPro_image1(pro_image1);
-		productVO.setPro_image2(pro_image2);
-		productVO.setPro_image3(pro_image3);
-		productVO.setPro_image4(pro_image4);
-		productVO.setPro_number(pro_number);
-		dao.insert(productVO);
-		
-		return productVO;
+//		dao =new ProductDAO();
+		//註1: 雖然model-config1-DriverManagerDataSource.xml也可以用
+		//註2: 但為了使用Apache DBCP連線池,以提高效能,所以底下的model-config2-JndiObjectFactoryBean.xml內部dataSource設定是採用org.springframework.jndi.JndiObjectFactoryBean
+		ApplicationContext context = new ClassPathXmlApplicationContext("model-config.xml");
+		dao =(ProductDAO_interface) context.getBean("productDAO");
 	}
 	
-	public ProductVO update(String pro_no,String pro_name,String pro_desc,Integer pro_price,byte[] pro_image1,
-			byte[] pro_image2,byte[] pro_image3,byte[] pro_image4,Integer pro_number){
-		
-		ProductVO productVO = new ProductVO();
-		productVO.setPro_no(pro_no);
-		productVO.setPro_name(pro_name);
-		productVO.setPro_desc(pro_desc);
-		productVO.setPro_price(pro_price);
-		productVO.setPro_image1(pro_image1);
-		productVO.setPro_image2(pro_image2);
-		productVO.setPro_image3(pro_image3);
-		productVO.setPro_image4(pro_image4);
-		productVO.setPro_number(pro_number);
-		dao.insert(productVO);
-		return productVO;
-	}
 	
 	//給struct2用
 	public void addProduct(ProductVO productVO) {

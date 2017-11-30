@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import com.member.model.MemberVO;
-
 	public interface OrderListDAO_interface {
 	public void insert(OrderListVO orderlistVO);
 	public void update(OrderListVO orderlistVO);

@@ -3,6 +3,9 @@ package com.member.model;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.page.model.PageBean;
 import com.reservation.model.ReservationVO;
 
@@ -11,7 +14,11 @@ public class MemberService {
 	private MemberDAO_interface dao;
 	
 	public MemberService(){
-		dao =new MemberDAO();
+//		dao =new MemberDAO();
+		//註1: 雖然model-config1-DriverManagerDataSource.xml也可以用
+		//註2: 但為了使用Apache DBCP連線池,以提高效能,所以底下的model-config2-JndiObjectFactoryBean.xml內部dataSource設定是採用org.springframework.jndi.JndiObjectFactoryBean
+		ApplicationContext context = new ClassPathXmlApplicationContext("model-config.xml");
+		dao =(MemberDAO_interface) context.getBean("memberDAO");
 	}
 		
 	//給struct2用

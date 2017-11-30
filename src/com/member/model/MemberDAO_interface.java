@@ -3,9 +3,12 @@ package com.member.model;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.morder.model.MorderVO;
 import com.reservation.model.ReservationVO;
 
+@Transactional
 public interface MemberDAO_interface {
 	public void insert(MemberVO memberVO);
 	public void update(MemberVO memberVO);

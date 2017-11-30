@@ -6,6 +6,7 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.morder.model.MorderVO;
 import com.reservation.model.ReservationVO;
@@ -17,81 +18,40 @@ public class MemberDAO implements MemberDAO_interface{
 	private static final String GET_ONE_ByMEMID_STMT="from MemberVO where mem_id=?";
 	private static final String GET_ALL_STMT="from MemberVO";
 	
+	//springframework hibernate5
+	private HibernateTemplate hibernateTemplate;    
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) { 
+	    this.hibernateTemplate = hibernateTemplate;
+	}
+	
 	@Override
 	public void insert(MemberVO memberVO) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			session.saveOrUpdate(memberVO);
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		hibernateTemplate.saveOrUpdate(memberVO);
 		
 	}
 
 	@Override
 	public void update(MemberVO memberVO) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		
-		try {
-			session.beginTransaction();
-			session.saveOrUpdate(session.merge(memberVO));
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		hibernateTemplate.update(memberVO);
 		
 	}
 
 	@Override
 	public void delete(String mem_no) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		
-		try {
-			session.beginTransaction();
-			MemberVO memberVO =(MemberVO) session.get(MemberVO.class, mem_no);
-			session.delete(memberVO);
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
-		
+		MemberVO memberVO =(MemberVO) hibernateTemplate.get(MemberVO.class, mem_no);
+		hibernateTemplate.delete(memberVO);
 	}
 
 	@Override
 	public MemberVO findByPrimaryKey(String mem_no) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		MemberVO memberVO =null;
-		try {
-			session.beginTransaction();
-			memberVO =(MemberVO) session.get(MemberVO.class, mem_no);
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		MemberVO memberVO =(MemberVO) hibernateTemplate.get(MemberVO.class, mem_no);
 		return memberVO;
 	}
 
 	@Override
 	public List<MemberVO> getAll() {
 		List<MemberVO> list = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		
-		try {
-			session.beginTransaction();
-			Query query = session.createQuery(GET_ALL_STMT);
-			list = query.list();
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
+		list = (List<MemberVO>) hibernateTemplate.find(GET_ALL_STMT);
 		return list;
 	}
 
@@ -109,29 +69,11 @@ public class MemberDAO implements MemberDAO_interface{
 
 	@Override
 	public MemberVO findByMemid(String mem_id) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		MemberVO memberVO =new MemberVO();;
-		try {
-			session.beginTransaction();
-			Query query = session.createQuery(GET_ONE_ByMEMID_STMT);
-			query.setParameter(0, mem_id);
-			List<MemberVO> names = query.list();
-
-			for(MemberVO member:names){
-				memberVO.setMem_no(member.getMem_no());
-				memberVO.setMem_name(member.getMem_name());
-				memberVO.setMem_id(member.getMem_id());
-				memberVO.setMem_psw(member.getMem_psw());
-				memberVO.setMem_birthday(member.getMem_birthday());
-				memberVO.setMem_email(member.getMem_email());
-				memberVO.setMem_mobile(member.getMem_mobile());
-				memberVO.setMem_joindate(member.getMem_joindate());
-				memberVO.setMem_status(member.getMem_status());
-			}
-			session.getTransaction().commit();
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			throw e;
+		List<MemberVO> list = null;
+		MemberVO memberVO =new MemberVO();
+		list = (List<MemberVO>) hibernateTemplate.find(GET_ONE_ByMEMID_STMT, mem_id);
+		for(MemberVO member:list){
+			memberVO=member;
 		}
 		return memberVO;
 	}
