@@ -2,6 +2,9 @@ package com.offer.model;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
 public interface OfferDAO_interface {
 	public void insert(OfferVO offerVO);
 	public void update(OfferVO offerVO);

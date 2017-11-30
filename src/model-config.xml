@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+  
+   <!-- 开启事务注解 -->
+  	<tx:annotation-driven transaction-manager="transactionManager"  />
+  
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:/comp/env/jdbc/Hair" />
+	</bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" destroy-method="destroy"> 
+        <property name="dataSource" ref="dataSource"/> 
+        <property name="mappingResources"> 
+            <list> 
+<!--                 <value>com/member/model/member.hbm.xml</value>  -->
+<!--                 <value>com/reservation/model/reservation.hbm.xml</value>  -->
+                <value>com/offer/model/offer.hbm.xml</value> 
+<!--                 <value>com/product/model/product.hbm.xml</value>  -->
+<!--                 <value>com/morder/model/morder.hbm.xml</value>  -->
+<!--                 <value>com/orderlist/model/orderlist.hbm.xml</value>  -->
+<!--                 <value>com/news/model/news.hbm.xml</value>  -->
+<!--                 <value>com/adm/model/adm.hbm.xml</value>  -->
+<!--                 <value>com/dayoff/model/dayoff.hbm.xml</value>  -->
+            </list> 
+        </property> 
+        <property name="hibernateProperties"> 
+            <props> 
+                <prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop> 
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
+                <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
+            </props> 
+        </property> 
+    </bean> 
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/> 
+    </bean>    
+         
+<!--     <bean id="reservationDAO" class="com.reservation.model.ReservationDAO"> -->
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
+<!--     </bean> -->
+
+<!--     <bean id="memberDAO" class="com.member.model.MemberDAO"> -->
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
+<!--     </bean> -->
+    
+    <bean id="offerDAO" class="com.offer.model.OfferDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/> 
+    </bean>
+    
+<!--     <bean id="productDAO" class="com.product.model.ProductDAO"> -->
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
+<!--     </bean> -->
+    
+<!--     <bean id="morderDAO" class="com.morder.model.MorderrDAO"> -->
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
+<!--     </bean> -->
+    
+<!--     <bean id="admDAO" class="com.adm.model.AdmDAO"> -->
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
+<!--     </bean> -->
+    
+<!--     <bean id="orderlistrDAO" class="com.orderlist.model.OrderListDAO"> -->
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
+<!--     </bean> -->
+    
+<!--     <bean id="newsDAO" class="com.news.model.NewsDAO"> -->
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
+<!--     </bean> -->
+    
+<!--      <bean id="dayoffDAO" class="com.dayoff.model.DayoffDAO"> -->
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
+<!--     </bean> -->
+
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="insert" rollback-for="Exception" propagation="REQUIRED"/>
+            <tx:method name="update" rollback-for="Exception" propagation="REQUIRED"/>
+            <tx:method name="delete" rollback-for="Exception" propagation="REQUIRED"/>
+            <tx:method name="findByPrimaryKey" read-only="true"/>
+            <tx:method name="getAll" read-only="true"/>
+       </tx:attributes>
+    </tx:advice>
+  	
+<!--     <aop:config> -->
+<!--         <aop:pointcut id="reservationDAOPointcut" expression="execution(* com.reservation.model.ReservatiomDAO_interface.*.*(..))"/> -->
+<!--         <aop:advisor advice-ref="txAdvice" pointcut-ref="reservationDAOPointcut"/> -->
+<!--     </aop:config> -->
+    
+<!--     <aop:config> -->
+<!--         <aop:pointcut id="memberDAOPointcut" expression="execution(* com.member.model.MemberDAO_interface.*.*(..))"/> -->
+<!--         <aop:advisor advice-ref="txAdvice" pointcut-ref="memberDAOPointcut"/> -->
+<!--     </aop:config> -->
+    
+    <aop:config>
+        <aop:pointcut id="offerDAOPointcut" expression="execution(* com.offer.model.OfferDAO_interface.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="offerDAOPointcut"/>
+    </aop:config>
+</beans>
