@@ -30,7 +30,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 <!--                 <value>com/orderlist/model/orderlist.hbm.xml</value>  -->
                 <value>com/news/model/news.hbm.xml</value> 
 <!--                 <value>com/adm/model/adm.hbm.xml</value>  -->
-<!--                 <value>com/dayoff/model/dayoff.hbm.xml</value>  -->
+                <value>com/dayoff/model/dayoff.hbm.xml</value> 
             </list> 
         </property> 
         <property name="hibernateProperties"> 
@@ -80,9 +80,9 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	        <property name="hibernateTemplate" ref="hibernateTemplate"/> 
 	    </bean>
     
-<!--      <bean id="dayoffDAO" class="com.dayoff.model.DayoffDAO"> -->
-<!--         <property name="hibernateTemplate" ref="hibernateTemplate"/>  -->
-<!--     </bean> -->
+     <bean id="dayoffDAO" class="com.dayoff.model.DayoffDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/> 
+    </bean>
 
     <bean id="transactionManager"
         class="org.springframework.orm.hibernate5.HibernateTransactionManager">
@@ -96,7 +96,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
             <tx:method name="delete" rollback-for="Exception" propagation="REQUIRED"/>
             <tx:method name="findByPrimaryKey" read-only="true"/>
             <tx:method name="getAll" read-only="true"/>
-<!--             <tx:method name="getNewsByStatus" read-only="true"/> -->
+            <tx:method name="getNewsByStatus" read-only="true"/>
        </tx:attributes>
     </tx:advice>
   	
@@ -115,8 +115,13 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
         <aop:advisor advice-ref="txAdvice" pointcut-ref="offerDAOPointcut"/>
     </aop:config>
     
-      <aop:config>
-        <aop:pointcut id="newsDAOPointcut" expression="execution(* com.newsr.model.NewsDAO_interface.*.*(..))"/>
+    <aop:config>
+        <aop:pointcut id="newsDAOPointcut" expression="execution(* com.news.model.NewsDAO_interface.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="newsDAOPointcut"/>
+    </aop:config>
+    
+     <aop:config>
+        <aop:pointcut id="dayoffDAOPointcut" expression="execution(* com.dayoff.model.DayoffDAO_interface.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="dayoffDAOPointcut"/>
     </aop:config>
 </beans>
