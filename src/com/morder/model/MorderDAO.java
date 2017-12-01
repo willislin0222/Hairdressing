@@ -4,13 +4,11 @@ package com.morder.model;
 
 import java.util.List;
 
-import org.hibernate.Session;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.orderlist.model.OrderListService;
 import com.orderlist.model.OrderListVO;
 
-import hibernate.util.HibernateUtil;
 
 public class MorderDAO implements MorderDAO_interface{
 	
@@ -59,31 +57,20 @@ public class MorderDAO implements MorderDAO_interface{
 
 	@Override
 	public void insertWithOrderList(MorderVO morderVO, List<OrderListVO> list) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
-		try {
-			session.beginTransaction();
 			
 			//先新增訂單
-			session.saveOrUpdate(morderVO);
+			hibernateTemplate.saveOrUpdate(morderVO);
 			//取對應的自增主鍵值
-			String key =(String) session.getIdentifier(morderVO);
+			String key =(String) hibernateTemplate.getSessionFactory().getCurrentSession().getIdentifier(morderVO);
 			
 			//在新增訂單明細
 			OrderListService orderListSvc = new OrderListService();
 			for(OrderListVO aOrderList : list){
 				morderVO.setMord_no(key);
 				aOrderList.setMorderVO(morderVO);
-				orderListSvc.insert2(aOrderList, session);
+				orderListSvc.insert2(aOrderList, hibernateTemplate);
 			}
-			
-			//交易commit，要在訂單這邊做commit
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			session.getTransaction().rollback();
-			throw e;
-		}
-		
 	}
 
 	@Override

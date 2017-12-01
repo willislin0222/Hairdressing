@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.morder.model.MorderDAO_interface;
 import com.morder.model.MorderVO;
@@ -70,8 +71,8 @@ private OrderListDAO_interface dao;
 		return dao.getAll();
 	}
 	
-	public void insert2 (OrderListVO orderListVO , Session oldsession){
-		dao.insert2(orderListVO, oldsession);
+	public void insert2 (OrderListVO orderListVO , HibernateTemplate hibernateTemplate){
+		dao.insert2(orderListVO, hibernateTemplate);
 	}
 	
 	public List<OrderListVO> getOrderListsByMordno(String mord_no){
