@@ -23,12 +23,12 @@ public class MemberAction extends ActionSupport {
 		//密碼加密(使用AES256)
 		AES256 aes256 = new AES256();
 		String passwordkey="zdtyukd";
-		System.out.println("明文：" + memberVO.getMem_psw());  
-        System.out.println("key：" + passwordkey);
+//		System.out.println("明文：" + memberVO.getMem_psw());  
+//        System.out.println("key：" + passwordkey);
         
         //將密碼使用KEY完成加密KEY=zdtyukd
         byte[] encryptResult = AES256.encrypt(memberVO.getMem_psw(), passwordkey);  
-        System.out.println("密文：" + aes256.parseByte2HexStr(encryptResult));  
+//        System.out.println("密文：" + aes256.parseByte2HexStr(encryptResult));  
         
 //		Base64.Encoder encoder = Base64.getEncoder();
 //		final String psw_new64 = encoder.encodeToString(memberVO.getMem_psw().getBytes());
@@ -45,11 +45,11 @@ public class MemberAction extends ActionSupport {
 		//密碼加密
 		AES256 aes256 = new AES256();
 		String passwordkey="zdtyukd";
-		System.out.println("明文：" + memberVO.getMem_psw());  
-        System.out.println("key：" + passwordkey);
+//		System.out.println("明文：" + memberVO.getMem_psw());  
+//        System.out.println("key：" + passwordkey);
         
         byte[] encryptResult = AES256.encrypt(memberVO.getMem_psw(), passwordkey);  
-        System.out.println("密文：" + aes256.parseByte2HexStr(encryptResult));  
+//        System.out.println("密文：" + aes256.parseByte2HexStr(encryptResult));  
 		
 //		Base64.Encoder encoder = Base64.getEncoder();
 //		final String psw_new64 = encoder.encodeToString(memberVO.getMem_psw().getBytes());

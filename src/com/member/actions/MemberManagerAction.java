@@ -32,10 +32,10 @@ public class MemberManagerAction extends ActionSupport{
 		String passwordkey="zdtyukd"; //加密金鑰
         byte[] encryptResult = AES256.encrypt(mem_psw, passwordkey);  	
 		String psw_new64 = aes256.parseByte2HexStr(encryptResult);
-		System.out.println("輸入密碼=" + mem_psw);
-		System.out.println("加密key：" + passwordkey);
-		System.out.println("加密密碼" + psw_new64);
-		System.out.println("資料庫密碼" + memberVO.getMem_psw());
+//		System.out.println("輸入密碼=" + mem_psw);
+//		System.out.println("加密key：" + passwordkey);
+//		System.out.println("加密密碼" + psw_new64);
+//		System.out.println("資料庫密碼" + memberVO.getMem_psw());
 		
 		if(memberVO.getMem_no() == null){
 			super.addFieldError("errorMsg", "無此帳號");
@@ -43,7 +43,7 @@ public class MemberManagerAction extends ActionSupport{
 		}else if(psw_new64.equals(memberVO.getMem_psw())){	
 			//密碼解密
 			 String decryptResult = AES256.decrypt(encryptResult, passwordkey);  
-			 System.out.println("解密密碼" + decryptResult);
+//			 System.out.println("解密密碼" + decryptResult);
 //			final Base64.Decoder decoder = Base64.getDecoder();
 //			final String mem_psw = new String(decoder.decode(memberVO.getMem_psw()));
 			 memberVO.setMem_psw(decryptResult);
@@ -51,7 +51,7 @@ public class MemberManagerAction extends ActionSupport{
 			
 			try {                                      //*工作2: 看看有無來源網頁 (-如有:則重導之)                  
 		         String location = (String) session.getAttribute("location");
-		         System.out.println("location(LoginHandler)="+location);
+//		         System.out.println("location(LoginHandler)="+location);
 		         if (location != null) {
 		           session.removeAttribute("location");
 		           HttpServletResponse  response = ServletActionContext.getResponse(); 
