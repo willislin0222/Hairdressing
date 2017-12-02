@@ -1,5 +1,5 @@
 ﻿function showMap(){
-	var myPosition = new google.maps.LatLng(25.022009,121.29373280000004);
+	var myPosition = new google.maps.LatLng(24.992903,121.301060);
 	console.log(myPosition);
 	var options={
 		zoom:18,
@@ -13,7 +13,7 @@
 		position:myPosition,
 		map:map,
 		icon:'images/dgtp.gif',
-		title:'台灣桃園市桃園區莊一街80號'
+		title:'桃園市桃園區縣府路1號'
 	});
 
 }

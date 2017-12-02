@@ -40,7 +40,7 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">LOGO</a>
+        <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">美髮網</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -63,7 +63,7 @@
               <a class="nav-link" href="<%=request.getContextPath()%>/product/productlist.jsp">美髮商城</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%=request.getContextPath()%>/shopping/cart.jsp">購物車<span style="font-size:16px;" class="badge">${buylistcount}</a>
+              <a class="nav-link" href="<%=request.getContextPath()%>/shopping/cart.action">購物車<span style="font-size:16px;" class="badge">${buylistcount}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<%=request.getContextPath()%>/contact.jsp">聯絡我</a>

@@ -58,9 +58,9 @@
         <!-- 幻燈片 -->
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('<%=request.getContextPath()%>/images/slide1.jpg" class="img-responsive')">
+          <div class="carousel-item active" style="background-image: url('<%=request.getContextPath()%>/images/banner_sale.png" class="img-responsive')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>最新優惠消息</h3>
+<!--               <font style="color:red"><h3>最新優惠消息</h3></font> -->
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
@@ -68,9 +68,11 @@
           		<c:if test="${(offerVO.off_status) == 1}">
 		          <div class="carousel-item" style="background-image: url('<%=request.getContextPath()%>/offer/offerImage.do?off_no=${offerVO.off_no}')">
 		            <div class="carousel-caption d-none d-md-block">
-		              <h3>優惠名稱:${offerVO.off_title}</h3>
-		              <h3>優惠內容:${offerVO.off_content}</h3>
-		              <p>優惠時間:${offerVO.off_start}~${offerVO.off_end}</p>
+<!-- 		              <font style="color:#EEEE00"> -->
+<%-- 		              <h3>優惠名稱:${offerVO.off_title}</h3> --%>
+<%-- 		              <h3>優惠內容:${offerVO.off_content}</h3> --%>
+<%-- 		              <h3><p>優惠時間:${offerVO.off_start}~${offerVO.off_end}</p></h3> --%>
+<!-- 		              </font> -->
 		            </div>
 		          </div>
          		</c:if>
@@ -101,7 +103,7 @@
 					<%@ include file="/pages/newspage.file" %>
 					<c:forEach var="newsVO" items="${newslist}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 					    <div class="panel-heading">
-					        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= count%>">${newsVO.news_title} - ${newsVO.news_createdate}</a></h4>
+					        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= count%>">${newsVO.news_title}</a></h4>
 					    </div>
 					    <div id="collapseOne<%= count++%>" class="panel-collapse collapse in">
 					       <div class="panel-body">${newsVO.news_content}</div>
@@ -128,7 +130,7 @@
 			              <h4 class="card-title">
 			                <a href="<%=request.getContextPath()%>/product/getOne_For_Display?pro_no=${productVO.pro_no}">${productVO.pro_name}</a>
 			              </h4>
-			              <p class="card-text">${productVO.pro_desc}</p>
+			              <h4><p class="card-text">$${productVO.pro_price}</p></h4>
 			            </div>
 			          </div>
 			        </div>

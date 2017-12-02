@@ -52,6 +52,7 @@
 	</package>
 	
 <!-- 	驗證是否登入會員 -->
+<!-- 	 預約專區登入會員驗證 -->
 	 <!--●受驗證控制的Action(整個package的設定方式)-->
     <package name="reservationPackage" namespace="/reservation" extends="struts-default">
 		
@@ -83,6 +84,38 @@
 			只要輸入http://localhost:8081/hairdressing/reservation/xxx.action 就都會先被判斷是否有登入會員
 			如果要將其他網頁也加入攔截器可再增加如<result>/offer/{1}.jsp</result> 的設定即可-->
               <result>/reservation/{1}.jsp</result>                      <!-- 沒有name屬性代表name="sucess" -->
+         </action>    
+	</package>
+<!-- 購物車登入會員驗證 -->
+	 <!--●受驗證控制的Action(整個package的設定方式)-->
+    <package name="shoppingPackage" namespace="/shopping" extends="struts-default">
+		
+		<interceptors>	       
+		       <!--定義一個名為authentication的自定攔截器 --> 
+			   <interceptor class="login.interceptor.AuthenticationInterceptor"	name="authentication" />  	   
+			   <!--定義一個驗證登入的攔截器堆疊 -->
+			   <interceptor-stack name="myAuthenticationDefault">  
+				     <interceptor-ref name="defaultStack" />         <!--堆疊內設定原Struts2內建的: 預設攔截器堆疊 -->
+				     <interceptor-ref name="authentication" />     <!--堆疊內設定前述名為authentication的: 自定攔截器 -->
+			   </interceptor-stack>
+		
+		</interceptors>
+		<!-- 作用到此<package>內所有的Action物件 -->
+        <default-interceptor-ref name="myAuthenticationDefault" />
+
+        <global-results>
+			<result name="login">/member/login.jsp</result>
+		</global-results>
+		<!-- Struts 2 的 Best Practice 建議: 就算是最基本的HTTP Request都應該交給 Struts 2 系統處理 
+			步驟1: 先用下面的<action name="*" >設定之 
+			步驟2: 再使用下面URL(xxx.action)來呼叫xxx.jsp : 
+			            http://localhost:8081/Struts2_ch8_Login_Interceptor/emp/xxx.action	
+			最後3: 就可以先經由Struts 2 系統處理後, 才去呼叫xxx.jsp -->
+		<!-- 如果沒有class屬性代表沒有execute()方法 -->
+		<!-- 目前因為有此設定，所以 authentication的自定攔截器才能作用於所有JSP -->
+		<action name="*" >
+<!-- 	           以下設定表示整個shopping package都被攔截器攔截  -->
+              <result>/shopping/{1}.jsp</result>                      <!-- 沒有name屬性代表name="sucess" -->
          </action>    
 	</package>
 

@@ -27,8 +27,8 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">Contact
-        <small>Subheading</small>
+      <h1 class="mt-4 mb-3">店家資訊
+        <small></small>
       </h1>
 
       <ol class="breadcrumb">
@@ -52,7 +52,7 @@
           <h3>聯絡方式</h3>
           <p>
           	<lable title="Email">店址:</lable>
-          	  台灣桃園市桃園區莊一街80號           
+          	  桃園市桃園區縣府路1號           
           </p>
           <p>
             <label title="Phone">電話</label>: (03) 456-7890
