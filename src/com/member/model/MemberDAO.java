@@ -3,15 +3,15 @@ package com.member.model;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.morder.model.MorderVO;
 import com.reservation.model.ReservationVO;
 
-import hibernate.util.HibernateUtil;
 
 public class MemberDAO implements MemberDAO_interface{
 
@@ -48,6 +48,7 @@ public class MemberDAO implements MemberDAO_interface{
 		return memberVO;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<MemberVO> getAll() {
 		List<MemberVO> list = null;
@@ -67,6 +68,7 @@ public class MemberDAO implements MemberDAO_interface{
 		return set;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public MemberVO findByMemid(String mem_id) {
 		List<MemberVO> list = null;
@@ -78,62 +80,34 @@ public class MemberDAO implements MemberDAO_interface{
 		return memberVO;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<?> queryByPage(String hql, int offset, int pageSize) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tx = null;
         List<ReservationVO> list = null;
         
-        try
-        {
-            tx = session.beginTransaction();
-            
-            Query query = session.createQuery(hql).setFirstResult(offset).setMaxResults(pageSize);
-            
-            list = query.list();
-            
-            tx.commit();
-            
+        try {
+        	list = (List<ReservationVO>) hibernateTemplate.execute(new HibernateCallback(){
+
+				@Override
+				public Object doInHibernate(Session session) throws HibernateException {
+					Query query = session.createQuery(hql);
+					query.setFirstResult(offset);
+					query.setMaxResults(pageSize);
+					List list = query.list();
+					return list;
+				}
+        		
+        	});
+        }catch(Exception e){
+        	throw e;
         }
-        catch (Exception e)
-        {
-            if(tx != null)
-            {
-                tx.rollback();
-            }
-            
-            e.printStackTrace();
-        }
-        
-        
         return list;
-}
+	}
 
 	@Override
 	public int getAllRowCount(String hql) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        Transaction tx = null;
         int allRows = 0;
-        try
-        {
-            tx = session.beginTransaction();
-            
-            Query query = session.createQuery(hql);
-            
-            allRows = query.list().size();
-            
-            tx.commit();
-            
-        }
-        catch (Exception e)
-        {
-            if(tx != null)
-            {
-                tx.rollback();
-            }
-            
-            e.printStackTrace();
-        }
+        allRows = hibernateTemplate.find(hql).size();
         return allRows;
 	}
 

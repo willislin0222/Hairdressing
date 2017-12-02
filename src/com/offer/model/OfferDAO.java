@@ -2,11 +2,7 @@ package com.offer.model;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-
-import hibernate.util.HibernateUtil;
 
 public class OfferDAO implements OfferDAO_interface{
 	

@@ -3,11 +3,7 @@ package com.reservation.model;
 import java.sql.Date;
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-
-import hibernate.util.HibernateUtil;
 
 public class ReservationDAO implements ReservationDAO_interface{
 

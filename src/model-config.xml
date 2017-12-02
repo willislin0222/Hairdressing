@@ -31,6 +31,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
                 <value>com/news/model/news.hbm.xml</value> 
                 <value>com/adm/model/adm.hbm.xml</value> 
                 <value>com/dayoff/model/dayoff.hbm.xml</value> 
+                <value>com/page/model/reservation.hbm.xml</value> 
             </list> 
         </property> 
         <property name="hibernateProperties"> 
@@ -81,6 +82,10 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	    </bean>
     
      <bean id="dayoffDAO" class="com.dayoff.model.DayoffDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/> 
+    </bean>
+    
+    <bean id="pageDAO" class="com.page.model.ReservationDAO">
         <property name="hibernateTemplate" ref="hibernateTemplate"/> 
     </bean>
 
@@ -143,8 +148,13 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
         <aop:advisor advice-ref="txAdvice" pointcut-ref="morderDAOPointcut"/>
     </aop:config>
     
-     <aop:config>
+    <aop:config>
         <aop:pointcut id="orderlistDAOPointcut" expression="execution(* com.orderlist.model.OrderListDAO_interface.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="orderlistDAOPointcut"/>
+    </aop:config>
+    
+    <aop:config>
+        <aop:pointcut id="pageDAOPointcut" expression="execution(* com.page.model.ReservationDAO_interface.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="orderlistDAOPointcut"/>
     </aop:config>
 </beans>
