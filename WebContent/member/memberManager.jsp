@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Strata by HTML5 UP</title>
+		<title>會員專區</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/assets/css/main.css" />
@@ -18,7 +18,6 @@
 						<!-- Introduction -->
 						
 						<a href="#" class="image avatar"><img src="<%= request.getContextPath()%>/images/5gold.jpg" alt="" /></a>
-						<h1><strong>我是金城武</strong>, 林北流氓啦！你現在什麼身份？俘虜啦！</h1>
 						<!-- Nav -->
 						<nav>
 							<ul>
@@ -45,60 +44,11 @@
 					<!-- One -->
 						<section id="one">
 							<header class="major">
-								<h2>「為台灣而教」</h2>
+								<h2>「美髮網」</h2>
 							</header>
-							<p>我們期許每個人都能透過建立自己的課程的方式，達到教學相長、知識共享的目的，共同終結台灣教育體制的缺陷以ㄐㄧ不平等的問題，讓一個孩子的出身不再限制他的未來。</p>
-							<ul class="actions">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
+							<p></p>
 						</section>
 
-					<!-- Two -->
-						<section id="two">
-							<h2>Recently</h2>
-							<div class="row">
-								<article class="6u 12u$(xsmall) work-item">
-									<a href="<%= request.getContextPath()%>/images/pic01.jpg" class="image fit thumb">
-										<img src="<%= request.getContextPath()%>/images/pic01.jpg" alt="" />
-										<h3>如何當一個假掰的工程師</h3>
-									</a>
-								</article>
-								<article class="6u$ 12u$(xsmall) work-item">
-									<a href="<%= request.getContextPath()%>/images/pic03.jpg" class="image fit thumb">
-										<img src="<%= request.getContextPath()%>/images/pic03.jpg" alt="" />
-										<h3>Title</h3>
-									</a>
-								</article>
-								<article class="6u 12u$(xsmall) work-item">
-									<a href="<%= request.getContextPath()%>/images/pic05.jpg" class="image fit thumb">
-										<img src="<%= request.getContextPath()%>/images/pic05.jpg" alt="" />
-										<h3>Title</h3>
-									</a>
-								</article>
-								<article class="6u$ 12u$(xsmall) work-item">
-									<a href="<%= request.getContextPath()%>/images/pic07.jpg" class="image fit thumb">
-										<img src="<%= request.getContextPath()%>/images/pic07.jpg" alt="" />
-										<h3>Title</h3>
-									</a>
-								</article>
-								<article class="6u 12u$(xsmall) work-item">
-									<a href="<%= request.getContextPath()%>/images/pic09.jpg" class="image fit thumb">
-										<img src="<%= request.getContextPath()%>/images/pic09.jpg" alt="" />
-										<h3>Title</h3>
-									</a>
-								</article>
-								<article class="6u$ 12u$(xsmall) work-item">
-									<a href="<%= request.getContextPath()%>/images/pic09.jpg" class="image fit thumb">
-										<img src="<%= request.getContextPath()%>/images/pic11.jpg" alt="" />
-										<h3>Title</h3>
-									</a>
-								</article>
-							</div>
-							<ul class="actions">
-								<li><a href="#" class="button">Expand</a></li>
-							</ul>
-						</section>
-				</div>
 
 			<!-- Footer -->
 				<footer id="footer">

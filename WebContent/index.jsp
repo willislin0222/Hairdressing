@@ -36,7 +36,7 @@
     <script src="<%= request.getContextPath()%>/vendor/jquery/jquery.min.js"></script>
     <script src="<%= request.getContextPath()%>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <title>index</title>
+    <title>美髮網</title>
 
   </head>
 

@@ -5,7 +5,7 @@
   <head>
 <%--     <base href="<%=basePath%>"> --%>
     
-    <title>My JSP 'pagePerson.jsp' starting page</title>
+    <title>${memberVO.mem_name}的預約清單</title>
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/memreservations.css"">
     <script src='<%= request.getContextPath()%>/js/fullcalendar/moment.min.js'></script>
 	<script src='<%= request.getContextPath()%>/js/fullcalendar/jquery.min.js'></script>

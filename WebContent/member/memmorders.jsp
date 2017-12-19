@@ -7,7 +7,7 @@
   <head>
 <%--     <base href="<%=basePath%>"> --%>
     
-    <title>My JSP 'pagePerson.jsp' starting page</title>
+    <title>${memberVO.mem_name}的訂單清單</title>
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/mordersByMemno.css"> 
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.pack.js"></script>
     <meta http-equiv="pragma" content="no-cache"> 

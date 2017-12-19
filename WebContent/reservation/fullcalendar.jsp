@@ -6,6 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>預約專區</title>
 <meta charset='utf-8' />
 <link href='<%= request.getContextPath()%>/css/fullcalendar/fullcalendar.min.css' rel='stylesheet' />
 <link href='<%= request.getContextPath()%>/css/fullcalendar/fullcalendar.print.min.css' rel='stylesheet' media='print' />

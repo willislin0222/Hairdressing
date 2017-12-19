@@ -6,7 +6,8 @@ import com.member.model.MemberVO;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.io.IOException;
-import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ public class MemberManagerAction extends ActionSupport{
 	private String mem_no;
 	private String mem_id;
 	private String mem_psw;
+	private Map<String,Boolean> result;
 	
 	//登入會員
 	public String login(){
@@ -64,6 +66,21 @@ public class MemberManagerAction extends ActionSupport{
 			super.addFieldError("errorMsg", "密碼錯誤");
 			return "input";
 		}
+		
+	}
+	
+	//檢查前端註冊ID是否有測過
+	public String checkid(){
+		MemberService memberSvc = new MemberService();
+		MemberVO memberVO = memberSvc.getOneMemberBymemid(mem_id);
+		result = new HashMap<String,Boolean>();
+		if(memberVO.getMem_id() != null){
+			result.put("boolean", true);
+		}else{
+			result.put("boolean", false);
+		}
+		System.out.println(result.toString());
+		return "success";
 		
 	}
 		
@@ -127,7 +144,17 @@ public class MemberManagerAction extends ActionSupport{
 	public void setMem_no(String mem_no) {
 		this.mem_no = mem_no;
 	}
+
+	public Map<String, Boolean> getResult() {
+		return result;
+	}
+
+	public void setResult(Map<String, Boolean> result) {
+		this.result = result;
+	}
+
 	
+
 	
 	
 	

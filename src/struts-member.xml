@@ -9,6 +9,10 @@
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
 	
 	<package name="member" namespace="/member" extends="struts-default">
+	
+		<result-types>
+		    <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+		</result-types>
 
 	    <action name="addMember"   class="com.member.actions.MemberAction"  method="addMember">
 	        <result name="success">/member/joinmemberyes.jsp</result>
@@ -37,6 +41,12 @@
 		<action name="end"  class="com.member.actions.MemberManagerAction" method="end">
 	        <result name="success">/back/back_MemberManage.jsp</result>
 	        <result name="input">/index.jsp</result>
+		</action>
+		
+		<action name="checkid"  class="com.member.actions.MemberManagerAction" method="checkid">
+	        <result name="success" type="json">
+               <param name="root">result</param>
+            </result>
 		</action>
 		
 		<!--使用Hibernate+Struct2 分頁功能來實作從會員編號取得預約紀錄功能 -->

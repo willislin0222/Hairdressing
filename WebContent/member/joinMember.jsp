@@ -7,8 +7,9 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Title Page</title>
+    <title>會員註冊</title>
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/member/bootstrap.min.css">
+    <script src='<%= request.getContextPath()%>/js/jquery-1.11.2.min.js'></script>
 
     <style type="text/css">
       #regContainer{
@@ -130,9 +131,25 @@
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
-    </style>
-   
-
+    </style>  
+  <script>
+//檢查資料庫帳號是否申請過，前端處理
+  	function checkid(id){
+  		 $.ajax({
+	            url: 'checkid.action',
+	            data:"&mem_id=" + $('#mem_id').val(),
+	            dataType: 'json',
+	            success: function(data) {
+	               var result = eval(data).boolean;
+	               	   if(result == true){
+	               			$('#checkid').text("此帳號已申請過，請更換其他帳號"); 
+	               	   }else{
+	               		$('#checkid').text(""); 
+	               	   }
+	            }
+	        });
+  	}
+  </script>
   </head>
   <body>
   
@@ -168,7 +185,8 @@
 
                   <div class="form-group">
                     <label for="ID">帳號</label>
-                    <input type="text" name="memberVO.mem_id" tabindex="1" class="form-control" placeholder="登入帳號" value="${memberVO.mem_id}">
+                    <input id="mem_id" type="text" name="memberVO.mem_id" tabindex="1" onchange="checkid()" class="form-control" placeholder="登入帳號" value="${memberVO.mem_id}">
+                  	<font size="3" style="color:red"><div id="checkid"></div></font>
                   </div>
                   
                   <div class="form-group">
