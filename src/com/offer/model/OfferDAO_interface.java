@@ -12,4 +12,7 @@ public interface OfferDAO_interface {
 	public OfferVO findByPrimaryKey(String off_no);
 	public List<OfferVO> getAll();
 	
+	//取得優惠日期等於今天的清單
+	public List<OfferVO> getOfferBYToday();
+	
 }

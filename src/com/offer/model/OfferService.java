@@ -39,4 +39,8 @@ public class OfferService {
 	public List<OfferVO> getAll(){
 		return dao.getAll();
 	}
+	
+	public List<OfferVO> getofferBYtoday(){
+		return dao.getOfferBYToday();
+	}
 }
