@@ -159,7 +159,7 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-				<s:form  action="sentpswmail">
+				<s:form  action="sentpswmail" namespace="/sentmail">
 				                 
 
                   <div class="form-group">

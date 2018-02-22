@@ -10,6 +10,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.aes256.AES256;
 import com.member.model.MemberService;
 import com.member.model.MemberVO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -56,10 +57,19 @@ public class Sentmail extends ActionSupport{
       }
      		
       //密碼經base64加密
-      Base64.Encoder encoder = Base64.getEncoder();
-      String psw64 = encoder.encodeToString(pswRandom.toString().getBytes());
+//      Base64.Encoder encoder = Base64.getEncoder();
+//      String psw64 = encoder.encodeToString(pswRandom.toString().getBytes());
+     //密碼加密(使用AES256)
+        AES256 aes256 = new AES256();
+		String passwordkey="zdtyukd";
+     //將密碼使用KEY完成加密KEY=zdtyukd
+        byte[] encryptResult = AES256.encrypt(pswRandom.toString(), passwordkey); 	
+		
+		
      //設定新密碼到資料庫
-     memberVO.setMem_psw(psw64);
+//     memberVO.setMem_psw(psw64);
+     memberVO.setMem_psw(aes256.parseByte2HexStr(encryptResult));
+     
      memberSvc.updateMembe(memberVO);
      //設定mail資訊
      to = memberVO.getMem_email();

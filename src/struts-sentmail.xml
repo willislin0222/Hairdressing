@@ -9,7 +9,7 @@
 	<constant name="struts.custom.i18n.resources" value="globalMessages" />
 	
 	<!-- 	寄送mail用struct2 -->
-	  <package name="sentmail" extends="struts-default">
+	  <package name="sentmail" namespace="/sentmail" extends="struts-default">
 	     <action name="sentpswmail" class="com.mail.actions.Sentmail" method="sentpswmail">
 	        <result name="success">/sentmail/sentsuccess.jsp</result>
 	        <result name="input">/member/forgetpsw.jsp</result>
